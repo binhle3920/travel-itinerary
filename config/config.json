@@ -1,0 +1,12 @@
+{
+    "pg": {
+      "user": "shjxenspysdldz",
+      "host": "ec2-52-23-86-208.compute-1.amazonaws.com",
+      "database": "d2cetqcshjn6gn",
+      "password": "a681d453611cc91a7274db3ea7b356e156b28da1af6cc140081668d5bbafd807",
+      "port": 5432,
+      "ssl": { 
+        "rejectUnauthorized": false 
+      }
+    }
+  }
