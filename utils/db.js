@@ -9,7 +9,7 @@ module.exports = {
     load(sql) {
         pool.query('sql', (error, results) => {
             if (error) {
-              throw error
+                throw error
             }
             return results.rows;
         })
