@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/authen.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+
+    <!-- favicon img -->
+    <link rel="shortcut icon" type="image/icon" href="/logo/favicon.png"/>
+</head>
+<body style="background-image: url('../images/profile/background.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div class="row">
+        <div class="col-md-6 mx-auto p-0">
+            <div class="card">
+                <div class="login-box">
+                    <div class="login-snip"> <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                        <div class="login-space">
+                            <div class="login">
+                                <form method="POST" action="/login" id="sign-in">
+                                <div class="group"> <label for="user" class="label">Username</label> <input id="si-user" type="text" class="input" placeholder="Enter your username" minlength="3" maxlength="15" required> </div>
+                                <div class="group"> <label for="pass" class="label">Password</label> <input id="si-pass" type="password" class="input" data-type="password" placeholder="Enter your password" minlength="7" maxlength="15" required> </div>
+                                <div class="group"> <input id="check" type="checkbox" class="check" checked> <label for="check"><span class="icon"></span> Keep me Signed in</label> </div>
+                                <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
+                                <p class="text-danger text-center font-weight-bolder text-monospace" id="si-noti"></p>
+                                <div class="hr"></div>
+                                <div class="foot"> <a href="#">Forgot Password?</a> </div>
+                                </form>
+                            </div>
+                            <div class="sign-up-form">
+                                <form method="POST" action="login" id="sign-up">
+                                    <div class="group"> <label for="user" class="label">Username</label> <input id="su-user" type="text" class="input" placeholder="Create your Username" minlength="3" maxlength="15" required> </div>
+                                    <div class="group"> <label for="pass" class="label">Password</label> <input id="su-pass" type="password" class="input" data-type="password" placeholder="Create your password" minlength="7" maxlength="15" required> </div>
+                                    <div class="group"> <label for="pass" class="label">Repeat Password</label> <input id="su-repass" type="password" class="input" data-type="password" placeholder="Repeat your password" minlength="7" maxlength="15" required> </div>
+                                    <div class="group"> <label for="pass" class="label">Email Address</label> <input id="su-email" type="email" class="input" placeholder="Enter your email address" maxlength="254" required> </div>
+                                    <div class="group"> <input type="submit" class="button" value="Sign Up"> </div>
+                                    <div class="foot"> <label for="tab-1">Already Member?</label> </div>
+                                </form>
+                                <p class="text-danger text-center font-weight-bolder text-monospace" id="su-noti"></p>
+                            
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="/js/bootstrap.bundle.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <!--Handle information before send to server-->
+    <script>
+        var username_verify = /^[0-9a-zA-Z]+$/;
+        var pass_verify =  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+
+        $('#sign-up').on('submit', function(e) {
+            e.preventDefault();
+            //Check user name
+            var username = $('#su-user').val();
+            if (!username.match(username_verify)) {
+                $('#su-noti').text("Username can only contain numbers and letters.");
+                return;
+            }
+            //Check password
+            var pass = $('#su-pass').val();
+            if(!pass.match(pass_verify)) 
+                $('#su-noti').text("Your password must contain at least 1 digit and 1 special character!");
+                return;
+            //Check re password
+            var re_pass = $('#su-repass').val();
+            if (pass.localeCompare(re_pass) != 0) {
+                $('#su-noti').text("Your confirm password is not correct.");
+                return;
+            }
+
+            //check username exists, insert code below this line to check
+            //check email exists, insert code below this line to check
+        })
+
+        $('#sign-in').on('submit', function(e) {
+            e.preventDefault();
+
+            //Check user name
+            var username = $('#si-user').val();
+            if (!username.match(username_verify)) {
+                $('#si-noti').text("Username can only contain numbers and letters.");
+                return;
+            }
+            //Check password
+            var pass = $('#si-pass').val();
+            if(!pass.match(pass_verify)) 
+                $('#si-noti').text("Your password must contain at least 1 digit and 1 special character!");
+                return;
+
+            //check if username exists
+            //check if password correct
+        });
+    </script>
+</html>
