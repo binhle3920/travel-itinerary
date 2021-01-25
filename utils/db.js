@@ -35,4 +35,20 @@ module.exports = {
             return results.rows;
         })
     },
+
+    insert_user(info){
+        //info: array
+        const i_user = 'INSERT INTO USER(username, email, password, fullname, dob) VALUES($1, $2, $3, $4, $5)'
+        const values = info
+       // const values = ['brianc', 'brian.m.carlson@gmail.com']
+
+        pool.query(i_user, values, (error, results) => {
+            if (error) {
+                throw error
+            }
+            console.log(results.rows)
+            //return results.rows;
+            //return sth
+        })
+    }
 }
