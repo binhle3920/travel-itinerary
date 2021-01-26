@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
-// var db = require('../utils/db');
+var userDb = require('../models/user.model');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  // db.load("123");
+router.get('/', async function(req, res, next) {
+  //test
+  //console.log(await userDb.insert_user({username: 'user7', email: '123@g.c', password: '123', fullname: 'Hello', dob: '2002-10-20'}));
+  console.log(await userDb.select_user('user1'));
+  //render
   res.render('index', { title: 'Express' });
 });
 
