@@ -3,9 +3,14 @@ const MyPgStore = require('express-pg-session')(session);
 const { pg } = require('../config/config.json');
 
 module.exports = function (app) {
+  let ssl = null;
+  if (process.env.NODE_ENV === 'development') {
+    ssl = {rejectUnauthorized: false};
+  }
+
   const sessionStore = new MyPgStore({
     conString: "postgres://shjxenspysdldz:a681d453611cc91a7274db3ea7b356e156b28da1af6cc140081668d5bbafd807@ec2-52-23-86-208.compute-1.amazonaws.com:5432/d2cetqcshjn6gn?sslmode=require",
-    ssl: { rejectUnauthorized: false },
+    ssl: ssl,
     tableName: "SESSIONS"
   });
 

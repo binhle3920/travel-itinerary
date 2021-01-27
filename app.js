@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var ejs = require('ejs');
+
 
 var app = express();
 
@@ -16,6 +16,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //require middlewares
+require('dotenv').config();
 require('./middlewares/session.mdw')(app);
 require('./middlewares/local.mdw')(app);
 require('./middlewares/route.mdw')(app);
