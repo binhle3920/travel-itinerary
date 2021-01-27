@@ -11,16 +11,7 @@ module.exports = {
     }, 
 
     add(table_name, arr_value){
-        const sql = `INSERT INTO public."${table_name}" VALUES ${arr_value};`
-        console.log(sql);
-        pool.query(sql, (error, results) => {
-            if (error) {
-                console.log("Error in db: " + error);
-                return false;
-            }
-            return new Promise((resolve,reject) => {
-                resolve(true);
-            });
-        })
+        const sql = `INSERT INTO public."${table_name}" VALUES ${arr_value}`;
+        return pool.query(sql);
     }
 }
