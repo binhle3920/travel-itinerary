@@ -24,7 +24,7 @@ module.exports = {
     },
     
     async insert_user(arr_value) {
-        const arr_querry = ('${arr_value.username}', '${arr_value.email}', '${arr_value.password}', '${arr_value.fullname}', '${arr_value.dob}', '${arr_value.type}')
+        const arr_querry = `('${arr_value.username}', '${arr_value.email}', '${arr_value.password}', '${arr_value.fullname}', '${arr_value.dob}', '${arr_value.type}')`;
         try {
             var result = await db.add("USER", arr_querry);
             return true;
