@@ -204,3 +204,13 @@ a {
 ::placeholder {
     color: #b3b3b3
 }
+
+#submit:hover {
+    cursor: pointer;
+}
+
+.foot:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration: none;
+}
