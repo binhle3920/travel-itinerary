@@ -86,10 +86,25 @@
                 return;
             }
 
-            $('#su-noti').text("Success");
-            //check username exists, insert code below this line to check
-            //check email exists, insert code below this line to check
-        })
+            $('#su-noti').text("");
+
+            //check username exists
+            $.getJSON('/authen/user-exists?username=' + username, function(data) {
+                if (data == true) {
+                    alert("Username đã tồn tại.");
+                    return;
+                } else {
+                    $.getJSON('/authen/email-exists?email=' + $('#su-email').val(), function(data) {
+                        if (data == true) {
+                            alert("Email đã tồn tại.");
+                            return;
+                        } else {
+                            $('#sign-up').off('submit').submit();
+                        }
+                    });
+                }
+            });
+        });
 
         $('#sign-in').on('submit', function(e) {
             e.preventDefault();
@@ -103,9 +118,10 @@
             }
             //Check password
             var pass = $('#si-pass').val();
-            if(!pass.match(pass_verify)) 
+            if(!pass.match(pass_verify)) {
                 $('#si-noti').text("Your password must contain at least 1 digit and 1 special character!");
                 return;
+            }
 
             //check if username exists
             //check if password correct
