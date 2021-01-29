@@ -21,8 +21,8 @@ router.get('/', function(req, res) {
 
 //handle login
 router.post('/sign-in', async function(req,res) {
-    const salt = bcrypt.genSaltSync(10);
-    var password = bcrypt.hashSync(req.body.si_pass, salt);
+
+    var password = req.body.si_pass;
     var username = req.body.si_user;
     
     //username always exists in db (had preprocessed)
@@ -79,7 +79,9 @@ router.post('/sign-up', async function(req, res) {
     });
 
     //render page to noti email has been verify
-    res.send('An email has been sent to your account!');
+    res.render('noti/verify_email', {
+        msg: 'Chào mừng bạn đã đến với Travel Itinerary. Chúc tôi đã gửi một email xác nhận đến tài khoản của bạn, bạn cần xác nhận email trước khi có thể tiếp tục sử dụng dịch vụ của chúng tôi.'
+    });
 });
 
 router.get('/verify', async function(req,res) {
@@ -95,7 +97,9 @@ router.get('/verify', async function(req,res) {
                 res.render('error/500');
             }
 
-            res.end("Email "+ mailOptions.to +" is been Successfully verified");
+            res.render('noti/verify_email', {
+                msg: `Chúc mừng ${mailOptions.to} đã xác thực tài khoản thành công. Bạn có thể đăng nhập để tiếp tục, chúc bạn có được những trải nghiệm tốt nhất với trang web của chúng tôi.`
+            });
         }
         else
         {
