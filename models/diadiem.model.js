@@ -3,11 +3,40 @@ const db = require("../utils/db");
 module.exports = {
     //Tất cả thông tin của 1 địa điểm
     async select_diadiem(tendiadiem) {
-        const sql = `SELECT "KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE","IMGLINK"
+        const sql = `SELECT "KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE"
+        FROM public."DIADIEM" 
+        WHERE "TENDD" = '${tendiadiem}'`;
+        try {
+            var result =  await db.load(sql);
+            return result.rows[0];
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
+
+    //Hình ảnh minh họa của 1 địa điểm
+    async select_img(tendiadiem) {
+        const sql = `SELECT "IMGLINK"
         FROM public."DIADIEM" D
         INNER JOIN public."IMG" I
         ON D."ID" = I."IDDD" 
         WHERE "TENDD" = '${tendiadiem}'`;
+        try {
+            var result =  await db.load(sql);
+            return result.rows[0];
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
+
+    //Số lượng chuyến đi tại địa điểm này
+    async select_slcd(tendiadiem) {
+        const sql = `SELECT COUNT(*) SLCD FROM public."DETAILPLAN" DP
+        INNER JOIN public."DIADIEM" DD
+        ON DP."IDDD" = DD."ID"
+        WHERE DD."TENDD" = '${tendiadiem}'`;
         try {
             var result =  await db.load(sql);
             return result.rows[0];
@@ -44,18 +73,15 @@ module.exports = {
         }
     },
 
-    //Update rate của 1 địa điểm, ratedd được tính toán các kiểu 
+    //Update rate của 1 địa điểm, ratedd đã được tính toán  
     async update_ratedd(ratedd, tendiadiem) {
         const sql = `UPDATE public."DIADIEM" SET "RATE"= ${ratedd} WHERE "TENDD" = '${tendiadiem}'`
         try {
-            var result =  await db.load(sql);
+            var result =  await db.update(sql);
             return result.rows[0];
         } catch(e) {
             console.log(e);
             return false;
         }
     },
-
-
-
 }
