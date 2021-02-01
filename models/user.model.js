@@ -71,5 +71,17 @@ module.exports = {
             console.log(e);
             return false;
         }
+    },
+
+    // Update new email
+    async update_email(username, newemail) {
+        const sql = `UPDATE public."USER" SET "email"= '${newemail}' WHERE "username" = '${username}'`
+        try {
+            var result =  await db.update(sql);
+            return result.rows[0];
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
     }
 }
