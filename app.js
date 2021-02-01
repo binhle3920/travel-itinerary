@@ -24,6 +24,7 @@ require('./middlewares/route.mdw')(app);
 
 // error handler  
 app.use(function (err, req, res, next) {
+  console.log(err.message);
   res.render('error/500');
 })
 

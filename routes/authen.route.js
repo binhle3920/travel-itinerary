@@ -80,7 +80,7 @@ router.post('/sign-up', async function(req, res) {
 
     //render page to noti email has been verify
     res.render('noti/verify_email', {
-        msg: 'Chào mừng bạn đã đến với Travel Itinerary. Chúc tôi đã gửi một email xác nhận đến tài khoản của bạn, bạn cần xác nhận email trước khi có thể tiếp tục sử dụng dịch vụ của chúng tôi.'
+        msg: 'Chào mừng bạn đã đến với Travel Itinerary. Chúng tôi đã gửi một email xác nhận đến tài khoản của bạn, bạn cần xác nhận email trước khi có thể tiếp tục sử dụng dịch vụ của chúng tôi.'
     });
 });
 

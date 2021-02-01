@@ -5,6 +5,8 @@ module.exports = function (app) {
     app.use('/', require('../routes/index.route'));
     //handle sign in and sign up
     app.use('/authen', auth.isNotLogin, require('../routes/authen.route'));
+    //handle profile page
+    app.use('/profile', auth.isLogin, require('../routes/profile.route'));
 
     app.use(function (req, res) {
         // render the error page
