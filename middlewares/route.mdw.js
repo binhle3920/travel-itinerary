@@ -8,6 +8,9 @@ module.exports = function (app) {
     //handle profile page
     app.use('/profile', auth.isLogin, require('../routes/profile.route'));
 
+    //handle plan page
+    app.use('/itinerary', require('../routes/index.route'));
+
     app.use(function (req, res) {
         // render the error page
         res.render('error/404');

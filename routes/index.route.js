@@ -17,6 +17,21 @@ router.get('/', async function(req, res) {
   });
 });
 
+// Get planning view 
+router.get('/itinerary', async function(req, res) {
+  var auth = req.session.auth;
+  var user = null;
+
+  if (auth == true) 
+    user = req.session.authUser;
+  
+  res.render('planning/plan', { 
+    auth: auth,
+    user: user
+  });
+});
+
+
 //sign out
 router.get('/sign-out', auth.isLogin, function(req, res) {
   console.log("Signing out");
