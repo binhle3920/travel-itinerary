@@ -15,10 +15,10 @@ module.exports = function (app) {
   app.use(session({
     store: sessionStore,
     secret: process.env.FOO_COOKIE_SECRECT || 'SECRET_KEY',
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     cookie: {
-      maxAge: 30 * 24 * 60 * 60 * 1000
-     }
+      //secure: true
+    }
   }))
 }

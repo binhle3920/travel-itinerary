@@ -13,5 +13,10 @@ module.exports = {
     add(table_name, arr_value){
         const sql = `INSERT INTO public."${table_name}" VALUES ${arr_value}`;
         return pool.query(sql);
+    },
+
+    update(sql)
+    {
+        return pool.query(sql);
     }
 }

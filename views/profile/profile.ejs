@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.username %> profile</title>
+
+    <!--CSS-->
+    <link rel="shortcut icon" type="image/icon" href="/logo/favicon.png"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/hover-min.css">
+    <link rel="stylesheet"  href="/css/datepicker.css" >
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="/css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/bootsnav.css"/>
+	<link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <!--font-family-->
+	<link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/8dea7ea670.js" crossorigin="anonymous"></script>
+ 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+    <style>
+        .user-avatar {
+            width: 10%;
+            height: 10%;
+            position: relative;
+            left: 50%;
+            margin-left: -5%;
+            margin-top: -5%;
+        }
+        .modal{
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .modal-backdrop{
+            position: relative;
+        }
+
+        label {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../partial/header', {auth: true, user:user}) %> 
+
+    <div style="width: 100vw; height: 300px; background-color: black;"></div>
+
+    <div class="container">
+        <div class="user-avatar">
+            <img src="images/profile/user_ava.png" alt="user avatar">
+            <button type="button" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" style="position: absolute; bottom: 5px; right: 0px; border: none; background-color:transparent;">
+                <i class="fas fa-user-edit" style="color: blue;"></i>
+            </button>
+        </div>
+        
+        
+        <p style="font-size: 30px; text-align: center; color: #00c4e7"><%= user.username %></p>
+        <p style="font-size: 15px; text-align: center;"><%= user.fullname %></p>
+        <p style="font-size: 15px; text-align: center;">DoB: <%= moment(user.dob).format('DD-MM-YYYY') %></p>
+        <p style="font-size: 15px; text-align: center;"><%= user.email %></p>
+    </div>
+
+    <%- include('../partial/footer') %>
+
+    <!--Edit form-->
+    <!-- Modal -->
+    
+
+    <!--Script for header-->
+    <script src="/js/jquery.js"></script>
+	<script  src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	<script  src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootsnav.js"></script>
+	<script src="/js/jquery.filterizr.min.js"></script>
+	<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/jquery.counterup.min.js"></script>
+	<script src="/js/waypoints.min.js"></script>
+    <script  src="/js/owl.carousel.min.js"></script>
+	<script src="/js/jquery.sticky.js"></script>
+    <script  src="/js/datepicker.js"></script>
+    <script src="/js/custom.js"></script>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form method="POST" action="profile/edit" id="edit">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cập nhập thông tin tài khoản</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <label for="username">Tên tài khoản</label>
+                                <input type="text" class="form-control" id="username" readonly value="<%= user.username %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fullname">Họ và tên</label>
+                                <input type="text" class="form-control" name="fullname" id="fullname" minlength="10" maxlength="100" required value="<%= user.fullname %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dob">Ngày sinh</label>
+                                <input type="date" name="dob" data-date-format="DD MMMM YYYY" class="form-control" id="dob" required value="<%= moment(user.dob).format('DD-MMMM-YYYY') %>">
+                            </div>
+
+                            <% if (user.google != 1) { %> 
+                                <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required  maxlength="254" value="<%= user.email %>">
+                                    <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẽ email của bạn với bất cứ ai.</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pass">Mật khẩu</label>
+                                    <input name="password" type="password" class="form-control" data-type="password" placeholder="Nhập mật khẩu mới" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{1,}" title="Must contain at least one number and one uppercase and lowercase letter" maxlength="20">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pass-confirm">Xác nhận mật khẩu</label>
+                                    <input id="pass-confirm" name="confirm_password" type="password" class="form-control" data-type="password" placeholder="Nhập mật khẩu hiện tại" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{1,}" title="Must contain at least one number and one uppercase and lowercase letter" maxlength="20" required>
+                                </div>
+                            <% } %>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <input type="submit" class="btn btn-primary" value="Cập nhập">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>   
+        $('#edit').on('submit', function(e) {
+            e.preventDefault();
+
+            <% if (user.google != 1) { %> 
+                $.getJSON('/profile/check-password?psw=' + $('#pass-confirm').val(), function(result) {
+                    console.log(result);
+                    if (result == false) {
+                        alert('Mật khẩu hiện tại không đúng!');
+                        return;
+                    }
+                })
+            <% } %>
+
+            $('#edit').off('submit').submit();
+        });
+    </script>
+
+</body>
+</html>

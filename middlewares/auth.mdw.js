@@ -2,7 +2,7 @@ module.exports = {
     isLogin: function (req, res, next) {
       if (req.session.auth === false) {
         req.session.retUrl = req.originalUrl;
-        return res.redirect('/authen/login');
+        return res.redirect('/authen');
       }
       return next();
     },

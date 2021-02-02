@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/authen.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    
+    <!-- favicon img -->
+    <link rel="shortcut icon" type="image/icon" href="/logo/favicon.png"/>
+
+    <!-- Google sign-in -->
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="510590194810-9r9fs334eti2s1bv2pqm780bifl7ahrt.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body style="background-image: url('../images/profile/background.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div class="row">
+        <div class="col-md-6 mx-auto p-0">
+            <div class="card">
+                <div class="login-box">
+                    <div class="login-snip">
+                        <div style="margin: 20px;">
+                            <a href="/"><img src="logo/favicon.png" style="height: 100px; margin-left: 35%"> <br></a>
+                        </div>
+                        
+                        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Đăng nhập</label> 
+                        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="margin-left: 20px;">Đăng ký</label>
+                        <div class="login-space">
+                            <div class="login" style="width: 100%">
+                                <form method="POST" action="authen/sign-in" id="sign-in">
+                                    <div class="group"> <label for="user" class="label">Tên đăng nhập</label> <input id="si-user" name="si_user" type="text" class="input" placeholder="Nhập tên tài khoản" minlength="3" maxlength="15" pattern="[A-Za-z0-9]{1,}" title = "Username can only contain numbers and letters." required> </div>
+                                    <div class="group"> <label for="pass" class="label">Mật khẩu</label> <input id="si-pass" name="si_pass" type="password" class="input" data-type="password" placeholder="Nhập mật khẩu" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{1,}" title="Must contain at least one number and one uppercase and lowercase letter" maxlength="20" required> </div>
+                                    <div class="group"> <input id="check" type="checkbox" class="check" checked> <label for="check"><span class="icon"></span> Lưu phiên đăng nhập</label> </div>
+                                    <div class="group"> <input type="submit" class="button" value="Đăng Nhập"> </div>
+                                    <div class="hr" style="margin: 20px 0px;"></div>
+                                    <div class="foot"> <a href="#">Quên mật khẩu?</a> </div>
+                                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" id="sign-in-google" style="margin: auto; width:fit-content; margin-top: 30px;"></div>
+                                </form>
+                            </div>
+                            <div class="sign-up-form">
+                                <form method="POST" action="authen/sign-up" id="sign-up">
+                                    <div class="group"> <label for="user" class="label">Tên tài khoản</label> <input id="su-user" name="su_user" type="text" class="input" placeholder="Nhập tên tài khoản" minlength="3" maxlength="15" pattern="[A-Za-z0-9]{1,}" title = "Username can only contain numbers and letters." required> </div>
+                                    <div class="group"> <label for="pass" class="label">Mật khẩu</label> <input id="su-pass" name="su_pass" type="password" class="input" data-type="password" placeholder="Nhập mật khẩu" minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{1,}" title="Must contain at least one number and one uppercase and lowercase letter" required> </div>
+                                    <div class="group"> <label for="pass" class="label">Nhập lại mật khẩu <span class="text-danger text-center font-weight-bolder text-monospace" id="su-noti"></span> </label> <input id="su-repass" name="su_repass" type="password" class="input" data-type="password" placeholder="Xác nhận lại mật khẩu" minlength="8" maxlength="20" required> </div>
+                                    <div class="group"> <label for="pass" class="label">Email</label> <input id="su-email" name="su_email" type="email" class="input" placeholder="Nhập vào địa chỉ email" maxlength="254" required> </div>
+                                    <div class="group"> <input type="submit" class="button" value="Đăng ký"></div>
+                                    <div class="foot"> <label for="tab-1">Đã có tài khoản?</label> </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="/js/bootstrap.bundle.js"></script>
+    <script src="/js/jquery.min.js"></script>
+
+    <!--Handle information before send to server-->
+    <script>
+        $('#sign-up').on('submit', function(e) {
+            e.preventDefault();
+            
+            alert("Đang tiến hành đăng ký, vui lòng chờ ...");
+
+            var username = $('#su-user').val();
+
+            //Check password
+            var pass = $('#su-pass').val();
+            var re_pass = $('#su-repass').val();
+            if (pass.localeCompare(re_pass) != 0) {
+                $('#su-noti').text("Mật khẩu xác nhận không đúng");
+                return;
+            }
+
+            $('#su-noti').text("");
+
+            //check username exists
+            $.getJSON('/authen/user-exists?username=' + username, function(data) {
+                if (data == true) {
+                    alert("Username đã tồn tại.");
+                    return;
+                } else {
+                    $.getJSON('/authen/email-exists?email=' + $('#su-email').val(), function(data) {
+                        if (data == true) {
+                            alert("Email đã tồn tại.");
+                            return;
+                        } else {
+                            $('#sign-up').off('submit').submit();
+                        }
+                    });
+                }
+            });
+        });
+
+        $('#sign-in').on('submit', function(e) {
+            e.preventDefault();
+
+            alert("Đang tiến hành đăng nhập, vui lòng chờ ...");
+
+            var username = $('#si-user').val();
+            $.getJSON('/authen/user-exists?username=' + username, function(data) {
+                if (data == false) {
+                    alert("Người dùng không tồn tại.");
+                    return;
+                } else {
+                    $('#sign-in').off('submit').submit();
+                }
+            });
+        });
+
+    </script>
+
+    <!-- Google sign-in  -->
+    <script>
+        function onSignIn(googleUser) {
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
+
+            // The ID token you need to pass to your backend:
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);
+
+            $.getJSON('/authen/google-sign-in?email=' + profile.getEmail(), function(result) {
+                console.log('Google check result: ' + result)
+                if (result == "sign-in") {
+                    window.location.href = "/";
+                } else if (result == "sign-up") {
+                    var username_verify = /[A-Za-z0-9]{1,}/;
+                    var username = prompt("Nhập vào username của bạn để tiếp tục");
+                    while (!username.match(username_verify)) {
+                        alert("Username chỉ được kí tự và số");
+                        username = prompt("Nhập vào username của bạn để tiếp tục");
+                    }
+                    $.getJSON(`/authen/google-sign-up?email=${profile.getEmail()}&username=${username}`, function(data) {
+                        console.log('Google sign up: ' + data);
+                        if (data == 'success') {
+                            alert("Sign up success, redirecting ...");
+                            window.location.href = "/";
+                        }
+                    })
+
+                } else if (result == "exists") {
+                    alert("Email này đã được sử dụng, vui lòng đăng nhập sử dụng mật khẩu.");
+                    //sign out google
+                    var auth2 = gapi.auth2.getAuthInstance();
+                    auth2.signOut().then(function () {
+                        console.log('User signed out.');
+                    });
+                }
+            })
+        }
+    </script>
+</html>
