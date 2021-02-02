@@ -17,6 +17,8 @@ var smtpTransport = nodemailer.createTransport({
 });
 
 router.get('/', function(req, res) {
+    console.log(req.session.authUser);
+
     res.render('profile/profile', {
         user: req.session.authUser,
         moment: moment,
@@ -42,7 +44,7 @@ router.post('/edit', async function (req,res) {
             host=req.get('host');
             var link = "http://"+req.get('host')+"/profile/verify?id=" + rand;
             mailOptions = {
-                to : user.email,
+                to : email,
                 subject : "Please confirm your Email account on Travel Itinerary",
                 html : `Hello ${user.username}, <br>
                 Please click on the link to verify your email. <br>
@@ -67,6 +69,7 @@ router.post('/edit', async function (req,res) {
         }
     }
 
+    console.log('Update username information')
     //if email is not change and account is google  or not google
     //update fullname
     user.fullname = fullname;
@@ -85,10 +88,11 @@ router.post('/edit', async function (req,res) {
     }
 
     //update password
-    if (psw != null) {
+    if (psw != false) {
         const salt = bcrypt.genSaltSync(10);
         var hash_psw = bcrypt.hashSync(psw, salt);
         
+        user.password = hash_psw;
         result = await userDb.update_password(user.username, hash_psw)
         if (result == false) {
             res.render('error/500');
@@ -96,7 +100,10 @@ router.post('/edit', async function (req,res) {
         }    
     }
 
+    
     req.session.authUser = user;
+    console.log(req.session.authUser);
+    const url = req.session.retUrl || '/';
     res.redirect('back');
 })
 
@@ -129,7 +136,7 @@ router.get('/verify', async function(req,res) {
             }
 
             //update password
-            if (psw != null) {
+            if (psw != false) {
                 const salt = bcrypt.genSaltSync(10);
                 var hash_psw = bcrypt.hashSync(psw, salt);
                 
@@ -148,6 +155,8 @@ router.get('/verify', async function(req,res) {
                 return;
             }    
             
+            req.session.authUser = user;
+            const url = req.session.retUrl || '/';
             res.render('noti/verify_email', {
                 msg: `Chúc mừng ${mailOptions.to} đã xác thực tài khoản thành công. Thông tin tài khoản của bạn đã được cập nhập thành công.`
             });

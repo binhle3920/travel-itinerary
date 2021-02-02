@@ -21,7 +21,6 @@ router.get('/', function(req, res) {
 
 //handle login
 router.post('/sign-in', async function(req,res) {
-
     var password = req.body.si_pass;
     var username = req.body.si_user;
     
@@ -30,7 +29,6 @@ router.post('/sign-in', async function(req,res) {
     if (user == false)
         res.render('error/500');
     
-
     if (!(bcrypt.compareSync(password, user.password))) {
         res.end('Password is incorrect');
         return;
