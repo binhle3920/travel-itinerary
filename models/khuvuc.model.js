@@ -82,4 +82,17 @@ module.exports = {
             return false;
         }
     },
+
+    //Chọn tất cả từ bảng khu vực
+    async select_allkv() {
+        const sql = `SELECT *
+        FROM public."LISTKV"`
+        try {
+            var result =  await db.load(sql);
+            return result.rows[0];
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
 }
