@@ -31,5 +31,5 @@ app.use(function (err, req, res, next) {
 //Open port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
-  console.log(`E-Commerce app is listening at http://localhost:${PORT}`)
+  console.log(`Travel Itinerary app is listening at http://localhost:${PORT}`)
 })

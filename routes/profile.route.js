@@ -88,7 +88,7 @@ router.post('/edit', async function (req,res) {
     }
 
     //update password
-    if (psw != false) {
+    if (psw != false && psw != null) {
         const salt = bcrypt.genSaltSync(10);
         var hash_psw = bcrypt.hashSync(psw, salt);
         

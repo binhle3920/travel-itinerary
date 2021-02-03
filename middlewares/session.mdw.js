@@ -15,7 +15,7 @@ module.exports = function (app) {
   app.use(session({
     store: sessionStore,
     secret: process.env.FOO_COOKIE_SECRECT || 'SECRET_KEY',
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     cookie: {
       //secure: true
