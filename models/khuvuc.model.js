@@ -17,9 +17,7 @@ module.exports = {
 
     // Giới thiệu, rating
     async select_khuvuc(tenkhuvuc) {
-        const sql = `SELECT "KV", "DESCRIPTION", "RATE"
-        FROM public."LISTKV"
-        WHERE "KV" = '${tenkhuvuc}'`
+        const sql = `SELECT "CODE", "NAME", "DESCRIPTION", "RATE" FROM public."KVLIST" WHERE "NAME" = '${tenkhuvuc}'`
         try {
             var result =  await db.load(sql);
             return result.rows[0];
@@ -71,9 +69,9 @@ module.exports = {
     
     //Update rate của 1 khu vực, ratekv đã được tính toán  
     async update_ratedd(ratekv, tenkhuvuc) {
-        const sql = `UPDATE public."LISTKV"
+        const sql = `UPDATE public."KVLIST"
         SET "RATE"= ${ratekv}
-        WHERE "KV" = '${tenkhuvuc}'`
+        WHERE "NAME" = '${tenkhuvuc}'`
         try {
             var result =  await db.update(sql);
             return result.rows[0];
@@ -85,8 +83,7 @@ module.exports = {
 
     //Chọn tất cả từ bảng khu vực
     async select_allkv() {
-        const sql = `SELECT *
-        FROM public."LISTKV"`
+        const sql = `SELECT * FROM public."KVLIST"`
         try {
             var result =  await db.load(sql);
             return result.rows[0];
