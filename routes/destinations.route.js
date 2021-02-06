@@ -4,7 +4,7 @@ var router = express.Router();
 var desDb = require('../models/khuvuc.model');
 
 router.get('/', async function(req, res) {
-    var des;
+    var des = desDb.select_allkv()
 
     var auth = req.session.auth;
     var user = null;
