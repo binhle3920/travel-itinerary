@@ -8,7 +8,7 @@ module.exports = {
         WHERE "KHUVUC" = '${tenkhuvuc}'`;
         try {
             var result =  await db.load(sql);
-            return result.rows[0];
+            return result.rows;
         } catch(e) {
             console.log(e);
             return false;
