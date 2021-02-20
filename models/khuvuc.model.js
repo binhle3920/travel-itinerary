@@ -30,11 +30,11 @@ module.exports = {
     //Hình ảnh minh họa
     async select_khuvucimgs(tenkhuvuc) {
         const sql = `SELECT "IMGLINK"
-        FROM public."IMGKV";
+        FROM public."IMGKV"
         WHERE "TENKV" = '${tenkhuvuc}'`
         try {
             var result =  await db.load(sql);
-            return result.rows[0];
+            return result.rows;
         } catch(e) {
             console.log(e);
             return false;
@@ -92,4 +92,20 @@ module.exports = {
             return false;
         }
     },
+
+    //Chọn tên của 1 khu vực
+    async select_kvname(code) {
+        const sql = `SELECT DISTINCT("NAME") FROM public."KVLIST" KVL
+        INNER JOIN public."DIADIEM" DD
+        ON KVL."CODE" = DD."KHUVUC"
+        WHERE DD."KHUVUC" = '${code}'`
+        try {
+            var result =  await db.load(sql);
+            return result.rows[0];
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
+
 }
