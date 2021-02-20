@@ -25,26 +25,6 @@
         <link rel="preconnect" href="//pagead2.googlesyndication.com" crossorigin>
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
 
-        <style>
-        @font-face {font-family:'Lato';font-weight:400;font-style:normal;font-display:swap;src:local('Lato Regular'),local('Lato-regular'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.ttf') format('truetype');}
-        @font-face {font-family:'Lato';font-weight:400;font-style:italic;font-display:swap;src:local('Lato Italic'),local('Lato-italic'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.ttf') format('truetype');}
-        @font-face {font-family:'Lato';font-weight:700;font-style:normal;font-display:swap;src:local('Lato Bold'),local('Lato-700'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.ttf') format('truetype');}
-        .header-area {
-            position: relative;
-            width: 100%;
-            background:black;
-        }
-
-        #menu-item:before {
-            all: unset;
-        }
-        #sign-out:before {
-            all:unset;
-        }
-        .home-border {
-        border-top: 2px solid black;}
-        </style>
-
         <link rel="stylesheet" type="text/css" href='https://s.inspirockcdn.com/4.3.10/res/css/commoncss.css'>
         <link rel="stylesheet" type="text/css" href='https://s.inspirockcdn.com/4.3.10/res/css/destinationSeoLanding.css'>
 
@@ -66,13 +46,35 @@
             gtag('config', 'UA-42855545-3', gaConfig);
             
                 gtag('config', 'G-Y9NDEE6T5Y', gaConfig);
-            </script>
+        </script>
+
+        <style>
+            @font-face {font-family:'Lato';font-weight:400;font-style:normal;font-display:swap;src:local('Lato Regular'),local('Lato-regular'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.ttf') format('truetype');}
+            @font-face {font-family:'Lato';font-weight:400;font-style:italic;font-display:swap;src:local('Lato Italic'),local('Lato-italic'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.ttf') format('truetype');}
+            @font-face {font-family:'Lato';font-weight:700;font-style:normal;font-display:swap;src:local('Lato Bold'),local('Lato-700'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.ttf') format('truetype');}
+            .header-area {
+                position: relative;
+                width: 100%;
+                background:black;
+            }
+            .home-border {
+            border-top: 2px solid black;
+            }
+
+            #menu-item:before {
+                all: unset;
+            }
+            #sign-out:before {
+                all:unset;
+            }
+
+        </style>
         <!--CSS-->
         <link rel="shortcut icon" type="image/icon" href="/logo/favicon.png"/>
         <link rel="stylesheet" href="/css/font-awesome.min.css" />
         <link rel="stylesheet" href="/css/animate.css" />
         <link rel="stylesheet" href="/css/hover-min.css">
-        <link rel="stylesheet"  href="/css/datepicker.css" >
+        <link rel="stylesheet" href="/css/datepicker.css" >
         <link rel="stylesheet" href="/css/owl.carousel.min.css">
         <link rel="stylesheet" href="/css/owl.theme.default.min.css"/>
         <link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -80,8 +82,6 @@
         <link rel="stylesheet" href="/css/bootsnav.css"/>
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/responsive.css" />
-
-        <link rel="stylesheet" href="./responsive.css" />
     </head>
 
     <body class=" normal   header-visible">
@@ -177,13 +177,15 @@
 <div class="hero-header ">
     <div class="hero-header-content">
         <div class="hero-big">
-            <div class="hero-header-image" style="background-image:url('https://s.inspirockcdn.com/images/heroes/f/japan.jpg');"></div>
+            <div class="hero-header-image" style="background-image:url('<%=`${img_link[0].IMGLINK}`%>');"></div>
              </div>
             
         <div class="hero-title-wrapper">
             <div class="hero-text ">
-                <h1 class="hero-title">Asia trip planner</h1>
-                <div class="tagline">Create a fully customized<br/>day by day itinerary for free</div>
+                <% if (name != null){ %>
+                    <h1 class="hero-title"><%= name %></h1>
+                <% } %> 
+                <div class="tagline">Hãy tạo một hành trình<br/>cho bạn hoàn toàn miễn phí</div>
                     </div>
             <div class="form-wrapper">
                     <div id="dlp-shade" style="display: none;"></div>
@@ -303,7 +305,9 @@
     <div class="module-content clearfix">
         <div class="detail-header">
             <div class="detail-wrapper">
-                <h3 class="title">Asia</h3>
+                <% if (locals.weather != null){ %>
+                    <h3 class="title"><%=des[0].KHUVUC%></h3>
+                <% } %> 
                     <div class="rating">
                         <div class="rating-stars ">
     <span class="rating-stars-fill" style="width:90.0%"></span>
@@ -714,445 +718,7 @@
                  data-sw-lng=""
                  
                  ></div>
-            <div class="blocks clearfix">
-                <a class="tile sm destination destinationDetailsLink notranslate "
-   data-destination-id="511227481"
-   data-name="Dubai"
-   data-title="Dubai"
-   
-    data-lat="25.20485"
-    data-lng="55.270782"
-   
-   href="/united-arab-emirates/dubai-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/United%20Arab%20Emirates/2/burj-khalifa--84134481.jpg"></span>
-        <span class="tile-title">Dubai<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Observation Deck, Fountain, Shopping Mall</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="511227481" data-loc-name="Dubai">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile lg destination destinationDetailsLink notranslate "
-   data-destination-id="511346801"
-   data-name="Kyoto"
-   data-title="Kyoto"
-   
-    data-lat="35.011562"
-    data-lng="135.76814"
-   
-   href="/japan/kyoto-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Japan/h/kinkakuji-temple-1156655160.jpg"></span>
-        <span class="tile-title">Kyoto<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> World heritage site, Historic Site, Religious Site</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="511346801" data-loc-name="Kyoto">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate "
-   data-destination-id="511332361"
-   data-name="Tokyo"
-   data-title="Tokyo"
-   
-    data-lat="35.676193"
-    data-lng="139.65031"
-   
-   href="/japan/tokyo-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Japan/2/senso-ji-temple--714000191.jpg"></span>
-        <span class="tile-title">Tokyo<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Religious Site, Landmark, Park</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="511332361" data-loc-name="Tokyo">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate "
-   data-destination-id="711181425"
-   data-name="Beijing"
-   data-title="Beijing"
-   
-    data-lat="39.9042"
-    data-lng="116.407394"
-   
-   href="/china/beijing-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/China/2/mutianyu-great-wall--1917016088.jpg"></span>
-        <span class="tile-title">Beijing<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Great Wall, History Museum, Historic Walking Area</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="711181425" data-loc-name="Beijing">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate "
-   data-destination-id="411183439"
-   data-name="Singapore"
-   data-title="Singapore"
-   
-    data-lat="1.352083"
-    data-lng="103.81984"
-   
-   href="/singapore/singapore-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Singapore/2/gardens-by-the-bay--1996260116.jpg"></span>
-        <span class="tile-title">Singapore<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Garden, Zoo, Observation Deck</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="411183439" data-loc-name="Singapore">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="711715705"
-   data-name="Shanghai"
-   data-title="Shanghai"
-   
-    data-lat="31.230415"
-    data-lng="121.4737"
-   
-   href="/china/shanghai-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/China/2/the-bund-wai-tan-410949000.jpg"></span>
-        <span class="tile-title">Shanghai<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Scenic Walking Area, Observation Deck, Garden</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="711715705" data-loc-name="Shanghai">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="911302189"
-   data-name="Siem Reap"
-   data-title="Siem Reap"
-   
-    data-lat="13.369789"
-    data-lng="103.844696"
-   
-   href="/cambodia/siem-reap-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Cambodia/2/angkor-wat--166553529.jpg"></span>
-        <span class="tile-title">Siem Reap<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Ruin, Spa, Performance</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="911302189" data-loc-name="Siem Reap">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="211180855"
-   data-name="Seoul"
-   data-title="Seoul"
-   
-    data-lat="37.566536"
-    data-lng="126.97797"
-   
-   href="/south-korea/seoul-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/South%20Korea/2/n-seoul-tower-1789845929.jpg"></span>
-        <span class="tile-title">Seoul<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Shopping, History Museum, Lookout</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="211180855" data-loc-name="Seoul">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="311170177"
-   data-name="Bangkok"
-   data-title="Bangkok"
-   
-    data-lat="13.7563305"
-    data-lng="100.50176"
-   
-   href="/thailand/bangkok-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Thailand/2/wat-phra-chetuphon--1918276465.jpg"></span>
-        <span class="tile-title">Bangkok<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Religious Site, Shopping Mall, Gift & Specialty Shop</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="311170177" data-loc-name="Bangkok">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="611173863"
-   data-name="Abu Dhabi"
-   data-title="Abu Dhabi"
-   
-    data-lat="24.453884"
-    data-lng="54.377342"
-   
-   href="/united-arab-emirates/abu-dhabi-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/United%20Arab%20Emirates/2/sheikh-zayed-grand-mosque-center-1854017095.jpg"></span>
-        <span class="tile-title">Abu Dhabi<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Religious Site, Theme Park, Safari</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="611173863" data-loc-name="Abu Dhabi">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="611313323"
-   data-name="Agra"
-   data-title="Agra"
-   
-    data-lat="27.17667"
-    data-lng="78.00807"
-   
-   href="/india/agra-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/India/2/taj-mahal-962043040.jpg"></span>
-        <span class="tile-title">Agra<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Architectural Building, Castle, Gift & Specialty Shop</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="611313323" data-loc-name="Agra">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="911169189"
-   data-name="Kathmandu"
-   data-title="Kathmandu"
-   
-    data-lat="27.717245"
-    data-lng="85.32396"
-   
-   href="/nepal/kathmandu-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Nepal/2/boudhanath-stupa--1387493152.jpg"></span>
-        <span class="tile-title">Kathmandu<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> World heritage site, Religious Site, Historic Site</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="911169189" data-loc-name="Kathmandu">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="411574459"
-   data-name="Jaipur"
-   data-title="Jaipur"
-   
-    data-lat="26.912434"
-    data-lng="75.78727"
-   
-   href="/india/jaipur-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/India/2/amber-palace--1463901765.jpg"></span>
-        <span class="tile-title">Jaipur<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> World heritage site, Castle, Architectural Building</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="411574459" data-loc-name="Jaipur">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="211181615"
-   data-name="Hong Kong"
-   data-title="Hong Kong"
-   
-    data-lat="22.32963"
-    data-lng="114.15374"
-   
-   href="/china/hong-kong-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/China/2/victoria-peak-the-peak--1837917960.jpg"></span>
-        <span class="tile-title">Hong Kong<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Observation Deck, Landmark, Theme Park</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="211181615" data-loc-name="Hong Kong">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="511313741"
-   data-name="Denpasar"
-   data-title="Denpasar"
-   
-    data-lat="-8.670458"
-    data-lng="115.21263"
-   
-   href="/indonesia/denpasar-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Indonesia/2/sanur-beach--953099161.jpg"></span>
-        <span class="tile-title">Denpasar<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> World heritage site, Beach, Scuba / Snorkeling</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="511313741" data-loc-name="Denpasar">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="911322709"
-   data-name="Patong"
-   data-title="Patong"
-   
-    data-lat="7.8965764"
-    data-lng="98.3021"
-   
-   href="/thailand/patong-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Thailand/2/bangla-road--1396783828.jpg"></span>
-        <span class="tile-title">Patong<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Beach, Landmark, Gift & Specialty Shop</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="911322709" data-loc-name="Patong">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="411320999"
-   data-name="Jeju"
-   data-title="Jeju"
-   
-    data-lat="33.499622"
-    data-lng="126.53119"
-   
-   href="/south-korea/jeju-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/South%20Korea/2/udo-1463319040.jpg"></span>
-        <span class="tile-title">Jeju<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> World heritage site, Beach, Garden</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="411320999" data-loc-name="Jeju">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="511170481"
-   data-name="Hanoi"
-   data-title="Hanoi"
-   
-    data-lat="21.027765"
-    data-lng="105.83416"
-   
-   href="/vietnam/hanoi-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Vietnam/2/old-quarter--1118989121.jpg"></span>
-        <span class="tile-title">Hanoi<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Historic Site, Spa, Water Body</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="511170481" data-loc-name="Hanoi">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="611172723"
-   data-name="Jerusalem"
-   data-title="Jerusalem"
-   
-    data-lat="31.768318"
-    data-lng="35.21371"
-   
-   href="/israel/jerusalem-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Israel/2/old-city-of-jerusalem--2049783462.jpg"></span>
-        <span class="tile-title">Jerusalem<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Religious Site, Ruin, Historic Site</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="611172723" data-loc-name="Jerusalem">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="711328485"
-   data-name="Hoi An"
-   data-title="Hoi An"
-   
-    data-lat="15.880058"
-    data-lng="108.33804"
-   
-   href="/vietnam/hoi-an-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Vietnam/2/hoi-an-ancient-town-1223202796.jpg"></span>
-        <span class="tile-title">Hoi An<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Gift & Specialty Shop, Spa, Landmark</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="711328485" data-loc-name="Hoi An">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="316149697"
-   data-name="Sagarmatha National Park"
-   data-title="Sagarmatha National Park"
-   
-    data-lat="27.944145"
-    data-lng="86.66251"
-   
-   href="/nepal/sagarmatha-national-park-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Nepal/2/mount-everest--68948358.jpg"></span>
-        <span class="tile-title">Sagarmatha National Park<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> World heritage site, Mountain, Water Body</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="316149697" data-loc-name="Sagarmatha National Park">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="611552343"
-   data-name="Wadi Rum"
-   data-title="Wadi Rum"
-   
-    data-lat="29.597874"
-    data-lng="35.424084"
-   
-   href="/jordan/wadi-rum-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Jordan/2/wadi-rum-protected-area-172414532.jpg"></span>
-        <span class="tile-title">Wadi Rum<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> World heritage site, Desert, Nightlife</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="611552343" data-loc-name="Wadi Rum">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-<a class="tile sm destination destinationDetailsLink notranslate hidden"
-   data-destination-id="411170519"
-   data-name="Ho Chi Minh City"
-   data-title="Ho Chi Minh City"
-   
-    data-lat="10.823099"
-    data-lng="106.62966"
-   
-   href="/vietnam/ho-chi-minh-city-trip-planner">
-    <span class="tile-inner-wrap">
-        <span class="tile-image lazyload"
-              data-url="https://s.inspirockcdn.com/ds10/photos/Vietnam/2/war-remnants-museum--246589889.jpg"></span>
-        <span class="tile-title">Ho Chi Minh City<span class="tile-subtitle">Trip planner</span></span>
-        <span class="tile-subtext"><strong>BEST FOR:</strong> Landmark, History Museum, Nightlife</span>
-        <span class="favorites-btn dest-fav img-tile " data-destination-id="411170519" data-loc-name="Ho Chi Minh City">
-                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-            </span>
-        </span>
-</a>
-</div>
+
             <div class="more-map-destinations" data-ids="611227443,111549873,211183135,512000401,211549835,627731223,411227139,411311119,517838721,111310853,911183249,211170215,811314007,411549759,511320961,311346877,846201047,811574307,511574421,911347029,511172761,211322595,511310321,611170063,611333843,411328599,111346611"></div>
             <div class="load-more">
                 <button class="sec-button large  destinations" data-next-page-index="1">See more places <i class="fa fa-angle-down"></i></button>

@@ -4,11 +4,16 @@ var router = express.Router();
 var desDb = require('../models/khuvuc.model');
 
 router.get('/:CODE', async function(req, res) {
-    var des = await desDb.select_alldiadiem(req.params.CODE)
+    var detail = await desDb.select_alldiadiem(req.params.CODE)
+    var detail_name = await desDb.select_kvname(req.params.CODE)
+    var img_link = await desDb.select_khuvucimgs(req.params.CODE)
+    console.log(img_link[0].IMGLINK)
+    
+    if (detail_name != null)
+    {
+        detail_name = detail_name.NAME
+    }
 
-    for (var i = 0; i < des.length; i++) { 
-        console.log(des[i])
-    } 
     var auth = req.session.auth;
     var user = null;
 
@@ -18,7 +23,9 @@ router.get('/:CODE', async function(req, res) {
     res.render('destinations/detail',{ 
         auth: auth,
         user: user,
-        des: des
+        detail: detail,
+        name: detail_name,
+        img_link: img_link
     });
 })
 
