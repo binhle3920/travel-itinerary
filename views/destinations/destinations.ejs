@@ -68,7 +68,7 @@
             <h1>Danh sách những khu vực của Việt Nam</h1>
             <ul class="clearfix">
                 <% for (var i = 0; i < des.length; i++) { %>
-                    <li><a href = "<%= `/detail/${des[i].CODE}` %>"> <%= des[i].NAME %></a></li>
+                    <li><a href = "<%= `/destinations/${des[i].CODE}` %>"> <%= des[i].NAME %></a></li>
                 <% } %>
             </ul>
         </div>

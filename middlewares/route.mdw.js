@@ -9,7 +9,6 @@ module.exports = function (app) {
     app.use('/profile', auth.isLogin, require('../routes/profile.route'));
     //handle location page
     app.use('/destinations', require('../routes/destinations.route'));
-    app.use('/detail', require('../routes/detail_destination.route'));
     
     app.use(function (req, res) {
         // render the error page
