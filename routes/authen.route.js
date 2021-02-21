@@ -16,7 +16,7 @@ var smtpTransport = nodemailer.createTransport({
 
 //router get
 router.get('/', function(req, res) {
-    res.render('authen/authen');
+    res.render('authen');
 });
 
 //handle login

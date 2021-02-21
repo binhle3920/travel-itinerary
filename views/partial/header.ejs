@@ -11,7 +11,6 @@
     #sign-out:before {
         all:unset;
     }
-
 </style>
 
 <header class="top-area">
@@ -44,15 +43,13 @@
                                 <li class="smooth-menu"><a href="#subPackages s">subscription</a></li>
                                 <li>
                                     <% if (auth == false) { %> 
-                                        <a href="/authen">
-                                            <button class="book-btn">Log in</button>
-                                        </a>
+                                        <button class="book-btn" onclick="location.href='/authen'" type="button">Log in</button>
                                     <% } else { %>
                                         <div class="dropdown">
                                             <button class="btn left dropdown-toggle" type="button" data-toggle="dropdown"><%= user.username %> <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="profile" id="menu-item" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Thông tin cá nhân</a></li>
-                                                <li><a href="courses/it/3" id="menu-item" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Lịch trình của tôi</a></li>
+                                                <li><a href="#" id="menu-item" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Lịch trình của tôi</a></li>
                                                 <li><hr style="margin: 5px 0px; border-color: black;" /></li>
                                                 <li><a href="#" id="sign-out" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Đăng xuất</a></li>
                                             </ul>
@@ -79,7 +76,7 @@
             
             if (user.google == 1) {
                  //sign out google
-                 gapi.load('auth2', function() {
+                gapi.load('auth2', function() {
                     gapi.auth2.init().then(() => {
                         var auth2 = gapi.auth2.getAuthInstance();
                         auth2.signOut().then(function () {

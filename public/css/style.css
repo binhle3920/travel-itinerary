@@ -116,12 +116,12 @@ html,body{
 
 [placeholder]:focus::-webkit-input-placeholder {
 
-  -webkit-transition: opacity 0.3s 0.3s ease; 
-  -moz-transition: opacity 0.3s 0.3s ease; 
-  -ms-transition: opacity 0.3s 0.3s ease; 
-  -o-transition: opacity 0.3s 0.3s ease; 
-  transition: opacity 0.3s 0.3s ease; 
-  opacity: 0;
+    -webkit-transition: opacity 0.3s 0.3s ease; 
+    -moz-transition: opacity 0.3s 0.3s ease; 
+    -ms-transition: opacity 0.3s 0.3s ease; 
+    -o-transition: opacity 0.3s 0.3s ease; 
+    transition: opacity 0.3s 0.3s ease; 
+    opacity: 0;
 
 }
 
@@ -151,9 +151,7 @@ html,body{
     z-index: 2;
     transition:.7s;
 }
-.is-sticky .header-area{
 
-}
 .is-sticky .header-area:after{
     position:absolute;
     content:'';
@@ -236,7 +234,6 @@ html,body{
     -moz-transition: .3s ease-in-out;
     -o-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
-    
 }
 .main-menu .nav li.active  a:before,
 .main-menu .nav a:hover:before{
@@ -260,7 +257,6 @@ html,body{
 .main-menu .navbar-default .navbar-toggle:hover {
     background-color: transparent;
 }
-
 
 .home-border{
     border-top:2px solid #fff;
@@ -1459,7 +1455,7 @@ html,body{
     text-align: center;
     margin-top:60px;
 }
- .foot-icons .footer-social-links li {
+.foot-icons .footer-social-links li {
     padding: 0 10px;
     text-align: center;
 }
