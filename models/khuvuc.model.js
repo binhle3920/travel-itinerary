@@ -3,7 +3,7 @@ const db = require("../utils/db");
 module.exports = {
     // Danh sách các địa điểm tại 1 khu vực
     async select_alldiadiem(tenkhuvuc) {
-        const sql = `SELECT "KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE"
+        const sql = `SELECT "ID","KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE"
         FROM public."DIADIEM" 
         WHERE "KHUVUC" = '${tenkhuvuc}'`;
         try {

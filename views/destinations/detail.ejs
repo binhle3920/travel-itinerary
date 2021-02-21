@@ -40,7 +40,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             var gaConfig = {'send_page_view': false, 'transport_type': 'beacon'};
             
             gtag('config', 'UA-42855545-3', gaConfig);
@@ -60,26 +59,22 @@
             .home-border {
             border-top: 2px solid black;
             }
-
             #menu-item:before {
                 all: unset;
             }
             #sign-out:before {
                 all:unset;
             }
-
             * {box-sizing: border-box}
         body {font-family: Verdana, sans-serif; margin:0}
         .mySlides {display: none}
         img {vertical-align: middle;}
-
         /* Slideshow container */
         .slideshow-container {
         max-width: 474px;
         position: relative;
         margin: auto;
         }
-
         /* Next & previous buttons */
         .prev, .next {
         cursor: pointer;
@@ -95,18 +90,15 @@
         border-radius: 0 3px 3px 0;
         user-select: none;
         }
-
         /* Position the "next button" to the right */
         .next {
         right: 0;
         border-radius: 3px 0 0 3px;
         }
-
         /* On hover, add a black background color with a little bit see-through */
         .prev:hover, .next:hover {
         background-color: rgba(0,0,0,0.8);
         }
-
         /* The dots/bullets/indicators */
         .dot {
         cursor: pointer;
@@ -118,11 +110,9 @@
         display: inline-block;
         transition: background-color 0.6s ease;
         }
-
         .active, .dot:hover {
         background-color: #717171;
         }
-
         /* Fading animation */
         .fade {
         -webkit-animation-name: fade;
@@ -130,26 +120,20 @@
         animation-name: fade;
         animation-duration: 1.5s;
         }
-
         @-webkit-keyframes fade {
         from {opacity: .4} 
         to {opacity: 1}
         }
-
         @keyframes fade {
         from {opacity: .4} 
         to {opacity: 1}
         }
-
         /* On smaller screens, decrease text size */
         @media only screen and (max-width: 300px) {
         .prev, .next,.text {font-size: 11px}
         }
-
         .tile.destination {
-
             margin: 0 0 0px 8px;
-
         }
         </style>
         <!--CSS-->
@@ -229,39 +213,12 @@
         </div><!-- /.header-area -->
     </header>
 <div class="page-content  clear  " id="pageContent">
-                <div class="destination-details "
-             data-destination-id="71445"
-             data-destination-name="Asia"
-             data-loc-destination-name="Asia"
-             data-country-code=""
-             data-valid-domain="true"
-             data-default-photo="https://s.inspirockcdn.com/ds10/photos/United%20Arab%20Emirates/1/burj-khalifa--84134481.jpg"
-             data-saved="">
-            <div id="analytics-metadata"
-     data-page-type="Destination Continent Page"
-     data-page-type-new="DLP trip planner"
-     data-entity-type="Continent"
-     data-entity="Asia (71445)"></div><div class="stickers-tbl">
-        <div class="sticker-cell">
-            <div class="stickers">
-                <div class="sticker active">
-                        <div class="dest-count"><strong>1.209</strong><br/>trips planned today</div>
-                    </div>
-                <div class="sticker trust-pilot no-im-xu " data-url="https://www.trustpilot.com/review/inspirock.com">
-                        <div class="trustpilot-cell">
-                            <div class="trustpilot-rating"><strong>4.6</strong></div>
-                            <div class="out-of">out of 5</div>
-                            <div class="trust-source">Trustscore rating</div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
+    <div class="destination-details ">
 <div class="hero-header ">
     <div class="hero-header-content">
         <div class="hero-big">
             <div class="hero-header-image" style="background-image:url('<%=`${img_link[0].IMGLINK}`%>');"></div>
-             </div>
+            </div>
             
         <div class="hero-title-wrapper">
             <div class="hero-text ">
@@ -382,9 +339,7 @@
             </div>
     </div>
 </div>
-<div class="destination-info " data-destination-id="71445" 
-      data-name="Asia" data-title="Asia" data-loc-name="Asia"
-      data-lat="28.191189" data-lng="116.34539" data-show-directions="false" data-current-item="true">
+<div class="destination-info ">
     <div class="module-content clearfix">
         <div class="detail-header">
             <div class="detail-wrapper">
@@ -397,59 +352,17 @@
                             </div>
                             <%=kv_descrip_rate.RATE%>
                         </div>
-                    <div class="cat-tags">
-                        <a href="/religious-sites-in-asia" class="tag clickable" data-cat-group-id="26"data-destination-id="71445">Sacred & Religious Sites</a>
-                        <span class="sep">&middot;</span>
-                        <span class="tag ">Landmarks</span>
-                        <span class="sep">&middot;</span>
-                        <a href="/historical-places-in-asia" class="tag clickable" data-cat-group-id="26"data-destination-id="71445">Historic Sites</a>
-                    </div>
                     <div class="description">
                         <i><%-kv_descrip_rate.DESCRIPTION%></i>
-
                     </div>
             </div>
         </div>
-        <div class = "photos">
-            <%- include('../destinations/slider', { img_link: img_link}) %>
+        <div class = "photos"> 
+        <%- include('../destinations/slider', { img_link: img_link}) %>
         </div>
         </div>
 </div>
-<div id="howitworks"></div><div class="get-complete-plan">
-            <h3 class="complete-plan-title">Plan your trip to Asia</h3>
-                <div class="">
-                <ul class="complete-plan-row">
-                    <li class="complete-plan-col">
-                        <svg class="img create">
-                            <use xlink:href="#icon-create"></use>
-                        </svg>
-                        <h5 class="title">Get a personalized trip</h5>
-                        <div class="desc">A complete day by day itinerary<br/>based on your preferences</div>
-                    </li>
-                    <li class="complete-plan-col">
-                        <svg class="img customize">
-                            <use xlink:href="#icon-customize"></use>
-                        </svg>
-                        <h5 class="title">Customize it</h5>
-                        <div class="desc">Refine your trip. We'll find the <br/>best routes and schedules</div>
-                    </li>
-                    <li class="complete-plan-col">
-                            <svg class="img book">
-                                <use xlink:href="#icon-book"></use>
-                            </svg>
-                            <h5 class="title">Book it</h5>
-                            <div class="desc">Choose from the best hotels<br/>and activities. Up to 50% off</div>
-                                </li>
-                    <li class="complete-plan-col">
-                        <svg class="img itinerary">
-                            <use xlink:href="#icon-itinerary"></use>
-                        </svg>
-                        <h5 class="title">Manage it</h5>
-                        <div class="desc">Everything in one place.<br/>Everyone on the same page.</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
 
 <div class="top-destinations section" data-selected="0">
     <h3 class="section-title">Những địa điểm ở <%= `${name}` %></h3>
@@ -500,11 +413,11 @@
             <div class="row row-cols-3">
                 <% for (var i = 0; i < detail.length; i++) { %>
                     <a class="tile sm destination destinationDetailsLink notranslate col-sm-4"
-                    href="/belgium/ghent-trip-planner">
+                    href="<%= `/destinations/${detail[i].KHUVUC}/${detail[i].ID}` %>">
                     <span class="tile-inner-wrap">
                         <span class="tile-image lazyload"
                             data-url="<%= `${arr_dd_img[i]}`%>"></span>
-                        <span class="tile-title"><%= `${detail[i].TENDD}`%><span class="tile-subtitle">Trip planner</span></span>
+                        <span class="tile-title"><%= `${detail[i].TENDD}`%><span class="tile-subtitle">Lập kế hoạch</span></span>
                         <span class="tile-subtext"><strong>BEST FOR:</strong> Historic Walking Area, Castle, Religious Site</span>
                         <span class="favorites-btn dest-fav img-tile " data-destination-id="37170677" data-loc-name="Ghent">
                                 <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
