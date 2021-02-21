@@ -68,6 +68,89 @@
                 all:unset;
             }
 
+            * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; margin:0}
+        .mySlides {display: none}
+        img {vertical-align: middle;}
+
+        /* Slideshow container */
+        .slideshow-container {
+        max-width: 474px;
+        position: relative;
+        margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+        background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+        @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+        }
+
+        .tile.destination {
+
+            margin: 0 0 0px 8px;
+
+        }
         </style>
         <!--CSS-->
         <link rel="shortcut icon" type="image/icon" href="/logo/favicon.png"/>
@@ -327,344 +410,9 @@
                     </div>
             </div>
         </div>
-        <div class="photos">
-            <div class="slide-wrapper">
-    <ul class="slides"></ul>
-</div>
-<div class="prev">
-        <span class="fa fa-angle-left"></span>
-    </div>
-    <div class="next">
-        <span class="fa fa-angle-right"></span>
-    </div>
-<div class="photo-wrapper hidden">
-    <ul class="photo-all">
-                <li data-index="0">
-    <a class="photooption  attLink" 
-       title="Mutianyu Great Wall, Beijing, China" 
-       rel="destination-detail-photo-812382187" 
-       href="/china/beijing/mutianyu-great-wall-a812382187">
-        <span class="attr-photo lazyload"
-            title="Mutianyu Great Wall, Beijing, China"
-            data-url="https://s.inspirockcdn.com/ds10/photos/China/3/mutianyu-great-wall--1917016088.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG"
-            data-artist="">
-        </span>
-        <div class="text-link attraction-name">Mutianyu Great Wall, Beijing</div>
-        </a>
-</li><li data-index="1">
-    <a class="photooption  attLink" 
-       title="Burj Khalifa, Dubai, United Arab Emirates" 
-       rel="destination-detail-photo-725724405" 
-       href="/united-arab-emirates/dubai/burj-khalifa-a725724405">
-        <span class="attr-photo lazyload"
-            title="Burj Khalifa, Dubai, United Arab Emirates"
-            data-url="https://s.inspirockcdn.com/ds10/photos/United%20Arab%20Emirates/3/burj-khalifa--84134481.jpg"
-            data-source-url="https://www.flickr.com/photos/will_spark/8604079928"
-            data-artist="Will Spark">
-        </span>
-        <div class="text-link attraction-name">Burj Khalifa, Dubai</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="725724405"
-                  data-img-path="burj-khalifa--84134481.jpg">&copy;</span>
-        </a>
-</li><li data-index="2">
-    <a class="photooption  attLink" 
-       title="Jinshanling Great Wall, Luanping County, China" 
-       rel="destination-detail-photo-125230633" 
-       href="/china/luanping-county/jinshanling-great-wall-a125230633">
-        <span class="attr-photo lazyload"
-            title="Jinshanling Great Wall, Luanping County, China"
-            data-url="https://s.inspirockcdn.com/ds10/photos/China/3/jinshanling-great-wall--1772870873.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:20090529_Great_Wall_8159.jpg"
-            data-artist="">
-        </span>
-        <div class="text-link attraction-name">Jinshanling Great Wall, Luanping County</div>
-        </a>
-</li><li data-index="3">
-    <a class="photooption  attLink" 
-       title="Angkor Wat, Siem Reap, Cambodia" 
-       rel="destination-detail-photo-212081835" 
-       href="/cambodia/siem-reap/angkor-wat-a212081835">
-        <span class="attr-photo lazyload"
-            title="Angkor Wat, Siem Reap, Cambodia"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Cambodia/3/angkor-wat--166553529.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:Angkor_Wat.jpg"
-            data-artist="Bjørn Christian Tørrissen">
-        </span>
-        <div class="text-link attraction-name">Angkor Wat, Siem Reap</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="212081835"
-                  data-img-path="angkor-wat--166553529.jpg">&copy;</span>
-        </a>
-</li><li data-index="4">
-    <a class="photooption  attLink" 
-       title="Taj Mahal, Agra, India" 
-       rel="destination-detail-photo-112059871" 
-       href="/india/agra/taj-mahal-a112059871">
-        <span class="attr-photo lazyload"
-            title="Taj Mahal, Agra, India"
-            data-url="https://s.inspirockcdn.com/ds10/photos/India/3/taj-mahal-962043040.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:Taj_Mahal_%28Edited%29.jpeg"
-            data-artist="">
-        </span>
-        <div class="text-link attraction-name">Taj Mahal, Agra</div>
-        </a>
-</li><li data-index="5">
-    <a class="photooption  attLink" 
-       title="Sheikh Zayed Grand Mosque, Abu Dhabi, United Arab Emirates" 
-       rel="destination-detail-photo-856705767" 
-       href="/united-arab-emirates/abu-dhabi/sheikh-zayed-grand-mosque-a856705767">
-        <span class="attr-photo lazyload"
-            title="Sheikh Zayed Grand Mosque, Abu Dhabi, United Arab Emirates"
-            data-url="https://s.inspirockcdn.com/ds10/photos/United%20Arab%20Emirates/3/sheikh-zayed-grand-mosque-center-1854017095.jpg"
-            data-source-url="https://www.flickr.com/photos/139553386@N05/44269899055"
-            data-artist="Visit Abu Dhabi">
-        </span>
-        <div class="text-link attraction-name">Sheikh Zayed Grand Mosque, Abu Dhabi</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="856705767"
-                  data-img-path="sheikh-zayed-grand-mosque-center-1854017095.jpg">&copy;</span>
-        </a>
-</li><li data-index="6">
-    <a class="photooption  attLink" 
-       title="The Dubai Mall, Dubai, United Arab Emirates" 
-       rel="destination-detail-photo-245993795" 
-       href="/united-arab-emirates/dubai/the-dubai-mall-a245993795">
-        <span class="attr-photo lazyload"
-            title="The Dubai Mall, Dubai, United Arab Emirates"
-            data-url="https://s.inspirockcdn.com/ds10/photos/United%20Arab%20Emirates/3/the-dubai-mall-141452992.jpg"
-            data-source-url="https://www.flickr.com/photos/depenbusch/37590752560"
-            data-artist="Thomas Depenbusch (Depi)">
-        </span>
-        <div class="text-link attraction-name">The Dubai Mall, Dubai</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="245993795"
-                  data-img-path="the-dubai-mall-141452992.jpg">&copy;</span>
-        </a>
-</li><li data-index="7">
-    <a class="photooption  attLink" 
-       title="Shinjuku Gyoen National Garden, Shinjuku, Japan" 
-       rel="destination-detail-photo-118213173" 
-       href="/japan/shinjuku/shinjuku-gyoen-national-garden-a118213173">
-        <span class="attr-photo lazyload"
-            title="Shinjuku Gyoen National Garden, Shinjuku, Japan"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Japan/3/shinjuku-gyoen-national-garden--479859943.jpg"
-            data-source-url="https://maps.google.com/maps/contrib/111075619262604244635"
-            data-artist="Leo L">
-        </span>
-        <div class="text-link attraction-name">Shinjuku Gyoen National Garden, Shinjuku</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="118213173"
-                  data-img-path="shinjuku-gyoen-national-garden--479859943.jpg">&copy;</span>
-        </a>
-</li><li data-index="8">
-    <a class="photooption  attLink" 
-       title="Tubbataha Reef, Puerto Princesa, Philippines" 
-       rel="destination-detail-photo-625360023" 
-       href="/philippines/puerto-princesa/tubbataha-reef-a625360023">
-        <span class="attr-photo lazyload"
-            title="Tubbataha Reef, Puerto Princesa, Philippines"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Philippines/3/tubbataha-reef-1509296423.jpg"
-            data-source-url="https://www.flickr.com/photos/q-phia/13570517923"
-            data-artist="q.phia">
-        </span>
-        <div class="text-link attraction-name">Tubbataha Reef, Puerto Princesa</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="625360023"
-                  data-img-path="tubbataha-reef-1509296423.jpg">&copy;</span>
-        </a>
-</li><li data-index="9">
-    <a class="photooption  attLink" 
-       title="Wadi Rum Protected Area, Wadi Rum, Jordan" 
-       rel="destination-detail-photo-459105999" 
-       href="/jordan/wadi-rum/wadi-rum-protected-area-a459105999">
-        <span class="attr-photo lazyload"
-            title="Wadi Rum Protected Area, Wadi Rum, Jordan"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Jordan/3/wadi-rum-protected-area-172414532.jpg"
-            data-source-url="https://www.flickr.com/photos/139553386@N05/34286821750"
-            data-artist="Stefana Savic">
-        </span>
-        <div class="text-link attraction-name">Wadi Rum Protected Area, Wadi Rum</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="459105999"
-                  data-img-path="wadi-rum-protected-area-172414532.jpg">&copy;</span>
-        </a>
-</li><li data-index="10">
-    <a class="photooption  attLink" 
-       title="Fushimi Inari-taisha Shrine, Kyoto, Japan" 
-       rel="destination-detail-photo-312216697" 
-       href="/japan/kyoto/fushimi-inari-taisha-shrine-a312216697">
-        <span class="attr-photo lazyload"
-            title="Fushimi Inari-taisha Shrine, Kyoto, Japan"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Japan/3/fushimi-inari-taisha-shrine-1086086176.jpg"
-            data-source-url="https://maps.google.com/maps/contrib/116655549838497725801"
-            data-artist="Drew Middlesworth">
-        </span>
-        <div class="text-link attraction-name">Fushimi Inari-taisha Shrine, Kyoto</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="312216697"
-                  data-img-path="fushimi-inari-taisha-shrine-1086086176.jpg">&copy;</span>
-        </a>
-</li><li data-index="11">
-    <a class="photooption  attLink" 
-       title="Kiyomizu-dera Temple, Kyoto, Japan" 
-       rel="destination-detail-photo-812214607" 
-       href="/japan/kyoto/kiyomizu-dera-temple-a812214607">
-        <span class="attr-photo lazyload"
-            title="Kiyomizu-dera Temple, Kyoto, Japan"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Japan/3/kiyomizu-dera-temple-1709977750.jpg"
-            data-source-url="https://maps.google.com/maps/contrib/112268790186375164236"
-            data-artist="tanr tanr">
-        </span>
-        <div class="text-link attraction-name">Kiyomizu-dera Temple, Kyoto</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="812214607"
-                  data-img-path="kiyomizu-dera-temple-1709977750.jpg">&copy;</span>
-        </a>
-</li><li data-index="12">
-    <a class="photooption  attLink" 
-       title="The Bund (Wai Tan), Shanghai, China" 
-       rel="destination-detail-photo-411841979" 
-       href="/china/shanghai/the-bund-wai-tan-a411841979">
-        <span class="attr-photo lazyload"
-            title="The Bund (Wai Tan), Shanghai, China"
-            data-url="https://s.inspirockcdn.com/ds10/photos/China/3/the-bund-wai-tan-410949000.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:Crowded_Bund_on_summer_evening.jpg"
-            data-artist="Daniel Case">
-        </span>
-        <div class="text-link attraction-name">The Bund (Wai Tan), Shanghai</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="411841979"
-                  data-img-path="the-bund-wai-tan-410949000.jpg">&copy;</span>
-        </a>
-</li><li data-index="13">
-    <a class="photooption  attLink" 
-       title="The Grand Palace, Bangkok, Thailand" 
-       rel="destination-detail-photo-612070283" 
-       href="/thailand/bangkok/the-grand-palace-a612070283">
-        <span class="attr-photo lazyload"
-            title="The Grand Palace, Bangkok, Thailand"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Thailand/3/the-grand-palace-1587294139.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:Grand_Palace_Bangkok%2C_Thailand.jpg"
-            data-artist="Andy Marchand">
-        </span>
-        <div class="text-link attraction-name">The Grand Palace, Bangkok</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="612070283"
-                  data-img-path="the-grand-palace-1587294139.jpg">&copy;</span>
-        </a>
-</li><li data-index="14">
-    <a class="photooption  attLink" 
-       title="Wat Pho, Bangkok, Thailand" 
-       rel="destination-detail-photo-611821003" 
-       href="/thailand/bangkok/wat-pho-a611821003">
-        <span class="attr-photo lazyload"
-            title="Wat Pho, Bangkok, Thailand"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Thailand/3/wat-phra-chetuphon--1918276465.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_06.jpg"
-            data-artist="Diego Delso">
-        </span>
-        <div class="text-link attraction-name">Wat Pho, Bangkok</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="611821003"
-                  data-img-path="wat-phra-chetuphon--1918276465.jpg">&copy;</span>
-        </a>
-</li><li data-index="15">
-    <a class="photooption  attLink" 
-       title="Wild Wadi Waterpark, Dubai, United Arab Emirates" 
-       rel="destination-detail-photo-112188273" 
-       href="/united-arab-emirates/dubai/wild-wadi-waterpark-a112188273">
-        <span class="attr-photo lazyload"
-            title="Wild Wadi Waterpark, Dubai, United Arab Emirates"
-            data-url="https://s.inspirockcdn.com/ds10/photos/United%20Arab%20Emirates/3/wild-wadi-waterpark-1799587760.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:Wild_Wadi_Water_Park_Jumeirah_Sceirah.jpg"
-            data-artist="FlickreviewR">
-        </span>
-        <div class="text-link attraction-name">Wild Wadi Waterpark, Dubai</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="112188273"
-                  data-img-path="wild-wadi-waterpark-1799587760.jpg">&copy;</span>
-        </a>
-</li><li data-index="16">
-    <a class="photooption  attLink" 
-       title="Gardens by the Bay, Singapore, Singapore" 
-       rel="destination-detail-photo-181668233" 
-       href="/singapore/gardens-by-the-bay-a181668233">
-        <span class="attr-photo lazyload"
-            title="Gardens by the Bay, Singapore, Singapore"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Singapore/3/gardens-by-the-bay--1996260116.jpg"
-            data-source-url="https://www.flickr.com/photos/139553386@N05/41073231762"
-            data-artist="Singapore Tourism Board">
-        </span>
-        <div class="text-link attraction-name">Gardens by the Bay, Singapore</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="181668233"
-                  data-img-path="gardens-by-the-bay--1996260116.jpg">&copy;</span>
-        </a>
-</li><li data-index="17">
-    <a class="photooption  attLink" 
-       title="Agra Fort, Agra, India" 
-       rel="destination-detail-photo-412149779" 
-       href="/india/agra/agra-fort-a412149779">
-        <span class="attr-photo lazyload"
-            title="Agra Fort, Agra, India"
-            data-url="https://s.inspirockcdn.com/ds10/photos/India/3/agra-fort--1300672865.jpg"
-            data-source-url="https://commons.wikimedia.org/wiki/File:Uttar-Pradesh-Agra-Agra-Fort-Jahangiri-mahal-Apr-2004-00.JPG"
-            data-artist="">
-        </span>
-        <div class="text-link attraction-name">Agra Fort, Agra</div>
-        </a>
-</li><li data-index="18">
-    <a class="photooption  attLink" 
-       title="Singapore Flyer, Singapore, Singapore" 
-       rel="destination-detail-photo-125789651" 
-       href="/singapore/singapore-flyer-a125789651">
-        <span class="attr-photo lazyload"
-            title="Singapore Flyer, Singapore, Singapore"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Singapore/3/singapore-flyer-144336475.jpg"
-            data-source-url="https://www.flickr.com/photos/139553386@N05/32954769638/"
-            data-artist="Singapore Flyer">
-        </span>
-        <div class="text-link attraction-name">Singapore Flyer, Singapore</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="125789651"
-                  data-img-path="singapore-flyer-144336475.jpg">&copy;</span>
-        </a>
-</li><li data-index="19">
-    <a class="photooption  attLink" 
-       title="Petra, Petra - Wadi Musa, Jordan" 
-       rel="destination-detail-photo-812140887" 
-       href="/jordan/petra-wadi-musa/petra-a812140887">
-        <span class="attr-photo lazyload"
-            title="Petra, Petra - Wadi Musa, Jordan"
-            data-url="https://s.inspirockcdn.com/ds10/photos/Jordan/3/petra--1650744987.jpg"
-            data-source-url="https://www.flickr.com/photos/139553386@N05/43281587421"
-            data-artist="Stefana Savic">
-        </span>
-        <div class="text-link attraction-name">Petra, Petra - Wadi Musa</div>
-        <span class="copyright copyright-fancy-box-img"
-                  data-type="attraction"
-                  data-id="812140887"
-                  data-img-path="petra--1650744987.jpg">&copy;</span>
-        </a>
-</li></ul>
-        </div></div>
+        <div class = "photos">
+            <%- include('../destinations/slider', { img_link: img_link}) %>
+        </div>
         </div>
 </div>
 <div id="howitworks"></div><div class="get-complete-plan">
@@ -704,23 +452,70 @@
         </div>
 
 <div class="top-destinations section" data-selected="0">
-    <h3 class="section-title">Places to visit in Asia</h3>
+    <h3 class="section-title">Những địa điểm ở <%= `${name}` %></h3>
     <div class="map-wrapper">
             <div class="mini-map"
                  
                  data-ne-lat=""
                  data-ne-lng=""
                  data-sw-lat=""
-                 data-sw-lng=""
-                 
-                 ></div>
+                 data-sw-lng=""></div>
 
             <div class="more-map-destinations" data-ids="611227443,111549873,211183135,512000401,211549835,627731223,411227139,411311119,517838721,111310853,911183249,211170215,811314007,411549759,511320961,311346877,846201047,811574307,511574421,911347029,511172761,211322595,511310321,611170063,611333843,411328599,111346611"></div>
-            <div class="load-more">
-                <button class="sec-button large  destinations" data-next-page-index="1">See more places <i class="fa fa-angle-down"></i></button>
-            </div>
+
         </div>
-    </div>
+    <!-- <div class="container">
+        <div class="row row-cols-3">
+
+            <a class="col-sm-4">
+                <span class="tile-inner-wrap">
+                    <span class="tile-image lazyload"
+                        data-url="https://s.inspirockcdn.com/ds10/photos/Belgium/2/ghent-city-center--1358860367.jpg"></span>
+                    <span class="tile-title">Ghent<span class="tile-subtitle">Trip planner</span></span>
+                    <span class="tile-subtext"><strong>BEST FOR:</strong> Historic Walking Area, Castle, Religious Site</span>
+                    <span class="favorites-btn dest-fav img-tile " data-destination-id="37170677" data-loc-name="Ghent">
+                            <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
+                        </span>
+                    </span>
+            </a>
+            </div>
+            <div class="col-sm-4">
+            One of three columns
+            </div>
+            <div class="col-sm-4">
+            One of three columns
+            </div>
+            <div class="col-sm-4">
+            One of three columns
+            </div>
+            <div class="col-sm-4">
+            One of three columns
+            </div>
+            <div class="col-sm-4">
+            One of three columns
+            </div>
+            
+        </div> -->
+        <div class="blocks clearfix container">
+            <div class="row row-cols-3">
+                <% for (var i = 0; i < detail.length; i++) { %>
+                    <a class="tile sm destination destinationDetailsLink notranslate col-sm-4"
+                    href="/belgium/ghent-trip-planner">
+                    <span class="tile-inner-wrap">
+                        <span class="tile-image lazyload"
+                            data-url="<%= `${arr_dd_img[i]}`%>"></span>
+                        <span class="tile-title"><%= `${detail[i].TENDD}`%><span class="tile-subtitle">Trip planner</span></span>
+                        <span class="tile-subtext"><strong>BEST FOR:</strong> Historic Walking Area, Castle, Religious Site</span>
+                        <span class="favorites-btn dest-fav img-tile " data-destination-id="37170677" data-loc-name="Ghent">
+                                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
+                            </span>
+                        </span>
+                    </a>
+                <% } %>
+            </div>
+</div>
+        </div>
+</div>
 
 </div>
     <!--Include footer-->
