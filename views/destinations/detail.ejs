@@ -305,24 +305,28 @@
     <div class="module-content clearfix">
         <div class="detail-header">
             <div class="detail-wrapper">
-                <% if (locals.weather != null){ %>
-                    <h3 class="title"><%=des[0].KHUVUC%></h3>
-                <% } %> 
-                    <div class="rating">
-                        <div class="rating-stars ">
-    <span class="rating-stars-fill" style="width:90.0%"></span>
-</div>
-4,5</div>
-                <div class="cat-tags">
-    <a href="/religious-sites-in-asia" class="tag clickable" data-cat-group-id="26"
-                           data-destination-id="71445">Sacred & Religious Sites</a>
-                    <span class="sep">&middot;</span>
-        <span class="tag ">Landmarks</span>
-                    <span class="sep">&middot;</span>
-        <a href="/historical-places-in-asia" class="tag clickable" data-cat-group-id="26"
-                           data-destination-id="71445">Historic Sites</a>
-                    </div></div>
-                </div>
+                    <% if (name != null){ %>
+                        <h3 class="title"><%=name%></h3>
+                    <% } %> 
+                        <div class="rating">
+                            <div class="rating-stars ">
+                            <span class="rating-stars-fill" style="width:90.0%"></span>
+                            </div>
+                            <%=kv_descrip_rate.RATE%>
+                        </div>
+                    <div class="cat-tags">
+                        <a href="/religious-sites-in-asia" class="tag clickable" data-cat-group-id="26"data-destination-id="71445">Sacred & Religious Sites</a>
+                        <span class="sep">&middot;</span>
+                        <span class="tag ">Landmarks</span>
+                        <span class="sep">&middot;</span>
+                        <a href="/historical-places-in-asia" class="tag clickable" data-cat-group-id="26"data-destination-id="71445">Historic Sites</a>
+                    </div>
+                    <div class="description">
+                        <i><%-kv_descrip_rate.DESCRIPTION%></i>
+
+                    </div>
+            </div>
+        </div>
         <div class="photos">
             <div class="slide-wrapper">
     <ul class="slides"></ul>
@@ -661,14 +665,6 @@
         </a>
 </li></ul>
         </div></div>
-        <div class="ads">
-                <div class="first always">
-                        <ins class="adsbygoogle dlp-right-adslot"
-                         style="min-width:120px;max-width:300px;width:100%;height:600px;"
-                         data-ad-client="ca-pub-3963390568368377"
-                         data-ad-slot="1103358334"></ins>
-                </div>
-            </div>
         </div>
 </div>
 <div id="howitworks"></div><div class="get-complete-plan">

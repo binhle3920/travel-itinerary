@@ -7,8 +7,8 @@ router.get('/:CODE', async function(req, res) {
     var detail = await desDb.select_alldiadiem(req.params.CODE)
     var detail_name = await desDb.select_kvname(req.params.CODE)
     var img_link = await desDb.select_khuvucimgs(req.params.CODE)
-    console.log(img_link[0].IMGLINK)
-    
+    var kv_descrip_rate = await desDb.select_khuvuc(req.params.CODE)
+        
     if (detail_name != null)
     {
         detail_name = detail_name.NAME
@@ -25,7 +25,8 @@ router.get('/:CODE', async function(req, res) {
         user: user,
         detail: detail,
         name: detail_name,
-        img_link: img_link
+        img_link: img_link,
+        kv_descrip_rate: kv_descrip_rate
     });
 })
 

@@ -16,8 +16,8 @@ module.exports = {
     },
 
     // Giới thiệu, rating
-    async select_khuvuc(tenkhuvuc) {
-        const sql = `SELECT "CODE", "NAME", "DESCRIPTION", "RATE" FROM public."KVLIST" WHERE "NAME" = '${tenkhuvuc}'`
+    async select_khuvuc(code) {
+        const sql = `SELECT "CODE", "NAME", "DESCRIPTION", "RATE" FROM public."KVLIST" WHERE "CODE" = '${code}'`
         try {
             var result =  await db.load(sql);
             return result.rows[0];
