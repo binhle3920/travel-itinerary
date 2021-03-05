@@ -187,7 +187,7 @@ button:focus {
 /*--------------------*/
 
 #mu-hero {
-	background-image: url("assets/images/head-featured-bg.jpg");
+	background-image: url("../assets/images/head-featured-bg.jpg");
 	display: inline;
 	float: left;
 	width: 100%;
@@ -251,7 +251,7 @@ button:focus {
 .mu-hero-featured-content {
 	display: inline;
 	float: right;
-	margin-top: 50px;
+	margin-top: 10px;
 	text-align: center;
 	width: 100%;
 }
@@ -275,7 +275,7 @@ button:focus {
 	color: #333;
 	padding: 5px 10px;
 	display: inline-block;
-	margin-top: 10px;
+	margin-top: 50px;
 	font-weight: 600;
 }
 
@@ -705,6 +705,12 @@ button:focus {
 	text-align: center;
 	-webkit-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
+}
+
+.mu-single-speakers img{
+	height: 200px;
+	object-fit: fill;
+	margin: auto;
 }
 
 .mu-speakers-slider .slick-next {
