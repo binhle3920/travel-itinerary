@@ -187,7 +187,7 @@ button:focus {
 /*--------------------*/
 
 #mu-hero {
-	background-image: url("../assets/images/head-featured-bg.jpg");
+	background-image: url("/images/plan/head-featured-bg.jpg");
 	display: inline;
 	float: left;
 	width: 100%;
@@ -615,6 +615,14 @@ button:focus {
 	text-align: left;
 }
 
+.mu-event-timeline ul li .mu-single-event:hover {
+	transform: scale(1.7) translateX(70px) translateY(13px);
+}
+
+.mu-event-timeline ul li:nth-child(2n+1) .mu-single-event:hover {
+	transform: scale(1.7) translateX(-70px) translateY(13px);
+}
+
 .mu-event-timeline ul li:nth-child(2n) .mu-single-event {
 	left: 50px;
 }
@@ -628,15 +636,23 @@ button:focus {
 	height: 80px;
 	width: 80px;
 	float: left;
-	border-radius: 50%;
+	border-radius: 10%;
 	margin-right: 15px;
 }
+
+/* .mu-event-timeline ul li .mu-single-event img:hover{
+	transform: scale(4, 3) translateX(20px);
+} */
 
 .mu-event-timeline ul li:nth-child(2n+1) .mu-single-event img {
 	float: right;
 	margin-right: 0;
 	margin-left: 15px;
 }
+
+/* .mu-event-timeline ul li:nth-child(2n+1) .mu-single-event img:hover{
+	transform: scale(4, 3) translateX(20px);
+} */
 
 .mu-event-timeline ul li .mu-single-event::before {
 	content: '';
@@ -710,6 +726,7 @@ button:focus {
 .mu-single-speakers img{
 	height: 200px;
 	object-fit: fill;
+	float: right;
 	margin: auto;
 }
 
@@ -930,7 +947,7 @@ button:focus {
 /*--------------------*/
 
 #mu-register {
-	background-image: url("assets/images/register-bg.jpg");
+	background-image: url("/images/plan/register-bg.jpg");
 	background-position: center center;
 	background-size: cover;
 	background-attachment: fixed;
