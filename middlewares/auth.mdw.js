@@ -4,6 +4,7 @@ module.exports = {
         req.session.retUrl = req.originalUrl;
         return res.redirect('/authen');
       }
+      
       return next();
     },
 
@@ -13,5 +14,15 @@ module.exports = {
         }
 
         return next();
+    },
+
+    isAdmin: function(req, res, next) {
+      if (req.session.auth === true) {
+        if (req.session.authUser.type == 'admin') {
+          return next();
+        }
+      }
+
+      return res.redirect('/');
     }
 }
