@@ -29,12 +29,6 @@
         <link rel="stylesheet" type="text/css" href='https://s.inspirockcdn.com/4.3.10/res/css/destinationSeoLanding.css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <meta name="_csrf_parameter" content="_csrf" /><meta name="_csrf_header" content="X-CSRF-TOKEN" /><meta name="_csrf" content="08161e20-4935-41a4-9d74-506d4646cb88" />
-        <link rel="preload" href="https://s.inspirockcdn.com/images/heroes/f/japan.jpg" as="image">
-        <meta property="og:site_name" content="Inspirock" />
-        <meta property="og:image" content="https://s.inspirockcdn.com/images/heroes/f/japan.jpg">
-        <meta name="twitter:image" content="https://s.inspirockcdn.com/images/heroes/f/japan.jpg">
-
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42855545-3"></script>
         <script type="text/javascript">
             window.__primaryGATrackingId = 'UA-42855545-3';
@@ -55,7 +49,7 @@
             .header-area {
                 position: relative;
                 width: 100%;
-                background:black;
+                background:rgba(77,78,84,1);
             }
             .home-border {
             border-top: 2px solid black;
@@ -90,8 +84,8 @@
         <script src="https://s.inspirockcdn.com/4.3.10/res/js/icons-public.js" type="text/javascript" defer></script>
             <div id="fb-root"></div>
 
-        <div id="pageWrapper" class="page-wrapper ">
-            <header class="page-header transparent   " id="pageHeader" style=""
+    <div id="pageWrapper" class="page-wrapper ">
+    <header class="page-header transparent   " id="pageHeader" style=""
         data-show-contact-us="true">
         <div class="header-area">
             <div class="container">
@@ -105,7 +99,6 @@
                     </div><!-- /.col-->
                     <div class="col-sm-10">
                         <div class="main-menu">
-                        
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -146,168 +139,51 @@
             </div><!-- /.container-->
         </div><!-- /.header-area -->
     </header>
-<div class="page-content  clear  " id="pageContent">
+    <div class="page-content  clear  " id="pageContent">
     <div class="destination-details ">
-<div class="hero-header ">
-    <div class="hero-header-content">
-        <div class="hero-big">
-            <div class="hero-header-image" style="background-image:url('<%=`${img_link[0].IMGLINK}`%>');"></div>
-            </div>
-            
-        <div class="hero-title-wrapper">
-            <div class="hero-text ">
-                <% if (name != null){ %>
-                    <h1 class="hero-title"><%= name %></h1>
-                <% } %> 
-                <div class="tagline">Hãy tạo một hành trình<br/>cho bạn hoàn toàn miễn phí</div>
-                    </div>
-            <div class="form-wrapper">
-                    <div id="dlp-shade" style="display: none;"></div>
-                    <div class="form-cell">
-                        <form id="dlp-planning-form" data-max-plan-length="60" data-coverage="Europe, Americas, Asia, South Pacific, &amp; Africa" class="planning-form " action="/generatePlanAjax" method="POST" autocomplete="off"><div class="steps">
-        <h4 class="title "
-                 title="">
-                Itinerary planner</h4>
-        <div class="dests">
-            <div class="destinations ui-front">
-                <div class="destination">
-                                <div class="tip hidden" data-show-text="You can plan a vacation to any city, region, or country in the world."><span class="fa fa-question"></span></div>
-                                <input type="text"
-                                       class="domain flat ui-autocomplete-input"
-                                       data-id="71445"
-                                       data-label="Asia"
-                                       data-nightstay="false"
-                                       data-country-code=""
-                                       data-top-nightstay="Dubai"
-                                       data-value="Asia"
-                                       value="Asia"
-                                       placeholder="Enter destination (country, region, or city)"/>
-                            </div>
+    <div class="hero-header ">
+        <div class="hero-header-content">
+            <div class="hero-big">
+                <div class="hero-header-image" style="background-image:url('<%=`${img_link[0].IMGLINK}`%>');"></div>
+                </div>
+                
+            <div class="hero-title-wrapper">
+                <div class="hero-text ">
+                    <% if (name != null){ %>
+                        <h1 class="hero-title"><%= name %></h1>
+                    <% } %> 
+                    <div class="tagline">Hãy tạo một hành trình<br/>cho bạn hoàn toàn miễn phí</div>
                         </div>
-            <span class="text-link add-destination">+ Add destination</span>
+                </div>
         </div>
-        <div class="dates clearfix">
-    <div class="calendar-input date-range">
-        <input name="startDate" type="text" class="startDate container hidden" value="" readonly/>
-        <input name="startDate-alt" type="text" value="" class="startDate-alt datepicker flat" placeholder="Start" readonly="readonly" />
-        <input name="endDate" type="text" class="endDate container hidden" value="" readonly/>
-        <input name="endDate-alt" type="text" value="" class="endDate-alt datepicker flat" placeholder="End" readonly="readonly"/>
-        <svg class="calendar-icon"><use xlink:href="#icon-calendar"></use></svg>
-        <svg class="arrow notranslate"><use xlink:href="#icon-plan-form-arrow"></use></svg>
-        <div class="delete"></div>
     </div>
-    <div class="travelers">
-            <div class="travelers-btn" data-adults="2" data-teens="0" data-kids="0">
-                <span>2 adults</span>
-                    <div class="arrow-down"></div>
-            </div>
-            <div class="travel-with clearfix">
-                <table>
-                    <tr>
-                        <td class="type">Adults</td>
-                        <td class="picker">
-                            <div class="clearfix">
-                                <span class="minus notranslate ">-</span>
-                                <input name="numAdults" class="whoAdults num" value="2" readonly data-min="1"/>
-                                <span class="plus notranslate">+</span>
+    <div class="destination-info ">
+        <div class="module-content clearfix">
+            <div class="detail-header">
+                <div class="detail-wrapper">
+                        <% if (name != null){ %>
+                            <h3 class="title"><%=name%></h3>
+                        <% } %> 
+                            <div class="rating">Rating: 
+                                <%=kv_descrip_rate.RATE%> <i class="fa fa-star"style="color:#FFD700"></i>
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="type">Teens</td>
-                        <td class="picker">
-                            <div class="clearfix">
-                                <span class="minus notranslate disabled">-</span>
-                                <input name="numTeens" class="whoTeens num  disabled" value="0" readonly/>
-                                <span class="plus notranslate">+</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="type">Kids</td>
-                        <td class="picker">
-                            <div class="clearfix">
-                                <span class="minus notranslate disabled">-</span>
-                                <input name="numKids" class="whoKids num  disabled" value="0" readonly/>
-                                <span class="plus notranslate">+</span>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <div class="close">Close</div>
-            </div>
-        </div>
-    </div><div class="section-title more-options-btn expandable caption">Activities preferences <span class="optional"> (optional)</span><i class="arrow fa fa-angle-down"></i></div>
-        <div class="step-content">
-            <div class="style">
-                <div class="column3 radio-wrap"><input type="radio" id="dlp-stylePopular" class="stylePopular box" name="style" value="Popular" checked/><label class="first" title="Popular" for="dlp-stylePopular">Popular</label></div>
-                <div class="column3 radio-wrap"><input type="radio" id="dlp-styleBalanced" class="styleBlanaced box" name="style" value="Balanced" /><label title="Balanced"  for="dlp-styleBalanced">Balanced</label></div>
-                <div class="column3 radio-wrap"><input type="radio" id="dlp-styleHiddenGems" class="styleHiddenGems box" name="style" value="HiddenGems" /><label class="last" title="Hidden gems" for="dlp-styleHiddenGems">Hidden gems</label></div>
-            </div>
-            <div class="pace">
-                <div class="column3 radio-wrap"><input type="radio" id="dlp-paceSlow" class="paceSlow box" name="pace" value="Slow" /><label class="first"title="Slow & easy" for="dlp-paceSlow">Slow & easy</label></div>
-                <div class="column3 radio-wrap"><input type="radio" id="dlp-paceMedium" class="pageMedium box" name="pace" value="Medium" checked/><label title="Medium" for="dlp-paceMedium">Medium</label></div>
-                <div class="column3 radio-wrap"><input type="radio" id="dlp-paceFast" class="paceFast box" name="pace" value="Fast" /><label class="last" title="Fast-paced" for="dlp-paceFast">Fast-paced</label></div>
-            </div>
-            <div class="interests">
-                <div class="interests-wrap">
-                    <div class="column3"><input type="checkbox" id="dlp-interestCulture" class="interest interestCulture material" name="culture" value="true" /><label title="Culture" for="dlp-interestCulture">Culture</label></div>
-                    <div class="column3"><input type="checkbox" id="dlp-interestOutdoor" class="interest interestOutdoor material" name="outdoors" value="true" /><label title="Outdoors" for="dlp-interestOutdoor">Outdoors</label></div>
-                    <div class="column3"><input type="checkbox" id="dlp-interestUnwind" class="interest interestUnwind material" name="unwind" value="true" /><label title="Relaxing" for="dlp-interestUnwind">Relaxing</label></div>
-                    <div class="column3"><input type="checkbox" id="dlp-interestRomantic" class="interest interestRomantic material" name="romantic" value="true" /><label title="Romantic" for="dlp-interestRomantic">Romantic</label></div>
-                    <div class="column3"><input type="checkbox" id="dlp-category10" class="material" name="categoryGroupNames" value="Beaches" /><label title="Beaches" for="dlp-category10">Beaches</label></div>
-                    <div class="column3"><input type="checkbox" id="dlp-category26" class="material" name="categoryGroupNames" value="Historic Sites" /><label title="Historic sites" for="dlp-category26">Historic sites</label></div>
-                    <div class="column3"><input type="checkbox" id="dlp-category16" class="material" name="categoryGroupNames" value="Museums" /><label title="Museums" for="dlp-category16">Museums</label></div>
-                    <div class="column3"><input type="checkbox" id="dlp-category4" class="material" name="categoryGroupNames" value="Shopping" /><label title="Shopping" for="dlp-category4">Shopping</label></div>
-                    <div class="column3"><input type="checkbox" id="dlp-category19" class="material" name="categoryGroupNames" value="Wildlife" /><label title="Wildlife" for="dlp-category19">Wildlife</label></div>
-                    </div>
-            </div>
-        </div>
-        <button type="button" class="plan-button cta-button large"> See your trip</button>
-    </div>
-    <input type="hidden" name="requiredAttractionIds" value ="" />
-<div>
-<input type="hidden" name="_csrf" value="08161e20-4935-41a4-9d74-506d4646cb88" />
-</div></form></div>
+                        <div class="description">
+                            <i><%-kv_descrip_rate.DESCRIPTION%></i>
+                        </div>
                 </div>
             </div>
-    </div>
-</div>
-<div class="destination-info ">
-    <div class="module-content clearfix">
-        <div class="detail-header">
-            <div class="detail-wrapper">
-                    <% if (name != null){ %>
-                        <h3 class="title"><%=name%></h3>
-                    <% } %> 
-                        <div class="rating">Rating: 
-                            <%=kv_descrip_rate.RATE%> <i class="fa fa-star"style="color:#FFD700"></i>
-                        </div>
-                    <div class="description">
-                        <i><%-kv_descrip_rate.DESCRIPTION%></i>
-                    </div>
+            <div class = "photos"> 
+            <%- include('../destinations/slider', { img_link: img_link}) %>
             </div>
-        </div>
-        <div class = "photos"> 
-        <%- include('../destinations/slider', { img_link: img_link}) %>
-        </div>
-        </div>
-</div>
+            </div>
+    </div>
 
 
 <div class="top-destinations section" data-selected="0">
     <h3 class="section-title">Những địa điểm ở <%= `${name}` %></h3>
-    <div class="map-wrapper">
-            <div class="mini-map"
-                 
-                 data-ne-lat=""
-                 data-ne-lng=""
-                 data-sw-lat=""
-                 data-sw-lng=""></div>
 
-            <div class="more-map-destinations" data-ids="611227443,111549873,211183135,512000401,211549835,627731223,411227139,411311119,517838721,111310853,911183249,211170215,811314007,411549759,511320961,311346877,846201047,811574307,511574421,911347029,511172761,211322595,511310321,611170063,611333843,411328599,111346611"></div>
-
-        </div>
+    <div id="map" style="width:1000px; height: 500px; margin-bottom: 10px;"></div>
+    
     <!-- <div class="container">
         <div class="row row-cols-3">
 
@@ -340,25 +216,26 @@
             </div>
             
         </div> -->
-        <div class="blocks clearfix container">
-            <div class="row row-cols-3">
-                <% for (var i = 0; i < detail.length; i++) { %>
-                    <a class="tile sm destination destinationDetailsLink notranslate col-sm-4"
-                    href="<%= `/destinations/${detail[i].KHUVUC}/${detail[i].ID}` %>">
-                    <span class="tile-inner-wrap">
-                        <span class="tile-image lazyload"
-                            data-url="<%= `${arr_dd_img[i]}`%>"></span>
-                        <span class="tile-title"><%= `${detail[i].TENDD}`%><span class="tile-subtitle">Lập kế hoạch</span></span>
-                        <span class="tile-subtext"><strong>BEST FOR:</strong> Historic Walking Area, Castle, Religious Site</span>
-                        <span class="favorites-btn dest-fav img-tile " data-destination-id="37170677" data-loc-name="Ghent">
-                                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-                            </span>
+        
+    <div class="blocks clearfix container">
+        <div class="row row-cols-3">
+            <% for (var i = 0; i < detail.length; i++) { %>
+                <a class="tile sm destination destinationDetailsLink notranslate col-sm-4"
+                href="<%= `/destinations/${detail[i].KHUVUC}/${detail[i].ID}` %>">
+                <span class="tile-inner-wrap">
+                    <span class="tile-image lazyload"
+                        data-url="<%= `${arr_dd_img[i]}`%>"></span>
+                    <span class="tile-title"><%= `${detail[i].TENDD}`%><span class="tile-subtitle">Lập kế hoạch</span></span>
+                    <span class="tile-subtext"><strong>BEST FOR:</strong> <%= `${img_2d[i]}`%></span>
+                    <span class="favorites-btn dest-fav img-tile " data-destination-id="37170677" data-loc-name="Ghent">
+                            <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
                         </span>
-                    </a>
-                <% } %>
-            </div>
-</div>
+                    </span>
+                </a>
+            <% } %>
         </div>
+    </div>
+</div>
 </div>
 
 </div>
@@ -378,47 +255,13 @@
     <script src="/js/jquery.sticky.js"></script>
     <script  src="/js/datepicker.js"></script>
     <script src="/js/custom.js"></script>
-</div>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp-K0_YN83Gj7rur4YHAUFzL8USdGdc5k&callback=initMap&libraries=&v=weekly"
+    async
+    ></script>
+    </div>
     <script type="text/javascript">
         function delayFn(fn, t) {return function() {setTimeout(fn, t);}}
-
-        window._gaProperties = window._gaProperties || {};
-        function setGAProperty(property, value) {
-            var obj = {};
-            obj[property] = value;
-            window._gaProperties[property] = value;
-            gtag('set', obj);
-        }
-
-        setGAProperty('dimension1', '4.3.10'); 
-        setGAProperty('dimension2', 'N/A'); 
-        setGAProperty('dimension4', 'N/A'); 
-        setGAProperty('dimension5', 'Anonymous'); 
-            gtag('set', 'user_properties', {'user_type': 'Anonymous'}); 
-        setGAProperty('dimension6', 'N/A'); 
-        setGAProperty('dimension7', 'N/A'); 
-        setGAProperty('dimension8', 'N/A'); 
-        setGAProperty('dimension9', 'N/A'); 
-        setGAProperty('dimension10', 'N/A'); 
-        setGAProperty('dimension11', 'N/A'); 
-        setGAProperty('dimension12', 'N/A'); 
-        setGAProperty('dimension13', 'N/A'); 
-        setGAProperty('dimension14', 'N/A'); 
-        gtag('get', 'UA-42855545-3', 'client_id', function(clientId) {setCookie('gaclientid', clientId);}); 
-        setGAProperty('dimension17', 'N/A'); 
-        function reportImgError(src) {
-            if (window.trackNonInteractionEvent) {
-                window.trackNonInteractionEvent('imgload', 'fail', src);
-            } else {
-                window.addEventListener("load", function() {if (window.trackNonInteractionEvent) {reportImgError(src);}});
-            }
-        }
-        function onImgError(image) {
-            var src = image.src;
-            image.onerror = ""; image.alt = "image not found"; image.src = "https://s.inspirockcdn.com/images/defaults/no-image.jpg";
-            reportImgError(src);
-            return true;
-        }
 
         window.jqueryLocalePath = 'https://s.inspirockcdn.com/4.3.10/res-ext/jquery/js/locale';
         window.momentLocalePath = 'https://s.inspirockcdn.com/4.3.10/res/moment-with-locale/locale';
@@ -428,12 +271,10 @@
         window.isRTL = false;
         window.jsLogEnabled=true;
         window.isWebPSupported = true;       
-        window.openMapsEnabled = true;
         
-        window.gmapsApiKey = 'AIzaSyBGnTKQZjDhGBilp8rRfblbRPGI2x6fZTc';
+
         window.flightsEnabled = true;
         window.carsEnabled = true;
-        window.trainsEnabled = true;
         window.r2rLinksEnabled = true;
         window.dateFormatDisplayPattern = 'D m/d';
         window.showMonthBeforeDay = true;
@@ -446,6 +287,29 @@
 </html>
 
 <script>
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: null,
+        });
+
+        // The location of KV
+        var address = <%- JSON.stringify(name) %>
+        $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data){
+            if (data != false) {
+                var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
+
+                map.setCenter(result);
+                
+                // The marker, positioned at KV
+                const marker = new google.maps.Marker({
+                    position: result,
+                    map: map,
+                });
+            }
+        });
+    }
+
     $(document).ready(function () {
         $('#sign-out').on('click', function(e) {
             e.preventDefault();
@@ -453,8 +317,8 @@
             var user = <%- JSON.stringify(user) %>;
             
             if (user.google == 1) {
-                 //sign out google
-                 gapi.load('auth2', function() {
+                //sign out google
+                gapi.load('auth2', function() {
                     gapi.auth2.init().then(() => {
                         var auth2 = gapi.auth2.getAuthInstance();
                         auth2.signOut().then(function () {

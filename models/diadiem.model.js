@@ -31,6 +31,20 @@ module.exports = {
         }
     },
 
+    //Tag của 1 địa điểm
+    async select_tag(iddd) {
+        const sql = `SELECT "TAG"
+        FROM public."TAG" 
+        WHERE "IDDD" = ${iddd}`;
+        try {
+            var result =  await db.load(sql);
+            return result.rows;
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
+
     //Số lượng chuyến đi tại địa điểm này
     async select_slcd(tendiadiem) {
         const sql = `SELECT COUNT(*) SLCD FROM public."DETAILPLAN" DP

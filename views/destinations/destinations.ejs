@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        * {
+            margin: 0;
+        }
         #menu-item:before {
             all: unset;
         }
@@ -13,7 +16,6 @@
         .header-area
         {
             background-color:black;
-
         }
         .countries
         {
@@ -60,7 +62,7 @@
 <body>
     <!--Include header-->
     <%- include('../partial/header', { auth: auth, user: user }) %>
-
+    
     <div class="page-content countries-content clear  " id="pageContent">
         <input id="searchFieldText" class="search-field shaded" type="text" name="search" placeholder="Search for destinations or attractions" value=""/>
         <div class="countries">
