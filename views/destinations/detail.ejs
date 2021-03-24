@@ -1,14 +1,15 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Detail Destination</title>
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="510590194810-9r9fs334eti2s1bv2pqm780bifl7ahrt.apps.googleusercontent.com">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="510590194810-9r9fs334eti2s1bv2pqm780bifl7ahrt.apps.googleusercontent.com">
 
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <link rel="preload" href="https://s.inspirockcdn.com/4.3.10/res/css/commoncss.css" as="style">
         <link rel="preload" href="https://s.inspirockcdn.com/4.3.10/res/css/destinationSeoLanding.css" as="style">
         <link rel="preload" href="https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,6 +30,7 @@
         <link rel="stylesheet" type="text/css" href='https://s.inspirockcdn.com/4.3.10/res/css/destinationSeoLanding.css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42855545-3"></script>
         <script type="text/javascript">
             window.__primaryGATrackingId = 'UA-42855545-3';
@@ -43,13 +45,12 @@
         </script>
 
         <style>
-            @font-face {font-family:'Lato';font-weight:400;font-style:normal;font-display:swap;src:local('Lato Regular'),local('Lato-regular'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-regular/Lato-regular.ttf') format('truetype');}
-            @font-face {font-family:'Lato';font-weight:400;font-style:italic;font-display:swap;src:local('Lato Italic'),local('Lato-italic'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-italic/Lato-italic.ttf') format('truetype');}
-            @font-face {font-family:'Lato';font-weight:700;font-style:normal;font-display:swap;src:local('Lato Bold'),local('Lato-700'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.woff2') format('woff2'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.woff') format('woff'),url('https://s.inspirockcdn.com/fonts/Lato-700/Lato-700.ttf') format('truetype');}
+
             .header-area {
                 position: relative;
                 width: 100%;
                 background:rgba(77,78,84,1);
+                height: 77.616px;
             }
             .home-border {
             border-top: 2px solid black;
@@ -60,9 +61,13 @@
             #sign-out:before {
                 all:unset;
             }
-        .tile.destination {
-            margin: 0 0 0px 8px;
-        }
+            .tile.destination {
+            margin: 0 0 0px 8px;}
+
+            .normal .row {
+            margin-left: -10px;
+            margin-right: -10px;
+            height: 77.62px;
         </style>
         <!--CSS-->
         <link rel="shortcut icon" type="image/icon" href="/logo/favicon.png"/>
@@ -84,159 +89,142 @@
         <script src="https://s.inspirockcdn.com/4.3.10/res/js/icons-public.js" type="text/javascript" defer></script>
             <div id="fb-root"></div>
 
-    <div id="pageWrapper" class="page-wrapper ">
-    <header class="page-header transparent   " id="pageHeader" style=""
-        data-show-contact-us="true">
-        <div class="header-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="logo">
-                            <a href="/" style="font-family:'Courier New', Courier, monospace;">
-                            Travel<span>Itinerary</span>
-                            </a>
-                        </div><!-- /.logo-->
-                    </div><!-- /.col-->
-                    <div class="col-sm-10">
-                        <div class="main-menu">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <i class="fa fa-bars"></i>
-                                </button><!-- / button-->
-                            </div><!-- /.navbar-header-->
-                            <div class="collapse navbar-collapse">		  
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="smooth-menu"><a href="/">Trang chủ</a></li>
-                                    <li class="smooth-menu"><a href="/destinations">Địa điểm</a></li>
-                                    <li class="smooth-menu"><a href="#pack">Packages </a></li>
-                                    <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
-                                    <li class="smooth-menu"><a href="#blog">blog</a></li>
-                                    <li class="smooth-menu"><a href="#subPackages s">subscription</a></li>
-                                    <li>
-                                        <% if (auth == false) { %> 
-                                            <a href="/authen">
-                                                <button class="book-btn">Log in</button>
-                                            </a>
-                                        <% } else { %>
-                                            <div class="dropdown">
-                                                <button class="btn left dropdown-toggle" type="button" data-toggle="dropdown"><%= user.username %> <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="profile" id="menu-item" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Thông tin cá nhân</a></li>
-                                                    <li><a href="courses/it/3" id="menu-item" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Lịch trình của tôi</a></li>
-                                                    <li><hr style="margin: 5px 0px; border-color: black;" /></li>
-                                                    <li><a href="#" id="sign-out" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Đăng xuất</a></li>
-                                                </ul>
-                                            </div>
-                                        <% } %>
-                                    </li><!--/.project-btn--> 
-                                </ul>
-                            </div><!-- /.navbar-collapse -->
-                        </div><!-- /.main-menu-->
-                    </div><!-- /.col-->
-                </div><!-- /.row -->
-                <div class="home-border"></div><!-- /.home-border-->
-            </div><!-- /.container-->
-        </div><!-- /.header-area -->
-    </header>
-    <div class="page-content  clear  " id="pageContent">
-    <div class="destination-details ">
-    <div class="hero-header ">
-        <div class="hero-header-content">
-            <div class="hero-big">
-                <div class="hero-header-image" style="background-image:url('<%=`${img_link[0].IMGLINK}`%>');"></div>
-                </div>
-                
-            <div class="hero-title-wrapper">
-                <div class="hero-text ">
-                    <% if (name != null){ %>
-                        <h1 class="hero-title"><%= name %></h1>
-                    <% } %> 
-                    <div class="tagline">Hãy tạo một hành trình<br/>cho bạn hoàn toàn miễn phí</div>
-                        </div>
-                </div>
-        </div>
-    </div>
-    <div class="destination-info ">
-        <div class="module-content clearfix">
-            <div class="detail-header">
-                <div class="detail-wrapper">
+        <div id="pageWrapper" class="page-wrapper ">
+        <header class="page-header transparent   " id="pageHeader" style=""
+            data-show-contact-us="true">
+            <div class="header-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="logo">
+                                <a href="/" style="font-family:'Courier New', Courier, monospace;">
+                                Travel<span>Itinerary</span>
+                                </a>
+                            </div><!-- /.logo-->
+                        </div><!-- /.col-->
+                        <div class="col-sm-10">
+                            <div class="main-menu">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <i class="fa fa-bars"></i>
+                                    </button><!-- / button-->
+                                </div><!-- /.navbar-header-->
+                                <div class="collapse navbar-collapse">		  
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="smooth-menu"><a href="/">Trang chủ</a></li>
+                                        <li class="smooth-menu"><a href="/destinations">Địa điểm</a></li>
+                                        <li class="smooth-menu"><a href="#pack">Packages </a></li>
+                                        <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
+                                        <li class="smooth-menu"><a href="#blog">blog</a></li>
+                                        <li class="smooth-menu"><a href="#subPackages s">subscription</a></li>
+                                        <li>
+                                            <% if (auth == false) { %> 
+                                                <a href="/authen">
+                                                    <button class="book-btn">Log in</button>
+                                                </a>
+                                            <% } else { %>
+                                                <div class="dropdown">
+                                                    <button class="btn left dropdown-toggle" type="button" data-toggle="dropdown"><%= user.username %> <span class="caret"></span></button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="profile" id="menu-item" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Thông tin cá nhân</a></li>
+                                                        <li><a href="courses/it/3" id="menu-item" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Lịch trình của tôi</a></li>
+                                                        <li><hr style="margin: 5px 0px; border-color: black;" /></li>
+                                                        <li><a href="#" id="sign-out" style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Đăng xuất</a></li>
+                                                    </ul>
+                                                </div>
+                                            <% } %>
+                                        </li><!--/.project-btn--> 
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.main-menu-->
+                        </div><!-- /.col-->
+                    </div><!-- /.row -->
+                    <div class="home-border"></div><!-- /.home-border-->
+                </div><!-- /.container-->
+            </div><!-- /.header-area -->
+        </header>
+    <div class="page-content" id="pageContent">
+        <div class="destination-details ">
+            <div class="hero-header ">
+                <div class="hero-header-content">
+                    <div class="hero-big">
+                        <div class="hero-header-image" style="background-image:url('<%=`${img_link[0].IMGLINK}`%>');"></div>
+                    </div>
+                    
+                <div class="hero-title-wrapper">
+                    <div class="hero-text ">
                         <% if (name != null){ %>
-                            <h3 class="title"><%=name%></h3>
+                            <h1 class="hero-title"><%= name %></h1>
                         <% } %> 
-                            <div class="rating">Rating: 
-                                <%=kv_descrip_rate.RATE%> <i class="fa fa-star"style="color:#FFD700"></i>
+                        <div class="tagline">Hãy tạo một hành trình<br/>cho bạn hoàn toàn miễn phí</div>
                             </div>
-                        <div class="description">
-                            <i><%-kv_descrip_rate.DESCRIPTION%></i>
-                        </div>
+                    </div>
                 </div>
             </div>
-            <div class = "photos"> 
-            <%- include('../destinations/slider', { img_link: img_link}) %>
-            </div>
-            </div>
-    </div>
+        <div class="destination-info ">
+            <div class="module-content clearfix">
+                <div class="detail-header">
+                    <div class="detail-wrapper">
+                            <% if (name != null){ %>
+                                <h3 class="title"><%=name%></h3>
+                            <% } %> 
+                                <div class="rating">Rating: 
+                                    <%=kv_descrip_rate.RATE%> <i class="fa fa-star"style="color:#FFD700"></i>
+                                </div>
+                            <div class="description">
+                                <i><%-kv_descrip_rate.DESCRIPTION%></i>
+                            </div>
+                    </div>
+                </div>
+                <div class = "photos"> 
+                <%- include('../destinations/slider', { img_link: img_link}) %>
+                </div>
+                </div>
+        </div>
 
 
-<div class="top-destinations section" data-selected="0">
-    <h3 class="section-title">Những địa điểm ở <%= `${name}` %></h3>
+    <div class="top-destinations section" data-selected="0">
+        <h3 class="section-title">Những địa điểm ở <%= `${name}` %></h3>
 
-    <!-- <div id="map" style="width:1000px; height: 500px; margin-bottom: 10px;"></div> -->
-    <iframe id="gg_map" src="http://maps.google.com/maps?q=25.3076008,51.4803216&z=16&output=embed" height="500px" width="1000px"></iframe>
-    
-    <!-- <div class="container">
-        <div class="row row-cols-3">
-
-            <a class="col-sm-4">
-                <span class="tile-inner-wrap">
-                    <span class="tile-image lazyload"
-                        data-url="https://s.inspirockcdn.com/ds10/photos/Belgium/2/ghent-city-center--1358860367.jpg"></span>
-                    <span class="tile-title">Ghent<span class="tile-subtitle">Trip planner</span></span>
-                    <span class="tile-subtext"><strong>BEST FOR:</strong> Historic Walking Area, Castle, Religious Site</span>
-                    <span class="favorites-btn dest-fav img-tile " data-destination-id="37170677" data-loc-name="Ghent">
-                            <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-                        </span>
-                    </span>
-            </a>
-            </div>
-            <div class="col-sm-4">
-            One of three columns
-            </div>
-            <div class="col-sm-4">
-            One of three columns
-            </div>
-            <div class="col-sm-4">
-            One of three columns
-            </div>
-            <div class="col-sm-4">
-            One of three columns
-            </div>
-            <div class="col-sm-4">
-            One of three columns
-            </div>
-            
-        </div> -->
+        <!-- <div id="map" style="width:1000px; height: 500px; margin-bottom: 10px;"></div> -->
+        <iframe id="gg_map" src="http://maps.google.com/maps?q=25.3076008,51.4803216&z=16&output=embed" height="500px" width="1000px"></iframe>
         
-    <div class="blocks clearfix container">
-        <div class="row row-cols-3">
-            <% for (var i = 0; i < detail.length; i++) { %>
-                <a class="tile sm destination destinationDetailsLink notranslate col-sm-4"
-                href="<%= `/destinations/${detail[i].KHUVUC}/${detail[i].ID}` %>">
-                <span class="tile-inner-wrap">
-                    <span class="tile-image lazyload"
-                        data-url="<%= `${arr_dd_img[i]}`%>"></span>
-                    <span class="tile-title"><%= `${detail[i].TENDD}`%><span class="tile-subtitle">Lập kế hoạch</span></span>
-                    <span class="tile-subtext"><strong>BEST FOR:</strong> <%= `${img_2d[i]}`%></span>
-                    </span>
+        <!-- <div class="container">
+            <div class="row row-cols-3">
+                <a class="col-sm-4">
+                    <span class="tile-inner-wrap">
+                        <span class="tile-image lazyload"
+                            data-url="https://s.inspirockcdn.com/ds10/photos/Belgium/2/ghent-city-center--1358860367.jpg"></span>
+                        <span class="tile-title">Ghent<span class="tile-subtitle">Trip planner</span></span>
+                        <span class="tile-subtext"><strong>BEST FOR:</strong> Historic Walking Area, Castle, Religious Site</span>
+                        <span class="favorites-btn dest-fav img-tile " data-destination-id="37170677" data-loc-name="Ghent">
+                                <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
+                            </span>
+                        </span>
                 </a>
-            <% } %>
+                </div> 
+            </div> -->
+            
+        <div class="blocks clearfix container">
+            <div class="row row-cols-3">
+                <% for (var i = 0; i < detail.length; i++) { %>
+                    <a class="tile sm destination destinationDetailsLink notranslate col-sm-4"
+                    href="<%= `/destinations/${detail[i].KHUVUC}/${detail[i].ID}` %>">
+                    <span class="tile-inner-wrap">
+                        <span class="tile-image lazyload"
+                            data-url="<%= `${arr_dd_img[i]}`%>"></span>
+                        <span class="tile-title"><%= `${detail[i].TENDD}`%><span class="tile-subtitle">Lập kế hoạch</span></span>
+                        <span class="tile-subtext"><strong>BEST FOR:</strong> <%= `${img_2d[i]}`%></span>
+                        </span>
+                    </a>
+                <% } %>
+            </div>
         </div>
     </div>
-</div>
-</div>
+        </div>
 
-</div>
+    </div>
     <!--Include footer-->
     <%- include('../partial/footer') %>
     <!--Script for header-->
@@ -280,8 +268,7 @@
 
     <script src="https://s.inspirockcdn.com/4.3.10/res/js/common.js" defer></script>
     <script src="https://s.inspirockcdn.com/4.3.10/res/js/destinationSeoLanding.js" defer></script>
-    
-</body>
+    </body>
 </html>
 
 <script>
@@ -324,6 +311,31 @@
             
             if (user.google == 1) {
                 //sign out google
+                gapi.load('auth2', function() {
+                    gapi.auth2.init().then(() => {
+                        var auth2 = gapi.auth2.getAuthInstance();
+                        auth2.signOut().then(function () {
+                            console.log('User signed out.');
+                        });
+                    })
+                });
+            }
+            
+            window.location.href = "/sign-out";
+
+        })
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#sign-out').on('click', function(e) {
+            e.preventDefault();
+
+            var user = <%- JSON.stringify(user) %>;
+            
+            if (user.google == 1) {
+                 //sign out google
                 gapi.load('auth2', function() {
                     gapi.auth2.init().then(() => {
                         var auth2 = gapi.auth2.getAuthInstance();
