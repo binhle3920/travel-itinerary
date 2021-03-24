@@ -182,7 +182,8 @@
 <div class="top-destinations section" data-selected="0">
     <h3 class="section-title">Những địa điểm ở <%= `${name}` %></h3>
 
-    <div id="map" style="width:1000px; height: 500px; margin-bottom: 10px;"></div>
+    <!-- <div id="map" style="width:1000px; height: 500px; margin-bottom: 10px;"></div> -->
+    <iframe id="gg_map" src="http://maps.google.com/maps?q=25.3076008,51.4803216&z=16&output=embed" height="500px" width="1000px"></iframe>
     
     <!-- <div class="container">
         <div class="row row-cols-3">
@@ -227,9 +228,6 @@
                         data-url="<%= `${arr_dd_img[i]}`%>"></span>
                     <span class="tile-title"><%= `${detail[i].TENDD}`%><span class="tile-subtitle">Lập kế hoạch</span></span>
                     <span class="tile-subtext"><strong>BEST FOR:</strong> <%= `${img_2d[i]}`%></span>
-                    <span class="favorites-btn dest-fav img-tile " data-destination-id="37170677" data-loc-name="Ghent">
-                            <svg class="favorites"><use xlink:href="#icon-favorites"></use></svg>
-                        </span>
                     </span>
                 </a>
             <% } %>
@@ -287,28 +285,36 @@
 </html>
 
 <script>
-    function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 10,
-            center: null,
-        });
+    // function initMap() {
+    //     const map = new google.maps.Map(document.getElementById("map"), {
+    //         zoom: 10,
+    //         center: null,
+    //     });
+        
+    //     // The location of KV
+    //     var address = <%- JSON.stringify(name) %>
+    //     $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data){
+    //         if (data != false) {
+    //             var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
 
-        // The location of KV
-        var address = <%- JSON.stringify(name) %>
-        $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data){
+    //             map.setCenter(result);
+                
+    //             // The marker, positioned at KV
+    //             const marker = new google.maps.Marker({
+    //                 position: result,
+    //                 map: map,
+    //             });
+    //         }
+    //     });
+    // }
+
+    var address = <%- JSON.stringify(name) %>
+    $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data) {
             if (data != false) {
                 var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
-
-                map.setCenter(result);
-                
-                // The marker, positioned at KV
-                const marker = new google.maps.Marker({
-                    position: result,
-                    map: map,
-                });
+                $('#gg_map').attr('src', `http://maps.google.com/maps?q=${result.lat},${result.lng}&z=16&output=embed`)
             }
         });
-    }
 
     $(document).ready(function () {
         $('#sign-out').on('click', function(e) {
