@@ -95,10 +95,7 @@ module.exports = {
 
     //Chọn tên của 1 khu vực
     async select_kvname(code) {
-        const sql = `SELECT DISTINCT("NAME") FROM public."KVLIST" KVL
-        INNER JOIN public."DIADIEM" DD
-        ON KVL."CODE" = DD."KHUVUC"
-        WHERE DD."KHUVUC" = '${code}'`
+        const sql = `SELECT DISTINCT("NAME") FROM public."KVLIST" WHERE "CODE" = '${code}'`
         try {
             var result =  await db.load(sql);
             return result.rows[0];
