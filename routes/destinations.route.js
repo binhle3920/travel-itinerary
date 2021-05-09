@@ -14,6 +14,7 @@ router.get('/:CODE', async function(req, res) {
     var img_2d = []
     var tag_element = ''
     var tag_element_slice = ''
+    var name = ''
 
     for (var d = 0; d < detail.length; d++)
     {
@@ -23,15 +24,16 @@ router.get('/:CODE', async function(req, res) {
         temp_img = await ddDb.select_tag(detail[d].ID)
         for (var i = 0; i < temp_img.length; i++)
         {
-            tag_element += temp_img[i].TAG + ', ' 
-            tag_element_slice = (' ' + tag_element).slice(0, tag_element.length-1)
-            img_2d.push(tag_element_slice)
+            tag_element += temp_img[i].TAG + ', '           
         }
+        tag_element_slice = (' ' + tag_element).slice(0, tag_element.length-1)
+            img_2d.push(tag_element_slice)
+        tag_element = ''
     }
 
     if (detail_name != null)
     {
-        detail_name = detail_name.NAME
+        name = detail_name.NAME
     }
 
     var auth = req.session.auth;
@@ -44,7 +46,7 @@ router.get('/:CODE', async function(req, res) {
         auth: auth,
         user: user,
         detail: detail,
-        name: detail_name,
+        name: name,
         img_link: img_link,
         kv_descrip_rate: kv_descrip_rate,
         arr_dd_img: arr_dd_img,
