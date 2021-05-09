@@ -331,7 +331,7 @@
     //     });
     // }
 
-    var address = <% - JSON.stringify(name) %>
+    var address = <%- JSON.stringify(name) %>
         $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q=' + address, function (data) {
             if (data != false) {
                 var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) }

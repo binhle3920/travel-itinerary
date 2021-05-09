@@ -188,7 +188,7 @@
             </div>
             <div id="column_2" class="col-lg-6">
                 <ul>
-                    <% for (var j=Math.round(des.length/2)+1; j < des.length; j++) { %>
+                    <% for (var j=Math.round(des.length/2); j < des.length; j++) { %>
                         <li><a href="<%= `/destinations/${des[j].CODE}` %>">
                                 <%= des[j].NAME %>
                             </a></li>
