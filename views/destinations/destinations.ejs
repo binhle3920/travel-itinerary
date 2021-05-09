@@ -49,16 +49,14 @@
         }
 
         #column_1 {
-            text-align: center;
-            margin-left: 260px;
-            width: 30%;
+            text-align:left;
+            width:50%;
             margin-top: 20px;
         }
 
         #column_2 {
-            text-align: left;
-            padding-left: 250px;
-            width: 30%;
+            text-align: right;
+            width:50%;
             margin-top: 20px;
         }
 
@@ -67,7 +65,7 @@
             text-align: left;
         }
     </style>
-    
+
     <title>All destinations</title>
 
     <!--CSS-->
@@ -111,11 +109,6 @@
                             <div class="collapse navbar-collapse">		  
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="smooth-menu"><a href="/">Trang chủ</a></li>
-                                    <li class="smooth-menu"><a href="/destinations">Địa điểm</a></li>
-                                    <li class="smooth-menu"><a href="#pack">Packages </a></li>
-                                    <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
-                                    <li class="smooth-menu"><a href="#blog">blog</a></li>
-                                    <li class="smooth-menu"><a href="#subPackages s">subscription</a></li>
                                     <li>
                                         <% if (auth == false) { %> 
                                             <button class="book-btn" onclick="location.href='/authen'" type="button">Đăng nhập</button>
@@ -144,57 +137,48 @@
         </div><!-- /.header-area -->
     
     </header><!-- /.top-area-->
+
     <div id = "wrapper_content" class="container"> 
-        <h1 id="title_h1" class="row">Danh sách những khu vực của Việt Nam</h1>
-        
-            <!-- <div class="d-flex justify-content-center">
-                <ul>
-                    <% for (var i = 0; i < Math.round(des.length/2); i++) { %>
-                        <li><a href = "<%= `/destinations/${des[i].CODE}` %>"> <%= des[i].NAME %></a></li>
-                    <% } %>
-                </ul>
+        <h1 id="title_h1" class="row">Danh sách những khu vực của Việt Nam</h1><br>
+        <div id="content_wrap" class="row">
+            <div class="col-md-6">
+                <img src="/images/destination/vietnam-province-map.jpg" style="width:100%">
+                
             </div>
-            <div class="d-flex justify-content-center">
-                <ul>
-                    <% for (var j = Math.round(des.length/2)+1; j < des.length; j++) { %>
-                        <li><a href = "<%= `/destinations/${des[j].CODE}` %>"> <%= des[j].NAME %></a></li>
-                    <% } %>
-                </ul>
-            </div> -->
-        <div id="content_wrap">
-            <div id = "column_1" class="col-lg-6">
+            <div class="col-md-3">
+                <br>
                 <ul class = "center_text">
                     <% for (var i = 0; i < Math.round(des.length/2); i++) { %>
-                        <li><a href = "<%= `/destinations/${des[i].CODE}` %>"> <%= des[i].NAME %></a></li>
+                        <li><a href = "<%= `/destinations/${des[i].CODE}` %>"> <%= i+1 %> <%= des[i].NAME %></a></li>
                     <% } %>
                 </ul>
             </div>
-            <div id = "column_2" class="col-lg-6">
+            <div class="col-md-3">
+                <br>
                 <ul>
-                    <% for (var j = Math.round(des.length/2)+1; j < des.length; j++) { %>
-                        <li><a href = "<%= `/destinations/${des[j].CODE}` %>"> <%= des[j].NAME %></a></li>
+                    <% for (var j = Math.round(des.length/2); j < des.length; j++) { %>
+                        <li><a href = "<%= `/destinations/${des[j].CODE}` %>"> <%= j+1 %> <%= des[j].NAME %></a></li>
                     <% } %>
                 </ul>
             </div>
         </div>
     </div>
 
-        
     <!--Include footer-->
     <%- include('../partial/footer') %>
     <!--Script for header-->
     <script src="/js/jquery.js"></script>
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script  src="/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootsnav.js"></script>
     <script src="/js/jquery.filterizr.min.js"></script>
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/jquery.counterup.min.js"></script>
     <script src="/js/waypoints.min.js"></script>
-    <script  src="/js/owl.carousel.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/jquery.sticky.js"></script>
-    <script  src="/js/datepicker.js"></script>
+    <script src="/js/datepicker.js"></script>
     <script src="/js/custom.js"></script>
 </body>
 </html> 

@@ -21,6 +21,7 @@
     "morgan": "~1.9.1",
     "node-mailer": "^0.1.1",
     "nodemon": "^2.0.7",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "react-simple-maps": "^2.3.0"
   }
 }

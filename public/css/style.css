@@ -680,11 +680,31 @@ html,body{
     background: #f9f9f9;
 }
 .gallery-details{
-    margin-top:117px;
-    margin-bottom:109px;
+    margin-top:90px;
+    margin-bottom:90px;
 }
 .gallery-content {
     margin-top:62px;
+}
+
+.gallery-button{
+    background: #00d8ff;
+    border: 1px solid #00d8ff;
+    height: 40px;
+    white-space: nowrap;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    color: #fff;
+    font-size:14px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    border-radius: 5px;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 /* gallary-header  */
@@ -880,6 +900,7 @@ html,body{
     padding: 0 25px;
 }
 .single-package-item img {
+    height: 250px;
     width: 100%;
 }
 .single-package-item h3{
@@ -1202,6 +1223,7 @@ html,body{
 .thumbnail-img{position:relative;}
 
 .blog-content .thumbnail .thumbnail-img  img{
+    height:220px;
     max-width: 102%;
     margin-left: -4px;
 }

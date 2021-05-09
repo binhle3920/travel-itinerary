@@ -30,22 +30,20 @@
         <link rel="stylesheet" type="text/css" href='https://s.inspirockcdn.com/4.3.10/res/css/destinationSeoLanding.css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42855545-3"></script>
-        <script type="text/javascript">
-            window.__primaryGATrackingId = 'UA-42855545-3';
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            var gaConfig = {'send_page_view': false, 'transport_type': 'beacon'};
-            
-            gtag('config', 'UA-42855545-3', gaConfig);
-            
-                gtag('config', 'G-Y9NDEE6T5Y', gaConfig);
-        </script>
+        <link rel="shortcut icon" type="image/icon" href="/logo/favicon.png"/>
+        <link rel="stylesheet" href="/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/css/animate.css" />
+        <link rel="stylesheet" href="/css/hover-min.css">
+        <link rel="stylesheet" href="/css/datepicker.css" >
+        <link rel="stylesheet" href="/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/css/owl.theme.default.min.css"/>
+        <link rel="stylesheet" href="/css/jquery-ui.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/bootsnav.css"/>
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/responsive.css" />
 
         <style>
-
             .header-area {
                 position: relative;
                 width: 100%;
@@ -69,22 +67,9 @@
             margin-right: -10px;
             height: 77.62px;
         </style>
-        <!--CSS-->
-        <link rel="shortcut icon" type="image/icon" href="/logo/favicon.png"/>
-        <link rel="stylesheet" href="/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="/css/animate.css" />
-        <link rel="stylesheet" href="/css/hover-min.css">
-        <link rel="stylesheet" href="/css/datepicker.css" >
-        <link rel="stylesheet" href="/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="/css/owl.theme.default.min.css"/>
-        <link rel="stylesheet" href="/css/jquery-ui.min.css" />
-        <link rel="stylesheet" href="/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/css/bootsnav.css"/>
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/responsive.css" />
     </head>
 
-    <body class=" normal   header-visible">
+    <body class="normal header-visible">
         <div id="icon-container" class="svg-icon-container"></div>
         <script src="https://s.inspirockcdn.com/4.3.10/res/js/icons-public.js" type="text/javascript" defer></script>
             <div id="fb-root"></div>
@@ -113,16 +98,10 @@
                                 <div class="collapse navbar-collapse">		  
                                     <ul class="nav navbar-nav navbar-right">
                                         <li class="smooth-menu"><a href="/">Trang chủ</a></li>
-                                        <li class="smooth-menu"><a href="/destinations">Địa điểm</a></li>
-                                        <li class="smooth-menu"><a href="#pack">Packages </a></li>
-                                        <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
-                                        <li class="smooth-menu"><a href="#blog">blog</a></li>
-                                        <li class="smooth-menu"><a href="#subPackages s">subscription</a></li>
+                                        <li class="smooth-menu"><a href="/destinations">Danh sách khu vực</a></li>
                                         <li>
                                             <% if (auth == false) { %> 
-                                                <a href="/authen">
-                                                    <button class="book-btn">Log in</button>
-                                                </a>
+                                                <button class="book-btn" onclick="location.href='/authen'" type="button">Đăng nhập</button>
                                             <% } else { %>
                                                 <div class="dropdown">
                                                     <button class="btn left dropdown-toggle" type="button" data-toggle="dropdown"><%= user.username %> <span class="caret"></span></button>
@@ -268,86 +247,100 @@
 
     <script src="https://s.inspirockcdn.com/4.3.10/res/js/common.js" defer></script>
     <script src="https://s.inspirockcdn.com/4.3.10/res/js/destinationSeoLanding.js" defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42855545-3"></script>
+    <script type="text/javascript">
+            window.__primaryGATrackingId = 'UA-42855545-3';
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            var gaConfig = {'send_page_view': false, 'transport_type': 'beacon'};
+            
+            gtag('config', 'UA-42855545-3', gaConfig);
+            
+                gtag('config', 'G-Y9NDEE6T5Y', gaConfig);
+    </script>
+
+    <script>
+        // function initMap() {
+        //     const map = new google.maps.Map(document.getElementById("map"), {
+        //         zoom: 10,
+        //         center: null,
+        //     });
+            
+        //     // The location of KV
+        //     var address = <%- JSON.stringify(name) %>
+        //     $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data){
+        //         if (data != false) {
+        //             var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
+
+        //             map.setCenter(result);
+                    
+        //             // The marker, positioned at KV
+        //             const marker = new google.maps.Marker({
+        //                 position: result,
+        //                 map: map,
+        //             });
+        //         }
+        //     });
+        // }
+
+        var address = <%- JSON.stringify(name) %>
+        $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data) {
+                if (data != false) {
+                    var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
+                    $('#gg_map').attr('src', `http://maps.google.com/maps?q=${result.lat},${result.lng}&z=16&output=embed`)
+                }
+            });
+
+        $(document).ready(function () {
+            $('#sign-out').on('click', function(e) {
+                e.preventDefault();
+
+                var user = <%- JSON.stringify(user) %>;
+                
+                if (user.google == 1) {
+                    //sign out google
+                    gapi.load('auth2', function() {
+                        gapi.auth2.init().then(() => {
+                            var auth2 = gapi.auth2.getAuthInstance();
+                            auth2.signOut().then(function () {
+                                console.log('User signed out.');
+                            });
+                        })
+                    });
+                }
+                
+                window.location.href = "/sign-out";
+
+            })
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#sign-out').on('click', function(e) {
+                e.preventDefault();
+
+                var user = <%- JSON.stringify(user) %>;
+                
+                if (user.google == 1) {
+                    //sign out google
+                    gapi.load('auth2', function() {
+                        gapi.auth2.init().then(() => {
+                            var auth2 = gapi.auth2.getAuthInstance();
+                            auth2.signOut().then(function () {
+                                console.log('User signed out.');
+                            });
+                        })
+                    });
+                }
+                
+                window.location.href = "/sign-out";
+
+            })
+        });
+    </script>
     </body>
 </html>
 
-<script>
-    // function initMap() {
-    //     const map = new google.maps.Map(document.getElementById("map"), {
-    //         zoom: 10,
-    //         center: null,
-    //     });
-        
-    //     // The location of KV
-    //     var address = <%- JSON.stringify(name) %>
-    //     $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data){
-    //         if (data != false) {
-    //             var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
-
-    //             map.setCenter(result);
-                
-    //             // The marker, positioned at KV
-    //             const marker = new google.maps.Marker({
-    //                 position: result,
-    //                 map: map,
-    //             });
-    //         }
-    //     });
-    // }
-
-    var address = <%- JSON.stringify(name) %>
-    $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data) {
-            if (data != false) {
-                var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
-                $('#gg_map').attr('src', `http://maps.google.com/maps?q=${result.lat},${result.lng}&z=16&output=embed`)
-            }
-        });
-
-    $(document).ready(function () {
-        $('#sign-out').on('click', function(e) {
-            e.preventDefault();
-
-            var user = <%- JSON.stringify(user) %>;
-            
-            if (user.google == 1) {
-                //sign out google
-                gapi.load('auth2', function() {
-                    gapi.auth2.init().then(() => {
-                        var auth2 = gapi.auth2.getAuthInstance();
-                        auth2.signOut().then(function () {
-                            console.log('User signed out.');
-                        });
-                    })
-                });
-            }
-            
-            window.location.href = "/sign-out";
-
-        })
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-        $('#sign-out').on('click', function(e) {
-            e.preventDefault();
-
-            var user = <%- JSON.stringify(user) %>;
-            
-            if (user.google == 1) {
-                 //sign out google
-                gapi.load('auth2', function() {
-                    gapi.auth2.init().then(() => {
-                        var auth2 = gapi.auth2.getAuthInstance();
-                        auth2.signOut().then(function () {
-                            console.log('User signed out.');
-                        });
-                    })
-                });
-            }
-            
-            window.location.href = "/sign-out";
-
-        })
-    });
-</script>
