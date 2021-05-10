@@ -83,7 +83,7 @@ module.exports = {
 
     //Chọn tất cả từ bảng khu vực
     async select_allkv() {
-        const sql = `SELECT * FROM public."KVLIST"`
+        const sql = `SELECT * FROM public."KVLIST" ORDER BY "NAME" ASC`
         try {
             var result =  await db.load(sql);
             return result.rows;
@@ -105,4 +105,32 @@ module.exports = {
         }
     },
 
+    async select_topdes(){
+        const sql = `SELECT * FROM public."KVLIST" ORDER BY "RATE" DESC FETCH FIRST 6 ROWS ONLY`
+        try {
+            var result = await db.load(sql);
+            return result.rows;
+        }
+        catch(e)
+        {
+            console.log(e);
+            return false;
+        }
+    },
+
+    async select_info_topdes(){
+        const sql = `SELECT "NAME", "REPRE_IMG"
+        FROM public."KVLIST"
+        order by "RATE" DESC
+        fetch first 6 rows only`
+        try {
+            var result = await db.load(sql);
+            return result.rows;
+        }
+        catch(e)
+        {
+            console.log(e);
+            return false;
+        }
+    },
 }

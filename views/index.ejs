@@ -600,78 +600,61 @@
 						<div class="gallery-content">
 							<div class="filtr-container">
 								<div class="row">
+									<div class="row">
+										<% for (var i = 0; i < 2; i++) { %>
+											<div class="col-md-6">
+												<div class="filtr-item">
+													<img src="<%= `${info_topdes[i].REPRE_IMG}` %>" alt="portfolio image"/>
+													<div class="item-title">
+														<a href="#">
+															<%= info_topdes[i].NAME %>
+														</a>
+														<p>20 tours <br> 15 places</p>
+													</div><!-- /.item-title -->
+												</div><!-- /.filtr-item -->
+											</div><!-- /.col -->
+										<% } %>
 
-									<div class="col-md-6">
-										<div class="filtr-item">
-											<img src="/images/gallary/g1.jpg" alt="portfolio image"/>
-											<div class="item-title">
-												<a href="#">
-													Hà Nội
-												</a>
-												<p>20 tours <br> 15 places</p>
-											</div><!-- /.item-title -->
-										</div><!-- /.filtr-item -->
-									</div><!-- /.col -->
-
-									<div class="col-md-6">
-										<div class="filtr-item">
-											<img src="/images/gallary/g2.jpg" alt="portfolio image"  style = "height:320px"/>
-											<div class="item-title">
-												<a href="#">
-													Ho Chi Minh
-												</a>
-												<p>12 tours <br> 9 places</p>
-											</div> <!-- /.item-title-->
-										</div><!-- /.filtr-item -->
-									</div><!-- /.col -->
-
+										
 									<div class="col-md-4">
 										<div class="filtr-item">
-											<img src="/images/gallary/g3.jpg" alt="portfolio image" style="height:590px"/>
+											<img src="<%= `${info_topdes[2].REPRE_IMG}` %>" alt="portfolio image" style="height:590px"/>
 											<div class="item-title">
 												<a href="#">
-													Sapa
+													<%= info_topdes[2].NAME %>
 												</a>
 												<p>25 tours  <br> 10 places</p>
 											</div><!-- /.item-title -->
 										</div><!-- /.filtr-item -->
 									</div><!-- /.col --></span><span></span>
-
-									<div class="col-md-4">
-										<div class="filtr-item">
-											<img src="/images/gallary/g4.jpg" alt="portfolio image"/>
-											<div class="item-title">
-												<a href="#">
-													Hoi An
-												</a>
-												<p>18 tours <br> 9 places</p>
-											</div> <!-- /.item-title-->
-										</div><!-- /.filtr-item -->
-									</div><!-- /.col -->
-
-									<div class="col-md-4">
-										<div class="filtr-item">
-											<img src="/images/gallary/g5.jpg" alt="portfolio image"/>
-											<div class="item-title">
-												<a href="#">
-													Da Nang
-												</a>
-												<p>14 tours <br> 12 places</p>
-											</div> <!-- /.item-title-->
-										</div><!-- /.filtr-item -->
-									</div><!-- /.col -->
-
-									<div class="col-md-8">
-										<div class="filtr-item">
-											<img src="/images/gallary/g6.jpg" alt="portfolio image" style="width: 772px; height: 320px"/>
-											<div class="item-title">
-												<a href="#">
-													Ha Long bay
-												</a>
-												<p>14 tours <br> 6 places</p>
-											</div> <!-- /.item-title-->
-										</div><!-- /.filtr-item -->
-									</div><!-- /.col -->
+								
+										<% for (var i = 3; i < 5; i++) { %>
+											<div class="col-md-4">
+												<div class="filtr-item">
+													<img src="<%= `${info_topdes[i].REPRE_IMG}` %>" alt="portfolio image"/>
+													<div class="item-title">
+														<a href="#">
+															<%= info_topdes[i].NAME %>
+														</a>
+														<p>18 tours <br> 9 places</p>
+													</div> <!-- /.item-title-->
+												</div><!-- /.filtr-item -->
+											</div><!-- /.col -->
+										<% } %>
+	
+										<div class="col-md-8">
+											<div class="filtr-item">
+												<img src="<%= `${info_topdes[5].REPRE_IMG}` %>" alt="portfolio image" style="width: 772px; height: 320px"/>
+												<div class="item-title">
+													<a href="#">
+														<%= info_topdes[5].NAME %>
+													</a>
+													<p>14 tours <br> 6 places</p>
+												</div> <!-- /.item-title-->
+											</div><!-- /.filtr-item -->
+										</div><!-- /.col -->
+	
+									</div><!-- /.row -->
 
 								</div><!-- /.row -->
 							</div><!-- /.filtr-container-->

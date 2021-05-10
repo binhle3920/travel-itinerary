@@ -15,6 +15,7 @@ router.get('/:CODE', async function(req, res) {
     var tag_element = ''
     var tag_element_slice = ''
     var name = ''
+    var top_des = await desDb.select_topdes()
 
     for (var d = 0; d < detail.length; d++)
     {
@@ -42,7 +43,7 @@ router.get('/:CODE', async function(req, res) {
     if (auth == true) 
         user = req.session.authUser;
 
-    res.render('destinations/detail',{ 
+    res.render('destinations/area_info',{ 
         auth: auth,
         user: user,
         detail: detail,
@@ -50,23 +51,25 @@ router.get('/:CODE', async function(req, res) {
         img_link: img_link,
         kv_descrip_rate: kv_descrip_rate,
         arr_dd_img: arr_dd_img,
-        img_2d: img_2d
+        img_2d: img_2d,
+        top_des: top_des
     });
 })
 
 router.get('/', async function(req, res) {
     var des = await desDb.select_allkv()
-
+    var top_des = await desDb.select_topdes()
     var auth = req.session.auth;
     var user = null;
 
     if (auth == true) 
         user = req.session.authUser;
 
-    res.render('destinations/destinations', { 
+    res.render('destinations/list_area', { 
         auth: auth,
         user: user,
-        des: des
+        des: des,
+        top_des: top_des
     });
 })
 

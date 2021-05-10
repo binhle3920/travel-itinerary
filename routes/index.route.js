@@ -2,18 +2,24 @@ var express = require('express');
 var router = express.Router();
 var userDb = require('../models/user.model');
 var auth = require('../middlewares/auth.mdw');
+var data = require('../models/khuvuc.model');
 
 /* GET home page. */
 router.get('/', async function(req, res) {
   var auth = req.session.auth;
   var user = null;
+  var top_des = await data.select_topdes()
+  var info_topdes = await data.select_info_topdes()
+  console.log(top_des)
 
   if (auth == true) 
     user = req.session.authUser;
   
   res.render('index', { 
     auth: auth,
-    user: user
+    user: user,
+    top_des: top_des,
+    info_topdes: info_topdes
   });
 });
 
