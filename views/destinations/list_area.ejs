@@ -201,14 +201,13 @@
     
                     <div class="col-sm-3">
                         <div class="single-footer-item">
-                            <h2>link</h2>
+                            <h2>Liên kết</h2>
                             <div class="single-footer-txt">
-                                <p><a href="#">home</a></p>
-                                <p><a href="#">destination</a></p>
-                                <p><a href="#">spacial packages</a></p>
-                                <p><a href="#">special offers</a></p>
-                                <p><a href="#">blog</a></p>
-                                <p><a href="#">contacts</a></p>
+                                <p><a href="/">Trang Chủ</a></p>
+                                <p><a href="/#gallery">Địa Điểm</a></p>
+                                <p><a href="#">Tour Gọn Gói</a></p>
+                                <p><a href="#">Ưu Đãi offers</a></p>
+                                <p><a href="/#blog">Tin Tức</a></p>
                             </div><!--/.single-footer-txt-->
                         </div><!--/.single-footer-item-->
     
@@ -219,7 +218,7 @@
                             <h2>popular destination</h2>
                             <div class="single-footer-txt">
                                 <% for (var i = 0; i < top_des.length; i++) { %>
-                                    <p><a href="#"> <%= top_des[i].NAME %> </a></p>
+                                    <p><a href="/destinations/<%= `${top_des[i].CODE}` %>"> <%= top_des[i].NAME %> </a></p>
                                 <% } %>
                             </div><!--/.single-footer-txt-->
                         </div><!--/.single-footer-item-->
@@ -227,12 +226,11 @@
     
                     <div class="col-sm-3">
                         <div class="single-footer-item text-center">
-                            <h2 class="text-left">contacts</h2>
+                            <h2 class="text-left">Liên hệ</h2>
                             <div class="single-footer-txt text-left">
                                 <p>+1 (300) 1234 6543</p>
-                                <p class="foot-email"><a href="#">info@tnest.com</a></p>
-                                <p>North Warnner Park 336/A</p>
-                                <p>Newyork, USA</p>
+                                <p class="foot-email"><a href="#">travelitinerary@gmail.com</a></p>
+                                <p>Thành phố Hồ Chí Minh, Việt Nam</p>
                             </div><!--/.single-footer-txt-->
                         </div><!--/.single-footer-item-->
                     </div><!--/.col-->
