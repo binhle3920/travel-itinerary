@@ -10,7 +10,6 @@ router.get('/', async function(req, res) {
   var user = null;
   var top_des = await data.select_topdes()
   var info_topdes = await data.select_info_topdes()
-  console.log(top_des)
 
   if (auth == true) 
     user = req.session.authUser;

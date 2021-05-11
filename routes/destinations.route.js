@@ -56,6 +56,26 @@ router.get('/:CODE', async function(req, res) {
     });
 })
 
+router.get('/:CODE/:ID', async function(req, res) {
+
+    var auth = req.session.auth;
+    var user = null;
+    var top_des = await desDb.select_topdes()
+    var info_dd = await ddDb.select_diadiem(req.params.CODE, req.params.ID)
+    var img = await ddDb.select_allimage(req.params.ID)
+
+    if (auth == true) 
+        user = req.session.authUser;
+
+    res.render('destinations/des_info',{ 
+        auth: auth,
+        user: user,
+        top_des: top_des,
+        info_dd: info_dd,
+        img: img
+    });
+})
+
 router.get('/', async function(req, res) {
     var des = await desDb.select_allkv()
     var top_des = await desDb.select_topdes()

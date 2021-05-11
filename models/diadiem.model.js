@@ -2,10 +2,10 @@ const db = require("../utils/db");
 
 module.exports = {
     //Tất cả thông tin của 1 địa điểm
-    async select_diadiem(tendiadiem) {
+    async select_diadiem(tendiadiem, id) {
         const sql = `SELECT "KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE"
         FROM public."DIADIEM" 
-        WHERE "TENDD" = '${tendiadiem}'`;
+        WHERE "KHUVUC" = '${tendiadiem}' and "ID" = ${id}`;
         try {
             var result =  await db.load(sql);
             return result.rows[0];
@@ -93,6 +93,19 @@ module.exports = {
         try {
             var result =  await db.update(sql);
             return result.rows[0];
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
+
+    //Select all image  
+    async select_allimage(id) {
+        const sql = `SELECT "IMGLINK"
+        FROM public."IMG" WHERE "IDDD" = ${id}`
+        try {
+            var result =  await db.update(sql);
+            return result.rows;
         } catch(e) {
             console.log(e);
             return false;
