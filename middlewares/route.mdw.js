@@ -11,6 +11,8 @@ module.exports = function (app) {
     app.use('/destinations', require('../routes/destinations.route'));
     //handle admin page
     app.use('/admin', auth.isAdmin, require('../routes/admin.route'));
+    //handle plan page
+    app.use('/plan', auth.isLogin, require('../routes/plan.route'));
     
     app.use(function (req, res) {
         // render the error page
