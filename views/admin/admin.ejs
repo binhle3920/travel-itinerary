@@ -23,12 +23,12 @@
             </div>
             <div class="side-bar-content-main">
                 <nav class="side-bar-content-main-nav">
-                    <a class="side-bar-content-main-menu" href="/admin/manage?value=static">
-                        <i class="fas fa-chart-line"></i>&nbsp&nbspDashboard</a>
-                    <a class="side-bar-content-main-menu" href="/admin/manage?value=user">
+                    <a class="side-bar-content-main-menu" href="/admin/manage-user">
                         <i class="fas fa-users"></i>&nbsp&nbspUsers</a>
-                    <a class="side-bar-content-main-menu" href="/admin/manage?value=reg-des">
+                    <a class="side-bar-content-main-menu" href="/admin/manage-des">
                         <i class="fas fa-table"></i>&nbsp&nbspRegions, Destinations</a>
+                    <a class="side-bar-content-main-menu" href="/admin/manage-regions">
+                        <i class="fas fa-globe-asia"></i>&nbsp&nbspRegions</a>
                     <a class="side-bar-content-main-menu" href="/admin/manage?value=feedback">
                         <i class="fas fa-comments"></i>&nbsp&nbspUser's Feedbacks</a>
                 </nav>
@@ -37,7 +37,18 @@
     </div>
 
     <div class="main-content">
-        
+        <% if (user != null) { %>
+            <%- include('../admin/user', {user: user})%>
+        <% } %>
+        <% if (des != null) { %>
+            <%- include('../admin/user', {des: des})%>
+        <% } %>
+        <% if (region != null) { %>
+            <%- include('../admin/user', {region: region})%>
+        <% } %>
+        <% if (feedback != null) { %>
+            <%- include('../admin/user', {feedback: feedback})%>
+        <% } %>
     </div>
 </body>
 </html>
