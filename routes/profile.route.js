@@ -3,6 +3,7 @@ var router = express.Router();
 var moment = require('moment');
 var bcrypt = require('bcrypt');
 var nodemailer = require('nodemailer');
+var data = require('../models/khuvuc.model');
 
 var email_config = require('../config/config.json').mail;
 
@@ -16,11 +17,12 @@ var smtpTransport = nodemailer.createTransport({
     auth: email_config
 });
 
-router.get('/', function(req, res) {
-    console.log(req.session.authUser);
+router.get('/', async function(req, res) {
+    var top_des = await data.select_topdes()
 
     res.render('profile/profile', {
         user: req.session.authUser,
+        top_des: top_des,
         moment: moment,
     });
 })  
