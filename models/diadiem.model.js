@@ -111,4 +111,16 @@ module.exports = {
             return false;
         }
     },
+
+    //Chọn tất cả từ bảng địa điểm
+    async select_allkv() {
+        const sql = `SELECT * FROM public."DIADIEM"`
+        try {
+            var result =  await db.load(sql);
+            return result.rows;
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
 }

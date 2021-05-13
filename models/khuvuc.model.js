@@ -81,18 +81,6 @@ module.exports = {
         }
     },
 
-    //Chọn tất cả từ bảng khu vực
-    async select_allkv() {
-        const sql = `SELECT * FROM public."KVLIST" ORDER BY "NAME" ASC`
-        try {
-            var result =  await db.load(sql);
-            return result.rows;
-        } catch(e) {
-            console.log(e);
-            return false;
-        }
-    },
-
     //Chọn tên của 1 khu vực
     async select_kvname(code) {
         const sql = `SELECT DISTINCT("NAME") FROM public."KVLIST" WHERE "CODE" = '${code}'`
@@ -129,6 +117,18 @@ module.exports = {
         }
         catch(e)
         {
+            console.log(e);
+            return false;
+        }
+    },
+
+    //Chọn tất cả từ bảng khu vực
+    async select_allkv() {
+        const sql = `SELECT * FROM public."KVLIST" ORDER BY "NAME" ASC`
+        try {
+            var result =  await db.load(sql);
+            return result.rows;
+        } catch(e) {
             console.log(e);
             return false;
         }

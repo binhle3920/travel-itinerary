@@ -83,5 +83,17 @@ module.exports = {
             console.log(e);
             return false;
         }
-    }
+    },
+
+     // Get all users
+    async select_user() {
+        const sql = `SELECT * FROM public."USER"'`;
+        try {
+            var result =  await db.load(sql);
+            return result.rows;
+        } catch(e) {
+            console.log('Select user by username ' + e);
+            return false;
+        }
+    },
 }
