@@ -64,7 +64,6 @@ router.get('/:CODE/:ID', async function(req, res) {
     var info_dd = await ddDb.select_diadiem(req.params.CODE, req.params.ID)
     var img = await ddDb.select_allimage(req.params.ID)
     var name = info_dd.TENDD
-    console.log(name)
 
     if (auth == true) 
         user = req.session.authUser;
