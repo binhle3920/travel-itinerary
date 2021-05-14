@@ -297,10 +297,17 @@
                 <div style="display: flex; justify-content: space-between;">
                     <img src="<%= `${my_plan[i].IMG_PLAN}` %>" alt="" style="width: 150px; height: 150px;
                     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 16px;">
-                    <div style="width: 950px;">
-                        <h2 style="float: left; line-height: 180px; text-align: center; font-size: 20px;
-                        font-weight: 600;"><%- my_plan[i].KHUVUC %></h2>
-                    <button class="btn" style="float: right; margin-top: 67px"><i class="fa fa-trash"></i></button>
+                    <div style="width: 950px; margin-top: 40px;">
+                        <ul style="float: left;">
+                            <li style="font-size: 20px;
+                            font-weight: 600;"><%- my_plan[i].KHUVUC %></li>
+                            <li>Ngày đi: 15/05/2021</li>
+                            <li>Ngày về: 19/05/2021</li>
+                            <li>                        
+                                Giá: 3.200.000 VNĐ</li>
+                        </ul>
+
+                    <button class="btn" style="float: right; margin-top: -28px"><i class="fa fa-trash"></i></button>
                     </div>
                 </div>
             </div>
