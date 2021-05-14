@@ -86,7 +86,7 @@ module.exports = {
     },
 
      // Get all users
-    async select_user() {
+    async select_all_user() {
         const sql = `SELECT * FROM public."USER"`;
         try {
             var result =  await db.load(sql);

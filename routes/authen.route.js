@@ -21,14 +21,14 @@ router.get('/', function(req, res) {
 
 //handle login
 router.post('/sign-in', async function(req,res) {
-    var password = req.body.si_pass;
+    var password = req.body.si_pass;``
     var username = req.body.si_user;
     
     //username always exists in db (had preprocessed)
     var user = await userDb.select_user(username);
     if (user == false)
         res.render('error/500');
-    
+    console.log(user.password)
     if (!(bcrypt.compareSync(password, user.password))) {
         res.end('Password is incorrect');
         return;

@@ -123,4 +123,19 @@ module.exports = {
             return false;
         }
     },
+
+    //Chọn địa điểm yêu thích
+    async select_favplace(username) {
+        const sql = `SELECT * from public."DIADIEM" C
+        INNER JOIN public."FAVPLACE" D
+        ON C."ID" = D."IDDD" 
+        where D."username" = '${username}'`
+        try {
+            var result =  await db.load(sql);
+            return result.rows;
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
 }

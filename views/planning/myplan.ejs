@@ -258,9 +258,12 @@
                                                         <li><a href="profile" id="menu-item"
                                                                 style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Thông
                                                                 tin cá nhân</a></li>
-                                                        <li><a href="/favplace" id="menu-item"
+                                                        <li><a href="#" id="menu-item"
                                                                 style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Lịch
                                                                 trình của tôi</a></li>
+                                                        <li><a href="#" id="menu-item"
+                                                                style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Địa điểm yêu thích
+                                                            </a></li>
                                                         <% if (user.type=="admin" ) { %>
                                                             <li><a href="admin/manage-user" id="menu-item"
                                                                     style="color: rgb(49, 49, 49); padding: 5px; font-size: 12px; font-weight: 0;">Quản
@@ -289,95 +292,20 @@
     </header><!-- /.top-area-->
 
     <div id = "wrapper_content" class="container"> 
-        <div style="display: flex; justify-content: space-between; margin-bottom: 50px;">
-            <h1 id="title_h1" class="row" style="margin-top: 25px; font-size: 50px;"><%- info_dd.TENDD %></h1><br>
-            <div id="nice_btn">
-                <a href="#"> 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Tạo lịch trình
-                </a>
+        <% for (var i = 0; i < my_plan.length; i++) { %>
+            <div id = "recycle_row" style="border-bottom: 1px solid #ccd1d9; padding-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <img src="<%= `${my_plan[i].IMG_PLAN}` %>" alt="" style="width: 150px; height: 150px;
+                    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 16px;">
+                    <div style="width: 950px;">
+                        <h2 style="float: left; line-height: 180px; text-align: center; font-size: 20px;
+                        font-weight: 600;"><%- my_plan[i].KHUVUC %></h2>
+                    <button class="btn" style="float: right; margin-top: 67px"><i class="fa fa-trash"></i></button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="background" style="width: 710px; height: 500px; overflow-x: hidden; border: 0; margin-left: -15px; padding-right: 20px; padding-bottom: 20px;" class="scrollbar" id="style-7"> 
-                        <div class="row" style="max-height: 600px;" class ="wrapper"> 
-                            <% for (var i = 0; i < Math.round(img.length/2); i++) { %>
-                                <div class="column">
-                                    <img src="<%= `${img[i].IMGLINK}` %>" style="width:100%">
-                                </div>
-                            <% } %>
-                            
-                            <% for (var j = Math.round(img.length/2); j < img.length; j++) { %>
-                                <div class="column">
-                                    <img src="<%= `${img[j].IMGLINK}` %>" style="width:100%">
-                                </div>  
-                            <% } %>
-
-                            <% for (var i = 0; i < Math.round(img.length/2); i++) { %>
-                                <div class="column">
-                                    <img src="<%= `${img[i].IMGLINK}` %>" style="width:100%">
-                                </div>
-                            <% } %>
-
-                            <% for (var j = Math.round(img.length/2); j < img.length; j++) { %>
-                                <div class="column">
-                                    <img src="<%= `${img[j].IMGLINK}` %>" style="width:100%">
-                                </div>  
-                            <% } %>
+        <% } %>
         
-                        </div>
-                </div> 
-                <iframe id="gg_map" src="http://maps.google.com/maps?q=25.3076008,51.4803216&z=16&output=embed"
-                        height="500px" width="1150px" style="margin-top: 70px; margin-left: -15px;">
-                </iframe> 
-            </div>
-            <div class="col-lg-4">
-                <h2 style="font-size: 25px">
-                    Thời gian đề nghị
-                </h2>
-
-                <div style="font-size: 16px; color: #666666;">
-                    <%- info_dd.TIMESUGGEST %>
-                </div> <br>
-
-                <h2 style="font-size: 25px">
-                    Thời gian mở cửa
-                </h2>
-
-                <div style="font-size: 16px; color: #666666;">
-                    <%- info_dd.TIMEOPEN %>
-                </div> <br>
-
-                <h2 style="font-size: 25px">
-                    Thời gian đóng cửa
-                </h2>
-
-                <div style="font-size: 16px; color: #666666;">
-                    <%- info_dd.TIMECLOSE %>
-                </div> <br>
-
-                <h2 style="font-size: 25px">
-                    Địa chỉ
-                </h2>
-
-                <div style="font-size: 16px; color: #666666;">
-                    <%- info_dd.DIACHI %>
-                </div> <br>
-
-                <h2 style="font-size: 25px">
-                    Giới thiệu
-                </h2>
-
-                <div style="font-size: 16px; color: #666666">
-                    <%- info_dd.DESCRIPTION %>
-                </div> <br>
-
-            </div>
-        </div>
     </div>
 
     <footer  class="footer-copyright">
@@ -463,15 +391,6 @@
     async></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42855545-3"></script>
-    <script>
-        var address = <%- JSON.stringify(name) %>
-        $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data) {
-                if (data != false) {
-                    var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
-                    $('#gg_map').attr('src', `http://maps.google.com/maps?q=${result.lat},${result.lng}&z=16&output=embed`)
-                }
-            });
-    </script>
 
 </body>
 </html>
