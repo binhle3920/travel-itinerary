@@ -12,6 +12,7 @@ router.get('/', async function(req, res) {
   var user = null;
   var top_des = await data.select_topdes()
   var info_topdes = await data.select_info_topdes()
+  var hot_plan = await plan_data.select_planforindex()
 
   if (auth == true) 
     user = req.session.authUser;
@@ -20,7 +21,8 @@ router.get('/', async function(req, res) {
     auth: auth,
     user: user,
     top_des: top_des,
-    info_topdes: info_topdes
+    info_topdes: info_topdes,
+    hot_plan: hot_plan
   });
 });
 

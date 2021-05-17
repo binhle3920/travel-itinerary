@@ -684,17 +684,17 @@
 				</div><!--/.gallery-header-->
 				<div class="packages-content">
 					<div class="row">
-
+						<% for (var i=0; i < hot_plan.length; i++) { %>
 						<div class="col-md-4 col-sm-6">
 							<div class="single-package-item">
-								<img src="/images/packages/p1.jpg" alt="package-place">
+								<img src="<%= `${hot_plan[i].IMG_PLAN}` %>" alt="package-place">
 								<div class="single-package-item-txt">
-									<h3> Đà Lạt <span class="pull-right">3.200.000 VND</span></h3>
+									<h3>  <% hot_plan[i].KHUVUC %> <span class="pull-right"><%= `${hot_plan[i].PRICE}` %></span></h3>
 									<div class="packages-para">
 										<p>
-											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> 3 ngày 2 đêm </br>
-											<img style="height:50px; width:50px" src="/images/packages/hotel_icon.png"> Dalat Palace Hotel</br>
-											<img style="height:50px; width:50px" src="/images/packages/car_icon.png"> Xe khách Phương Trang </br>
+											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> <%= `${hot_plan[i].KHUVUC}`%> </br>
+											<img style="height:50px; width:50px" src="/images/packages/hotel_icon.png"> <%= `${hot_plan[i].HOTEL}` %></br>
+											<img style="height:50px; width:50px" src="/images/packages/car_icon.png"> <%= `${hot_plan[i].TRANSPORTATION}` %> </br>
 										</p>
 									</div><!--/.packages-para-->
 									<div class="packages-review">
@@ -704,11 +704,11 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
-											<span>2544 review</span>
+											<span><%= `${hot_plan[i].REVIEW}` %> review</span>
 										</p>
 									</div><!--/.packages-review-->
 									<div class="about-btn">
-										<button class="about-view packages-btn" onclick="location.href='/itinerary'">
+										<button class="about-view packages-btn" onclick="location.href='#'">
 											Xem chi tiết
 										</button>
 									</div><!--/.about-btn-->
@@ -716,166 +716,7 @@
 							</div><!--/.single-package-item-->
 
 						</div><!--/.col-->
-
-						<div class="col-md-4 col-sm-6">
-							<div class="single-package-item">
-								<img src="/images/packages/p2.jpg" alt="package-place">
-								<div class="single-package-item-txt">
-									<h3> Vũng Tàu <span class="pull-right"> 1.500.000 VND </span></h3>
-									<div class="packages-para">
-										<p>
-											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> 2 ngày 1 đêm </br>
-											<img style="height:50px; width:50px" src="/images/packages/hotel_icon.png"> The Imperial Hotel</br>
-											<img style="height:50px; width:50px" src="/images/packages/car_icon.png"> Xe khách Thành Bưởi </br>
-										</p>
-									</div><!--/.packages-para-->
-									<div class="packages-review">
-										<p>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<span>2544 review</span>
-										</p>
-									</div><!--/.packages-review-->
-									<div class="about-btn">
-										<button  class="about-view packages-btn">
-											Xem chi tiết
-										</button>
-									</div><!--/.about-btn-->
-								</div><!--/.single-package-item-txt-->
-							</div><!--/.single-package-item-->
-
-						</div><!--/.col-->
-						
-						<div class="col-md-4 col-sm-6">
-							<div class="single-package-item">
-								<img src="/images/packages/p3.jpg" alt="package-place">
-								<div class="single-package-item-txt">
-									<h3> Đà Nẵng <span class="pull-right"> 3.739.000 VND </span></h3>
-									<div class="packages-para">
-										<p>
-											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> 3 ngày 2 đêm </br>
-											<img style="height:50px; width:50px" src="/images/packages/hotel_icon.png"> Novotel Danang Premier Han River</br>
-											<img style="height:50px; width:50px" src="/images/packages/plane_icon.png"> Vietnam Airlines</br>
-										</p>
-									</div><!--/.packages-para-->
-									<div class="packages-review">
-										<p>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<span>2544 review</span>
-										</p>
-									</div><!--/.packages-review-->
-									<div class="about-btn">
-										<button  class="about-view packages-btn">
-											Xem chi tiết
-										</button>
-									</div><!--/.about-btn-->
-								</div><!--/.single-package-item-txt-->
-							</div><!--/.single-package-item-->
-
-						</div><!--/.col-->
-						
-						<div class="col-md-4 col-sm-6">
-							<div class="single-package-item">
-								<img src="/images/packages/p4.jpg" alt="package-place">
-								<div class="single-package-item-txt">
-									<h3> Hội An <span class="pull-right"> 500.000 VND </span></h3>
-									<div class="packages-para">
-										<p>
-											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> 1 ngày </br>
-											<img style="height:50px; width:50px" src="/images/packages/hotel_icon.png"> </br>
-											<img style="height:50px; width:50px" src="/images/packages/car_icon.png"> Vietjet Air (sân bay Đà Nẵng) </br>
-										</p>
-									</div><!--/.packages-para-->
-									<div class="packages-review">
-										<p>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<span>2544 review</span>
-										</p>
-									</div><!--/.packages-review-->
-									<div class="about-btn">
-										<button  class="about-view packages-btn">
-											Xem chi tiết
-										</button>
-									</div><!--/.about-btn-->
-								</div><!--/.single-package-item-txt-->
-							</div><!--/.single-package-item-->
-
-						</div><!--/.col-->
-						
-						<div class="col-md-4 col-sm-6">
-							<div class="single-package-item">
-								<img src="/images/packages/p5.jpg" alt="package-place">
-								<div class="single-package-item-txt">
-									<h3> Phú Quốc <span class="pull-right">2.990.000 VND</span></h3>
-									<div class="packages-para">
-										<p>
-											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> 3 ngày 2 đêm </br>
-											<img style="height:50px; width:50px" src="/images/packages/hotel_icon.png"> Premier Village Phu Quoc Resort </br>
-											<img style="height:50px; width:50px" src="/images/packages/plane_icon.png"> Bamboo Airways </br>
-										</p>
-									</div><!--/.packages-para-->
-									<div class="packages-review">
-										<p>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<span>2544 review</span>
-										</p>
-									</div><!--/.packages-review-->
-									<div class="about-btn">
-										<button  class="about-view packages-btn">
-											Xem chi tiết
-										</button>
-									</div><!--/.about-btn-->
-								</div><!--/.single-package-item-txt-->
-							</div><!--/.single-package-item-->
-
-						</div><!--/.col-->
-						
-						<div class="col-md-4 col-sm-6">
-							<div class="single-package-item">
-								<img src="/images/packages/p6.jpg" alt="package-place">
-								<div class="single-package-item-txt">
-									<h3> Nha Trang <span class="pull-right"> 2.590.000 VND </span></h3>
-									<div class="packages-para">
-										<p>
-											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> 3 ngày 2 đêm </br>
-											<img style="height:50px; width:50px" src="/images/packages/hotel_icon.png"> InterContinental Nha Trang </br>
-											<img style="height:50px; width:50px" src="/images/packages/car_icon.png"> Phúc An Express </br>
-										</p>
-									</div><!--/.packages-para-->
-									<div class="packages-review">
-										<p>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<span>2544 review</span>
-										</p>
-									</div><!--/.packages-review-->
-									<div class="about-btn">
-										<button  class="about-view packages-btn">
-											Xem chi tiết
-										</button>
-									</div><!--/.about-btn-->
-								</div><!--/.single-package-item-txt-->
-							</div><!--/.single-package-item-->
-
-						</div><!--/.col-->
+						<% } %>
 
 					</div><!--/.row-->
 				</div><!--/.packages-content-->

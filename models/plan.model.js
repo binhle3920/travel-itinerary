@@ -24,5 +24,17 @@ module.exports = {
             console.log(e);
             return false;
         }
-    }
+    },
+    async select_planforindex() {
+        const sql = `SELECT *
+        FROM public."PLAN"
+        limit 6`
+        try {
+            var result =  await db.load(sql);
+            return result.rows;
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
 }
