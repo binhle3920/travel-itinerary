@@ -65,7 +65,7 @@ router.get('/:CODE/:ID', async function(req, res) {
     var img = await ddDb.select_allimage(req.params.ID)
     var name = info_dd.TENDD
     var name_kv = await desDb.select_namekv(info_dd.KHUVUC)
-    console.log(info_dd)
+
     if (auth == true) 
         user = req.session.authUser;
 
