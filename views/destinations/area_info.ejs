@@ -205,6 +205,13 @@
                                     href="<%= `/destinations/${detail[i].KHUVUC}/${detail[i].ID}` %>">
                                     <span class="tile-inner-wrap">
                                         <span class="tile-image lazyload" data-url="<%= `${arr_dd_img[i]}`%>"></span>
+                                        <span>
+                                            <button id="fav_btn" onclick="addFavPlace(<%= `${detail[i].ID}`%>)"
+                                            style="position: relative; width: 40px; height: 35px; left: 280px; background: none; border: none;">
+                                                <i class="fa fa-heart" style="font-size:36px;color:red; 
+                                            position: absolute; top: 3px; left: 0px;"></i>
+                                            </button>
+                                        </span>
                                         <span class="tile-title">
                                             <%= `${detail[i].TENDD}`%><span class="tile-subtitle">Lập kế hoạch</span>
                                         </span>
@@ -277,29 +284,6 @@
     </script>
 
     <script>
-        // function initMap() {
-        //     const map = new google.maps.Map(document.getElementById("map"), {
-        //         zoom: 10,
-        //         center: null,
-        //     });
-            
-        //     // The location of KV
-        //     var address = <%- JSON.stringify(name) %>
-        //     $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data){
-        //         if (data != false) {
-        //             var result = { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon)  }
-
-        //             map.setCenter(result);
-                    
-        //             // The marker, positioned at KV
-        //             const marker = new google.maps.Marker({
-        //                 position: result,
-        //                 map: map,
-        //             });
-        //         }
-        //     });
-        // }
-
         var address = <%- JSON.stringify(name) %>
         $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q='+address,  function(data) {
                 if (data != false) {
@@ -355,6 +339,13 @@
 
             })
         });
+    </script>
+
+    <script>
+        function addFavPlace(x)
+        {
+           alert(x) 
+        }
     </script>
     </body>
 </html>

@@ -64,7 +64,8 @@ router.get('/:CODE/:ID', async function(req, res) {
     var info_dd = await ddDb.select_diadiem(req.params.CODE, req.params.ID)
     var img = await ddDb.select_allimage(req.params.ID)
     var name = info_dd.TENDD
-
+    var name_kv = await desDb.select_namekv(info_dd.KHUVUC)
+    console.log(info_dd)
     if (auth == true) 
         user = req.session.authUser;
 
@@ -74,7 +75,8 @@ router.get('/:CODE/:ID', async function(req, res) {
         top_des: top_des,
         info_dd: info_dd,
         img: img, 
-        name: name
+        name: name,
+        name_kv: name_kv[0].NAME
     });
 })
 

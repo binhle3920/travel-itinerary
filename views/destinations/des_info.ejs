@@ -303,6 +303,17 @@
         </div>
         <div class="row">
             <div class="col-lg-8">
+                <div style="font-size: 18px;"> TAG: 
+                    <a href="/" style="font-size: 20px;">
+                        Việt Nam / 
+                    </a>
+                    <a href="/destinations/<%= `${info_dd.KHUVUC}` %>" style="font-size: 20px;">
+                        <%- name_kv %> /
+                    </a>
+                    <a href="/destinations/<%= `${info_dd.KHUVUC}` %>/<%= `${info_dd.ID}` %>" style="font-size: 20px;">
+                        <%- info_dd.TENDD %>
+                    </a>
+                </div>
                 <div class="background" style="width: 710px; height: 500px; overflow-x: hidden; border: 0; margin-left: -15px; padding-right: 20px; padding-bottom: 20px;" class="scrollbar" id="style-7"> 
                         <div class="row" style="max-height: 600px;" class ="wrapper"> 
                             <% for (var i = 0; i < Math.round(img.length/2); i++) { %>
