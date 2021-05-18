@@ -39,13 +39,13 @@
     </div>
 
     <div class="main-content">
-        <% if (user != 'undefined') { %>
+        <% if (user != null) { %>
             <%- include("./user", {user: user}) %>
-        <% } else if (des != 'undefined') { %>
+        <% } else if (des != null) { %>
             <%- include("./des", {des: des})%>
-        <% } else if (area) != 'undefined') { %>
+        <% } else if (area != null) { %>
             <%- include("./area", {area: area})%>
-        <% } else if (feedback != 'undefined') { %>
+        <% } else if (feedback != null) { %>
             <%- include("./feedback", {feedback: feedback})%>
         <% } %>
     </div>

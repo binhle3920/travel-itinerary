@@ -1,10 +1,10 @@
-<div id="user-table">
+<div id="area-table">
 
 </div>
 
 <script>
-        var user_table = new Tabulator('#user-table', {
-            data: <%- JSON.stringify(user) %>,
+        var area_table = new Tabulator('#area-table', {
+            data: <%- JSON.stringify(area) %>,
             layout:"fitColumns",      //fit columns to width of table
                 responsiveLayout:"hide",  //hide columns that dont fit on the table
                 tooltips:true,            //show tool tips on cells
@@ -17,12 +17,11 @@
                     {column:"type", dir:"asc"},
                 ],
                 columns:[                 //define the table columns
-                {title:"Username", field:"username" },
-                    {title:"Name", field:"fullname" },
-                    {title:"Email", field:"email" },
-                    {title:"DoB", field:"dob"},
-                    {title:"Type", field:"type"},
-                    {title:"Google Account", field: "google"}
+                {title:"Code", field:"CODE" },
+                    {title:"Name", field:"NAME" },
+                    {title:"Rate", field:"RATE" },
+                    {title:"Description", field:"DESCRIPTION"},
+                    {title:"Image", field:"REPRE_IMG"}
                 ],  
         });
 </script>
