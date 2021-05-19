@@ -1,27 +1,38 @@
-<div id="area-table">
+<div id="area-table" style="margin: 0px 20px 20px 20px">
 
 </div>
+
+<div class="d-flex flex-row justify-content-around" style="margin-top: 20px;">
+    <div class="insert">
+        <button id="insert-des" type="button" class="btn btn-success" style="padding: 10px 30px">Insert</button>
+    </div>
+    <div class="edit">
+        <button id="edit-des" type="button" class="btn btn-info" style="padding: 10px 30px">Edit</button>
+    </div>
+    <div class="delete">
+        <button id="remove-des" type="button" class="btn btn-danger" style="padding: 10px 30px">Delete</button>
+    </div>
+</div> 
 
 <script>
         var area_table = new Tabulator('#area-table', {
             data: <%- JSON.stringify(area) %>,
+            height: "300px",
             layout:"fitColumns",      //fit columns to width of table
-                responsiveLayout:"hide",  //hide columns that dont fit on the table
-                tooltips:true,            //show tool tips on cells
-                addRowPos:"top",          //when adding a new row, add it to the top of the table
-                history:true,             //allow undo and redo actions on the table
-                pagination:"local",       //paginate the data
-                paginationSize:20,         //allow 7 rows per page of data
-                resizableRows:false,       //allow row order to be changed
-                initialSort:[             //set the initial sort order of the data
-                    {column:"type", dir:"asc"},
-                ],
-                columns:[                 //define the table columns
-                {title:"Code", field:"CODE" },
-                    {title:"Name", field:"NAME" },
-                    {title:"Rate", field:"RATE" },
-                    {title:"Description", field:"DESCRIPTION"},
-                    {title:"Image", field:"REPRE_IMG"}
-                ],  
+            responsiveLayout:"hide",  //hide columns that dont fit on the table
+            tooltips:true,            //show tool tips on cells
+            addRowPos:"top",          //when adding a new row, add it to the top of the table
+            history:true,             //allow undo and redo actions on the table
+            resizableRows:false,       //allow row order to be changed
+            initialSort:[             //set the initial sort order of the data
+                {column:"type", dir:"asc"},
+            ],
+            columns:[                 //define the table columns
+            {title:"Code", field:"CODE" },
+                {title:"Name", field:"NAME" },
+                {title:"Rate", field:"RATE" },
+                {title:"Description", field:"DESCRIPTION"},
+                {title:"Image", field:"REPRE_IMG"}
+            ],  
         });
 </script>
