@@ -19,7 +19,7 @@ module.exports = {
     async select_img(tendiadiem) {
         const sql = `SELECT "IMGLINK"
         FROM public."DIADIEM" D
-        INNER JOIN public."IMAGE_AREA" I
+        INNER JOIN public."IMAGE_DES" I
         ON D."ID" = I."IDDD" 
         WHERE "TENDD" = '${tendiadiem}'`;
         try {
@@ -102,7 +102,7 @@ module.exports = {
     //Select all image  
     async select_allimage(id) {
         const sql = `SELECT "IMGLINK"
-        FROM public."IMAGE_AREA" WHERE "IDDD" = ${id}`
+        FROM public."IMAGE_DES" WHERE "IDDD" = ${id}`
         try {
             var result =  await db.update(sql);
             return result.rows;
