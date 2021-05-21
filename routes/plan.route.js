@@ -1,25 +1,40 @@
 var express = require('express');
 var router = express.Router();
 
+var areaDb = require('../models/khuvuc.model');
+var ddDb = require('../models/diadiem.model');
+var planDb = require('../models/plan.model');
+
 router.get('/', async function(req, res) {
-    //List of demand, using query
-    //var num_day = req.query.dates;
-    //insert code here
-    //...
+    var plan = await planDb.select_plan(req.query.plan_id);
 
-    //function to calculate plans
-    //insert code here
-    //....
+    var dateList = [];
+    var startDate = new Date(plan.STARTDATE);
+    startDate.setDate(startDate.getDate());
+    var endDate = new Date(plan.ENDDATE);
+    endDate.setDate(endDate.getDate());
 
-    //save plan to user's profile
-    //insert code here
-    //...
+    var dateFormat = require('dateformat');
+    for (var date = startDate; date <= endDate; date.setDate(date.getDate() + 1))
+        dateList.push(dateFormat(date, "fullDate"));
 
-    //after all, render
+    var detailPlan = [];
+    for(var day=1; day<=dateList.length; day++){
+        var dayEvents = await planDb.select_detailplan(plan.ID, day);
+        detailPlan.push(dayEvents);
+    }
+
+    var desList = await ddDb.select_des_from_area(plan.ID_AREA);
+
+    console.log(plan);
+
     res.render('planning/plan', {
         auth: true,
-        user: req.session.authUser ,
-        plan: plan
+        user: req.session.authUser,
+        plan: plan,
+        dateList: dateList,
+        desList: desList,
+        detailPlan: detailPlan,
     });
 })
 module.exports = router;

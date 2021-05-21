@@ -8,7 +8,6 @@ var desDb = require('../models/diadiem.model');
 
 router.get('/manage-user', async function(req, res) {
     var user = await userDb.select_all_user();
-    console.log('d')
     console.log(user)
 
     res.render('admin/admin', {

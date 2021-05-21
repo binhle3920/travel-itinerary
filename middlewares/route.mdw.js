@@ -12,7 +12,7 @@ module.exports = function (app) {
     //handle admin page
     app.use('/admin', auth.isAdmin, require('../routes/admin.route'));
     //handle plan page
-    app.use('/plan', auth.isLogin, require('../routes/plan.route'));
+    app.use('/plan', require('../routes/plan.route'));
     
     app.use(function (req, res) {
         // render the error page

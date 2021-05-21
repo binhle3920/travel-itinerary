@@ -80,7 +80,7 @@
 										Khám phá <br> Việt Nam diệu kỳ
 									</h2>
 									<div class="about-btn">
-										<a href = "/itinerary">
+										<a href = "/destinations">
 											<button class="about-view">
 												Khám phá ngay
 											</button>
@@ -102,7 +102,7 @@
 		<!--about-us end -->
 
 		<!--travel-box start-->
-		<section  class="travel-box">
+		<section class="travel-box">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -162,7 +162,12 @@
 																<option value="default">Chọn điểm đến</option><!-- /.option-->
 
 																<option value="HCM">Hồ Chí Minh</option><!-- /.option-->
-																<option value="DL">Đà Lạt</option><!-- /.option-->
+																<option value="DL">Đà Lạt - Lâm Đồng</option><!-- /.option-->
+																<option value="VT">Vũng Tàu</option><!-- /.option-->
+																<option value="DN">Đà Nẵng</option><!-- /.option-->
+																<option value="HA">Hội An</option><!-- /.option-->
+																<option value="PQ">Phú Quốc</option><!-- /.option-->
+																<option value="NT">Nha Trang</option><!-- /.option-->
 																<option value="HN">Hà Nội</option><!-- /.option-->
 
 															</select><!-- /.select-->
@@ -176,7 +181,7 @@
 														<h2>Ngày đi</h2>
 														<div class="travel-check-icon">
 															<form action="#">
-																<input type="text" name="check_in" class="form-control" data-toggle="datepicker" placeholder="12 -01 - 2017 ">
+																<input type="text" name="check_in" class="form-control" data-toggle="datepicker" placeholder="05/01/2021 ">
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -187,7 +192,7 @@
 														<h2>Ngày về</h2>
 														<div class="travel-check-icon">
 															<form action="#">
-																<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="22 -01 - 2017 ">
+																<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="05/04/2021 ">
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -253,9 +258,10 @@
 														</div><!--/.row-->
 													</div><!--/.travel-budget-->
 												</div><!--/.col-->
+												
 												<div class="clo-sm-7">
 													<div class="about-btn travel-mrt-0 pull-right">
-														<button class="about-view travel-btn" onclick="location.href='/itinerary'" type="button">
+														<button class="about-view travel-btn" onclick="location.href='/detailplan'" type="button">
 															Bắt đầu
 														</button><!--/.travel-btn-->
 													</div><!--/.about-btn-->
@@ -609,7 +615,7 @@
 														<a href="/destinations/<%= `${top_des[i].CODE}` %>">
 															<%= info_topdes[i].NAME %>
 														</a>
-														<p>20 tours <br> 15 places</p>
+														<p> 20 tours <br> 15 places </p>
 													</div><!-- /.item-title -->
 												</div><!-- /.filtr-item -->
 											</div><!-- /.col -->
@@ -708,7 +714,7 @@
 										</p>
 									</div><!--/.packages-review-->
 									<div class="about-btn">
-										<button class="about-view packages-btn" onclick="location.href='/itinerary'">
+										<button class="about-view packages-btn" onclick="location.href='/plan?plan_id=1'">
 											Xem chi tiết
 										</button>
 									</div><!--/.about-btn-->
@@ -740,7 +746,7 @@
 										</p>
 									</div><!--/.packages-review-->
 									<div class="about-btn">
-										<button  class="about-view packages-btn">
+										<button class="about-view packages-btn" onclick="location.href='/plan?plan_id=2'">
 											Xem chi tiết
 										</button>
 									</div><!--/.about-btn-->
@@ -944,10 +950,10 @@
 								<div class="single-special-offer-bg">
 									<img src="/images/offer/offer-shape.png" alt="offer-shape">
 								</div><!--/.single-special-offer-bg-->
-								<div class="single-special-shape-txt">
+								<div class="single-special-shape-txt" style="left: 20px">
 									<h3>special offer</h3>
 									<h4><span>40%</span><br>off</h4>
-									<p><span> 1000d </span><br>Giá gốc 7.499.000 VND</p>
+									<p><span> 3.000.000 </span><br>Giá gốc 7.499.000 VND</p>
 								</div><!--/.single-special-shape-txt-->
 							</div><!--/.single-special-offer-->
 						</div><!--/.col-->

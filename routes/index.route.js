@@ -10,31 +10,20 @@ var plan_data = require('../models/plan.model')
 router.get('/', async function(req, res) {
   var auth = req.session.auth;
   var user = null;
-  var top_des = await data.select_topdes()
-  var info_topdes = await data.select_info_topdes()
+  var top_des = await data.select_topdes();
+  var info_topdes = await data.select_info_topdes();
 
   if (auth == true) 
     user = req.session.authUser;
   
+  var planList = await plan_data.select_top_plan();
+  console.log(planList);
   res.render('index', { 
     auth: auth,
     user: user,
     top_des: top_des,
-    info_topdes: info_topdes
-  });
-});
-
-// Get detail planning view 
-router.get('/detailplan', async function(req, res) {
-  var auth = req.session.auth;
-  var user = null;
-
-  if (auth == true) 
-    user = req.session.authUser;
-  
-  res.render('planning/plan', { 
-    auth: auth,
-    user: user
+    info_topdes: info_topdes,
+    planList: planList,
   });
 });
 

@@ -2,10 +2,10 @@ const db = require("../utils/db");
 
 module.exports = {
     //Tất cả thông tin của 1 địa điểm
-    async select_diadiem(tendiadiem, id) {
+    async select_diadiem(tenkhuvuc, id) {
         const sql = `SELECT "KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE"
         FROM public."DIADIEM" 
-        WHERE "KHUVUC" = '${tendiadiem}' and "ID" = ${id}`;
+        WHERE "KHUVUC" = '${tenkhuvuc}' and "ID" = ${id}`;
         try {
             var result =  await db.load(sql);
             return result.rows[0];
@@ -19,7 +19,7 @@ module.exports = {
     async select_img(tendiadiem) {
         const sql = `SELECT "IMGLINK"
         FROM public."DIADIEM" D
-        INNER JOIN public."IMG" I
+        INNER JOIN public."IMAGE_DES" I
         ON D."ID" = I."IDDD" 
         WHERE "TENDD" = '${tendiadiem}'`;
         try {
@@ -102,7 +102,7 @@ module.exports = {
     //Select all image  
     async select_allimage(id) {
         const sql = `SELECT "IMGLINK"
-        FROM public."IMG" WHERE "IDDD" = ${id}`
+        FROM public."IMAGE_DES" WHERE "IDDD" = ${id}`
         try {
             var result =  await db.update(sql);
             return result.rows;
@@ -138,4 +138,23 @@ module.exports = {
             return false;
         }
     },
+
+    // chọn các địa điểm trong 1 khu vực
+    async select_des_from_area(areaId){
+        const sql = `SELECT "ID", "TENDD", B."IMGLINK"
+                    from public."DIADIEM", 
+                        (select *
+                        from public."IMAGE_DES"
+                        where "IMGLINK" in (select max("IMGLINK")
+                                        from public."IMAGE_DES"
+                                        group by "IDDD")) as B
+                    where "KHUVUC" = '${areaId}' and "ID" = B."IDDD"
+                    order by "ID"`
+        try{
+            var result = await db.load(sql);
+            return result.rows;
+        } catch(e){
+            return false;
+        }
+    }
 }

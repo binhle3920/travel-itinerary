@@ -67,13 +67,8 @@
                         <div class="mu-hero-featured-content">
                             <h1>WELCOME TO</h1>
                             <h2> TRAVEL-ITINERARY </h2>
-                            <p class="mu-event-date-line">19 - 21 Tháng 2, 2021. Đà Lạt, Việt Nam</p>
-                            <div class="mu-event-counter-area">
-                                <div id="mu-event-counter">
-
-                                </div>
-                            </div>
-
+                            <p class="mu-event-date-line"><%= dateList[0] %> - <%= dateList[dateList.length-1] %>. <%= plan.TITLE %>, Việt Nam</p>
+                            <h2 style="color:white; font-weight:bold"> <%= plan.PRICE %> </h2>
                         </div>
                     </div>
                     <!-- End hero featured area -->
@@ -96,15 +91,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mu-about-left">
-                                        <img class="" src="images/plan/about.jpg" alt="Men Speaker">
+                                        <img class="" src=" <%= plan.IMG_PLAN %>" alt="Men Speaker">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mu-about-right">
-                                        <h2>Đà Lạt</h2>
-                                        <p>Đà Lạt – Thiên đường sống ảo cực chất quanh năm muôn hoa đua nở khí hậu mát mẻ tràn ngập cả phố hoa. Thành phố Đà Lạt không chỉ là nơi bình yên nghỉ dưỡng tham quan nổi tiếng. Mà còn là những trải nghiệm đầy sắc màu tươi sáng và ngày càng đổi mới nhờ đó mà người người đã nghĩ ra được nhiều cảm hứng sáng tạo mới mẻ một số địa điểm cực chất cũng từ đó mà ra đời.</p>
-
-                                        <p>Do được thiên nhiên ưu  đãi về khí hậu cũng như sự sáng tạo tuyệt vời của con người nên thành phố mùa xuân có các địa điểm nổi tiếng mà không một nơi nào tại Việt Nam có thể sánh được. Nếu muốn tới ngắm các thắng cảnh tuyệt đẹp này bạn nên đặt khách sạn trước khi tới để tránh hết phòng vào những dịp lễ tết.</p>
+                                        <h2> <%= plan.TITLE %> </h2>
+                                        <p> <%= plan.DESCRIPTION %></p>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +111,7 @@
         <!-- End About -->
 
         <!-- Start Video -->
-        <iframe width="100%" height="700" src="https://www.youtube-nocookie.com/embed/Hsvy0Grcv1Y">
+        <iframe width="100%" height="700" src="<%= plan.VIDEO %>">
         </iframe>
         <!-- End Video -->
         
@@ -131,261 +124,47 @@
 
                             <div class="mu-title-area">
                                 <h2 class="mu-title">Lịch trình chi tiết</h2>
-                                <p> Chi tiết lịch trình du lịch 3 ngày 2 đêm dành cho 2 người </p>
+                                <p> Chi tiết lịch trình du lịch <%= dateList.length %> ngày <%= dateList.length-1 %> đêm dành cho 2 người </p>
                             </div>
 
                             <div class="mu-schedule-content-area">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs mu-schedule-menu" role="tablist">
-                                    <li role="presentation" class="active"><a href="#first-day" aria-controls="first-day" role="tab" data-toggle="tab">Ngày 1_19/02/2021</a></li>
+                                    <!-- <li role="presentation" class="active"><a href="#first-day" aria-controls="first-day" role="tab" data-toggle="tab">Ngày 1_19/02/2021</a></li>
                                     <li role="presentation"><a href="#second-day" aria-controls="second-day" role="tab" data-toggle="tab">Ngày 2_20/02/2021</a></li>
-                                    <li role="presentation"><a href="#third-day" aria-controls="third-day" role="tab" data-toggle="tab">Ngày 3_21/02/2021</a></li>
+                                    <li role="presentation"><a href="#third-day" aria-controls="third-day" role="tab" data-toggle="tab">Ngày 3_21/02/2021</a></li> -->
+
+                                    <% for (var i=0; i < dateList.length; i++) { %>
+                                        <% if (i == 0){ %> <li role="presentation" class="active">  <%}%>
+                                        
+                                        <% if (i != 0){ %> <li role="presentation"> <%}%>
+                                            
+                                            <a href="#day_<%= i+1 %>" role="tab" data-toggle="tab">Ngày <%= i+1 %> _ <%= dateList[i] %></a>
+                                            
+                                        </li>
+                                    <% } %>
                                 </ul>
                                 
                                 <!-- Tab panes -->
                                 <div class="tab-content mu-schedule-content">
-                                    <div role="tabpanel" class="tab-pane fade mu-event-timeline in active" id="first-day">
-                                        <ul>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <p class="mu-event-time">5.00 AM</p>
-                                                    <h3>Dậy sớm tập thể dục</h3>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-1.jpg" alt="destination">
-                                                    <p class="mu-event-time">8.00 AM</p>
-                                                    <h3>Ăn sáng</h3>
-                                                    <span>bánh căn Cây Bơ</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-2.jpg" alt="destination">
-                                                    <p class="mu-event-time">9.30 AM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>DaLat Milk Farm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-3.jpg" alt="destination">
-                                                    <p class="mu-event-time">12.00 AM</p>
-                                                    <h3>Uống cafe</h3>
-                                                    <span>Mê Linh Coffee Garden</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-4.jpg" alt="destination">
-                                                    <p class="mu-event-time">2.00 PM</p>
-                                                    <h3>Ăn trưa</h3>
-                                                    <span>Pún Pò Huế Minh Lâm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-5.jpg" alt="destination">
-                                                    <p class="mu-event-time">3.00 PM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>Thiền viện Trúc Lâm </span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-6.jpg" alt="destination">
-                                                    <p class="mu-event-time">4.00 PM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>hồ Tuyền Lâm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <p class="mu-event-time">5.00 PM</p>
-                                                    <h3>Dìa nhà tắm rửa</h3>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-7.jpg" alt="destination">
-                                                    <p class="mu-event-time">6.30 PM</p>
-                                                    <h3>Ăn tối</h3>
-                                                    <span>BBQ No.1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-8.jpg" alt="destination">
-                                                    <p class="mu-event-time">8.30 PM</p>
-                                                    <h3>Ăn khuya</h3>
-                                                    <span>Ăn hết chợ Đà Lạt thì thôi</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade mu-event-timeline" id="second-day">
-                                        <ul>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <p class="mu-event-time">5.00 AM</p>
-                                                    <h3>Dậy sớm tập thể dục</h3>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-1.jpg" alt="destination">
-                                                    <p class="mu-event-time">8.00 AM</p>
-                                                    <h3>Ăn sáng</h3>
-                                                    <span>bánh căn Cây Bơ</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-2.jpg" alt="destination">
-                                                    <p class="mu-event-time">9.30 AM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>DaLat Milk Farm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-3.jpg" alt="destination">
-                                                    <p class="mu-event-time">12.00 AM</p>
-                                                    <h3>Uống cafe</h3>
-                                                    <span>Mê Linh Coffee Garden</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-4.jpg" alt="destination">
-                                                    <p class="mu-event-time">2.00 PM</p>
-                                                    <h3>Ăn trưa</h3>
-                                                    <span>Pún Pò Huế Minh Lâm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-5.jpg" alt="destination">
-                                                    <p class="mu-event-time">3.00 PM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>Thiền viện Trúc Lâm </span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-6.jpg" alt="destination">
-                                                    <p class="mu-event-time">4.00 PM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>hồ Tuyền Lâm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <p class="mu-event-time">5.00 PM</p>
-                                                    <h3>Dìa nhà tắm rửa</h3>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-7.jpg" alt="destination">
-                                                    <p class="mu-event-time">6.30 PM</p>
-                                                    <h3>Ăn tối</h3>
-                                                    <span>BBQ No.1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-8.jpg" alt="destination">
-                                                    <p class="mu-event-time">8.30 PM</p>
-                                                    <h3>Ăn khuya</h3>
-                                                    <span>Ăn hết chợ Đà Lạt thì thôi</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade mu-event-timeline" id="third-day">
-                                        <ul>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <p class="mu-event-time">5.00 AM</p>
-                                                    <h3>Dậy sớm tập thể dục</h3>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-1.jpg" alt="destination">
-                                                    <p class="mu-event-time">8.00 AM</p>
-                                                    <h3>Ăn sáng</h3>
-                                                    <span>bánh căn Cây Bơ</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-2.jpg" alt="destination">
-                                                    <p class="mu-event-time">9.30 AM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>DaLat Milk Farm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-3.jpg" alt="destination">
-                                                    <p class="mu-event-time">12.00 AM</p>
-                                                    <h3>Uống cafe</h3>
-                                                    <span>Mê Linh Coffee Garden</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-4.jpg" alt="destination">
-                                                    <p class="mu-event-time">2.00 PM</p>
-                                                    <h3>Ăn trưa</h3>
-                                                    <span>Pún Pò Huế Minh Lâm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-5.jpg" alt="destination">
-                                                    <p class="mu-event-time">3.00 PM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>Thiền viện Trúc Lâm </span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-6.jpg" alt="destination">
-                                                    <p class="mu-event-time">4.00 PM</p>
-                                                    <h3>Tham quan</h3>
-                                                    <span>hồ Tuyền Lâm</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <p class="mu-event-time">5.00 PM</p>
-                                                    <h3>Dìa nhà tắm rửa</h3>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-7.jpg" alt="destination">
-                                                    <p class="mu-event-time">6.30 PM</p>
-                                                    <h3>Ăn tối</h3>
-                                                    <span>BBQ No.1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="mu-single-event">
-                                                    <img src="images/plan/des-8.jpg" alt="destination">
-                                                    <p class="mu-event-time">8.30 PM</p>
-                                                    <h3>Ăn khuya</h3>
-                                                    <span>Ăn hết chợ Đà Lạt thì thôi</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>                                    
+                                    <% for(var i=0; i < dateList.length; i++) {%>
+                                        <% if (i==0) {%> <div role="tabpanel" class="tab-pane fade mu-event-timeline in active" id="day_<%= i+1 %>"> <%}%>
+                                        <% if (i!=0) {%> <div role="tabpanel" class="tab-pane fade mu-event-timeline" id="day_<%= i+1 %>"> <%}%>
+                                            <ul>
+                                                <% for (var j=0; j < detailPlan[i].length; j++) { %>
+                                                    <li>
+                                                        <div class="mu-single-event">
+                                                            <img src=" <%= detailPlan[i][j].IMGLINK %>" alt="destination">
+                                                            <p class="mu-event-time"> <%= detailPlan[i][j].TIMESTART %> </p>
+                                                            <h3> <%= detailPlan[i][j].TAG %> </h3>
+                                                            <span> <%= detailPlan[i][j].TENDD %> </span>
+                                                        </div>
+                                                    </li>
+                                                <%}%>
+                                            </ul>
+                                        </div>
+                                    <%}%>
                                 </div>
-
                             </div>
                             
                         </div>
@@ -401,92 +180,26 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="mu-speakers-area">
-
                             <div class="mu-title-area">
                                 <h2 class="mu-title">Các địa điểm</h2>
-                                <p>Khám phá các địa điểm nổi tiếng ở Đà Lạt</p>
+                                <p>Khám phá các địa điểm nổi tiếng ở <%= plan.TITLE %></p>
                             </div>
 
                             <!-- Start Speakers Content -->
                             <div class="mu-speakers-content">
-
                                 <div class="mu-speakers-slider">
-
+                                    <% for (var i=0; i < desList.length; i++) { %> 
                                     <!-- Start single speaker -->
                                     <div class="mu-single-speakers">
-                                        <img src="images/plan/des-1.jpg" alt="des img">
-                                        <div class="mu-single-speakers-info">
-                                            <h3>Bánh căn Cây Bơ</h3>
-                                        </div>
+                                        <a href = "<%= `/destinations/${plan.ID_AREA}/${desList[i].ID}` %>">
+                                            <img src="<%= desList[i].IMGLINK %>" alt="des img">
+                                            <div class="mu-single-speakers-info">
+                                                <h3> <%= desList[i].TENDD %></h3>
+                                            </div>
+                                        </a>
                                     </div>
                                     <!-- End single speaker -->
-
-                                    <!-- Start single speaker -->
-                                    <div class="mu-single-speakers">
-                                        <img src="images/plan/des-2.jpg" alt="des img">
-                                        <div class="mu-single-speakers-info">
-                                            <h3>DaLat Milk Farm</h3>
-                                        </div>
-                                    </div>
-                                    <!-- End single speaker -->
-
-
-                                    <!-- Start single speaker -->
-                                    <div class="mu-single-speakers">
-                                        <img src="images/plan/des-3.jpg" alt="des img">
-                                        <div class="mu-single-speakers-info">
-                                            <h3>Mê Linh Coffee Garden</h3>
-                                        </div>
-                                    </div>
-                                    <!-- End single speaker -->
-
-
-                                    <!-- Start single speaker -->
-                                    <div class="mu-single-speakers">
-                                        <img src="images/plan/des-4.jpg" alt="des img">
-                                        <div class="mu-single-speakers-info">
-                                            <h3>Bún Bò Huế Minh Lâm</h3>
-                                        </div>
-                                    </div>
-                                    <!-- End single speaker -->
-
-                                    <!-- Start single speaker -->
-                                    <div class="mu-single-speakers">
-                                        <img src="images/plan/des-5.jpg" alt="des img">
-                                        <div class="mu-single-speakers-info">
-                                            <h3>Thiền viện Trúc lâm</h3>
-                                        </div>
-                                    </div>
-                                    <!-- End single speaker -->
-
-                                    <!-- Start single speaker -->
-                                    <div class="mu-single-speakers">
-                                        <img src="images/plan/des-6.jpg" alt="des img">
-                                        <div class="mu-single-speakers-info">
-                                            <h3>Hồ Tuyền Lâm</h3>
-                                        </div>
-                                    </div>
-                                    <!-- End single speaker -->
-
-
-                                    <!-- Start single speaker -->
-                                    <div class="mu-single-speakers">
-                                        <img src="images/plan/des-7.jpg" alt="des img">
-                                        <div class="mu-single-speakers-info">
-                                            <h3>BBQ No.1</h3>
-                                        </div>
-                                    </div>
-                                    <!-- End single speaker -->
-
-
-                                    <!-- Start single speaker -->
-                                    <div class="mu-single-speakers">
-                                        <img src="images/plan/des-8.jpg" alt="des img">
-                                        <div class="mu-single-speakers-info">
-                                            <h3>Chợ đêm Đà Lạt</h3>
-                                        </div>
-                                    </div>
-                                    <!-- End single speaker -->
+                                    <% } %>
                                 </div>
                             </div>
                             <!-- End Speakers Content -->
