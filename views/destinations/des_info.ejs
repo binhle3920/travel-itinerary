@@ -46,22 +46,6 @@
             #content_wrap {
                 margin-left: -30px;
             }
-    
-            #column_1 {
-                text-align:left;
-                width:50%;
-                margin-top: 20px;
-            }
-    
-            #column_2 {
-                text-align: right;
-                width:50%;
-                margin-top: 20px;
-            }
-    
-            .center_text {
-                text-align: left;
-            }
 
             .row {
                 display: -ms-flexbox; /* IE10 */
@@ -200,6 +184,109 @@
                 transition: 1s;
                 transition-delay: 0.5s;
             }
+
+            *, *:before, *:after {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            }
+
+            .backgroundxx {
+                display: flex;
+                min-height: 100vh;
+                margin-top: -50px;
+            }
+
+            .containerxx {
+                flex: 0 1 700px;
+                margin: auto;
+                padding: 10px;
+            }
+
+            .screen {
+                position: relative;
+                background: white;
+                border: 2px solid black;
+                border-radius:  15px;
+            }
+
+            .screen:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            right: 20px;
+            bottom: 0;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+            z-index: -1;
+            }
+
+            .screen-body-item {
+            padding: 50px;
+            }
+
+            .app-title {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            color: darkcyan;
+            font-size: 26px;
+            }
+
+            .app-title:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 25px;
+            height: 4px;
+            background: darkcyan;
+            }
+
+            .app-form-group {
+            margin-bottom: 15px;
+            }
+
+            .app-form-group.message {
+            margin-top: -60px;
+            }
+
+            .app-form-group.buttons {
+                margin-bottom: 0;
+                text-align: right;
+            }
+
+            .app-form-control {
+                width: 100%;
+                padding: 10px 0;
+                background: none;
+                border: none;
+                border-bottom: 1px solid #666;
+                color: black;
+                font-size: 14px;
+                height: 43px;
+            }
+
+            .app-form-control:focus {
+                border-color: #ddd;
+            }
+
+            .app-form-button {
+            background: none;
+            border: none;
+            color: darkcyan;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            }
+
+            .app-form-button:hover {
+            color: black;
+            }
+
         </style>
     
         <title>All destinations</title>
@@ -303,6 +390,17 @@
         </div>
         <div class="row">
             <div class="col-lg-8">
+                <div style="font-size: 18px;"> TAG: 
+                    <a href="/" style="font-size: 20px;">
+                        Việt Nam / 
+                    </a>
+                    <a href="/destinations/<%= `${info_dd.KHUVUC}` %>" style="font-size: 20px;">
+                        <%- name_kv %> /
+                    </a>
+                    <a href="/destinations/<%= `${info_dd.KHUVUC}` %>/<%= `${info_dd.ID}` %>" style="font-size: 20px;">
+                        <%- info_dd.TENDD %>
+                    </a>
+                </div>
                 <div class="background" style="width: 710px; height: 500px; overflow-x: hidden; border: 0; margin-left: -15px; padding-right: 20px; padding-bottom: 20px;" class="scrollbar" id="style-7"> 
                         <div class="row" style="max-height: 600px;" class ="wrapper"> 
                             <% for (var i = 0; i < Math.round(img.length/2); i++) { %>
@@ -334,6 +432,32 @@
                 <iframe id="gg_map" src="http://maps.google.com/maps?q=25.3076008,51.4803216&z=16&output=embed"
                         height="500px" width="1150px" style="margin-top: 70px; margin-left: -15px;">
                 </iframe> 
+                <div style="margin-top: -120px; margin-left: -50px;">
+                    <div class="backgroundxx">
+                        <div class="containerxx">
+                            <div class="screen">
+                                <div class="screen-body">
+                                    <div class="screen-body-item left">
+                                        <div class="app-title">
+                                            <span>COMMENT</span>
+                                        </div>
+                                    </div>
+                                    <div class="screen-body-item">
+                                        <div class="app-form">
+                                            <div class="app-form-group message">
+                                                <input class="app-form-control" placeholder="COMMENT" >
+                                            </div>
+                                            <div class="app-form-group buttons">
+                                                <button class="app-form-button">GỬI</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="col-lg-4">
                 <h2 style="font-size: 25px">

@@ -133,4 +133,16 @@ module.exports = {
             return false;
         }
     },
+
+    //Chọn tất cả từ bảng khu vực
+    async select_namekv(idkv) {
+        const sql = `SELECT "NAME" FROM public."KVLIST" WHERE "CODE" = '${idkv}'`
+        try {
+            var result =  await db.load(sql);
+            return result.rows;
+        } catch(e) {
+            console.log(e);
+            return false;
+        }
+    },
 }

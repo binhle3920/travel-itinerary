@@ -1,7 +1,4 @@
-<div id="user-table" style="margin: 0px 20px 20px 20px">
-
-</div>
-
+<div id="des-table" style="margin: 0px 20px 20px 20px"></div>
 <div class="d-flex flex-row justify-content-around" style="margin-top: 20px;">
     <div class="insert">
         <button id="insert-des" type="button" class="btn btn-success" style="padding: 10px 30px">Insert</button>
@@ -15,11 +12,12 @@
 </div> 
 
 <script>
-        var user_table = new Tabulator('#user-table', {
-            data: <%- JSON.stringify(user) %>,
-            layout:"fitColumns",  //fit columns to width of table
-            height: "300px",     
-            responsiveLayout:"hide",  //hide columns that dont fit on the table
+        console.log(<%- JSON.stringify(des) %>)
+        var des_table = new Tabulator('#des-table', {
+            data: <%- JSON.stringify(des) %>,
+            layout:"fitColumns",      //fit columns to width of table
+            height: "300px",
+            responsiveLayout:true,  //hide columns that dont fit on the table
             tooltips:true,            //show tool tips on cells
             addRowPos:"top",          //when adding a new row, add it to the top of the table
             history:true,             //allow undo and redo actions on the table
@@ -28,12 +26,15 @@
                 {column:"type", dir:"asc"},
             ],
             columns:[                 //define the table columns
-            {title:"Username", field:"username" },
-                {title:"Name", field:"fullname" },
-                {title:"Email", field:"email" },
-                {title:"DoB", field:"dob"},
-                {title:"Type", field:"type"},
-                {title:"Google Account", field: "google"}
+                {title:"ID", field:"ID" },
+                {title:"Area", field:"KHUVUC" },
+                {title:"Name", field:"TENDD" },
+                {title:"Address", field:"DIACHI"},
+                {title:"Phone", field:"SDT"},
+                {title:"Rate", field:"RATE" },
+                {title:"Description", field:"DESCRIPTION" },
+                {title:"Available", field:"AVAILABLE"},
+                {title:"Time Suggest", field:"TIMESUGGEST"},
             ],  
-        });
+    });
 </script>

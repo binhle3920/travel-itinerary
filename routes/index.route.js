@@ -10,8 +10,9 @@ var plan_data = require('../models/plan.model')
 router.get('/', async function(req, res) {
   var auth = req.session.auth;
   var user = null;
-  var top_des = await data.select_topdes();
-  var info_topdes = await data.select_info_topdes();
+  var top_des = await data.select_topdes()
+  var info_topdes = await data.select_info_topdes()
+  var hot_plan = await plan_data.select_planforindex()
 
   if (auth == true) 
     user = req.session.authUser;
@@ -24,6 +25,7 @@ router.get('/', async function(req, res) {
     top_des: top_des,
     info_topdes: info_topdes,
     planList: planList,
+    hot_plan: hot_plan,
   });
 });
 

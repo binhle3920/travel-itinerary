@@ -2,8 +2,8 @@ const db = require("../utils/db");
 
 module.exports = {
     //Tất cả thông tin của 1 địa điểm
-    async select_diadiem(tenkhuvuc, id) {
-        const sql = `SELECT "KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE"
+    async select_diadiem(tendiadiem, id) {
+        const sql = `SELECT "ID","KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE"
         FROM public."DIADIEM" 
         WHERE "KHUVUC" = '${tenkhuvuc}' and "ID" = ${id}`;
         try {
@@ -47,7 +47,7 @@ module.exports = {
 
     //Số lượng chuyến đi tại địa điểm này
     async select_slcd(tendiadiem) {
-        const sql = `SELECT COUNT(*) SLCD FROM public."DETAILPLAN" DP
+        const sql = `SELECT COUNT(*) SLCD FROM public."EVENTPLAN" DP
         INNER JOIN public."DIADIEM" DD
         ON DP."IDDD" = DD."ID"
         WHERE DD."TENDD" = '${tendiadiem}'`;
@@ -126,10 +126,14 @@ module.exports = {
 
     //Chọn địa điểm yêu thích
     async select_favplace(username) {
-        const sql = `SELECT * from public."DIADIEM" C
-        INNER JOIN public."FAVPLACE" D
-        ON C."ID" = D."IDDD" 
-        where D."username" = '${username}'`
+        const sql = `SELECT DISTINCT ON (I."IDDD") I."IDDD", "KHUVUC", "TENDD", "DIACHI", "SDT", 
+        "RATE", "DESCRIPTION", "TIMESUGGEST", "TIMEOPEN", "TIMECLOSE", "AVAILABLE", "IMGLINK"
+        from public."DIADIEM" C
+                INNER JOIN public."FAVPLACE" D
+                ON C."ID" = D."IDDD" 
+                INNER JOIN public."IMAGE_AREA" I
+                ON C."ID" = I."IDDD"
+                where D."username" = '${username}'`
         try {
             var result =  await db.load(sql);
             return result.rows;
