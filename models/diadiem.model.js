@@ -2,10 +2,10 @@ const db = require("../utils/db");
 
 module.exports = {
     //Tất cả thông tin của 1 địa điểm
-    async select_diadiem(tendiadiem, id) {
+    async select_diadiem(idkhuvuc, id) {
         const sql = `SELECT "ID","KHUVUC", "TENDD", "DIACHI", "SDT", "RATE", "DESCRIPTION", "TIMESUGGEST", "AVAILABLE", "TIMEOPEN", "TIMECLOSE"
         FROM public."DIADIEM" 
-        WHERE "KHUVUC" = '${tenkhuvuc}' and "ID" = ${id}`;
+        WHERE "KHUVUC" = '${idkhuvuc}' and "ID" = ${id}`;
         try {
             var result =  await db.load(sql);
             return result.rows[0];
@@ -16,12 +16,12 @@ module.exports = {
     },
 
     //Hình ảnh minh họa của 1 địa điểm
-    async select_img(tendiadiem) {
+    async select_img(iddiadiem) {
         const sql = `SELECT "IMGLINK"
         FROM public."DIADIEM" D
         INNER JOIN public."IMAGE_DES" I
         ON D."ID" = I."IDDD" 
-        WHERE "TENDD" = '${tendiadiem}'`;
+        WHERE D."ID" = '${iddiadiem}'`;
         try {
             var result =  await db.load(sql);
             return result.rows[0];

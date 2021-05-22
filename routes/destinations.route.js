@@ -19,10 +19,10 @@ router.get('/:CODE', async function(req, res) {
 
     for (var d = 0; d < detail.length; d++)
     {
-        temp = await ddDb.select_img(detail[d].TENDD)
-        if (!temp)
+        temp = await ddDb.select_img(detail[d].ID)
+        if (temp != false)
             arr_dd_img.push(temp.IMGLINK)
-        
+
         temp_img = await ddDb.select_tag(detail[d].ID)
         for (var i = 0; i < temp_img.length; i++)
         {
@@ -61,6 +61,7 @@ router.get('/:CODE/:ID', async function(req, res) {
     var auth = req.session.auth;
     var user = null;
     var top_des = await desDb.select_topdes()
+    console.log(req.params);
     var info_dd = await ddDb.select_diadiem(req.params.CODE, req.params.ID)
     var img = await ddDb.select_allimage(req.params.ID)
     var name = info_dd.TENDD

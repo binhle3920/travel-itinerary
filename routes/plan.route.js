@@ -7,7 +7,7 @@ var planDb = require('../models/plan.model');
 
 router.get('/', async function(req, res) {
     var plan = await planDb.select_plan(req.query.plan_id);
-
+    
     var dateList = [];
     var startDate = new Date(plan.STARTDATE);
     startDate.setDate(startDate.getDate());
@@ -26,7 +26,7 @@ router.get('/', async function(req, res) {
 
     var desList = await ddDb.select_des_from_area(plan.ID_AREA);
 
-    console.log(plan);
+    // console.log(plan);
 
     res.render('planning/plan', {
         auth: true,

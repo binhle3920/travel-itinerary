@@ -698,7 +698,7 @@
 									<h3>  <% hot_plan[i].KHUVUC %> <span class="pull-right"><%= `${hot_plan[i].PRICE}` %></span></h3>
 									<div class="packages-para">
 										<p>
-											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> <%= `${hot_plan[i].KHUVUC}`%> </br>
+											<img style="height:50px; width:50px" src="/images/packages/calendar_icon.png"> 19/05/2021 - 21/05/2021 </br>
 											<img style="height:50px; width:50px" src="/images/packages/hotel_icon.png"> <%= `${hot_plan[i].HOTEL}` %></br>
 											<img style="height:50px; width:50px" src="/images/packages/car_icon.png"> <%= `${hot_plan[i].TRANSPORTATION}` %> </br>
 										</p>
@@ -714,7 +714,7 @@
 										</p>
 									</div><!--/.packages-review-->
 									<div class="about-btn">
-										<button class="about-view packages-btn" onclick="location.href='/detailplan'">
+										<button class="about-view packages-btn" onclick="location.href='/plan?plan_id= <%= hot_plan[i].ID %>'">
 											Xem chi tiết
 										</button>
 									</div><!--/.about-btn-->

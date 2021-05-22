@@ -18,7 +18,7 @@ router.get('/', async function(req, res) {
     user = req.session.authUser;
   
   var planList = await plan_data.select_top_plan();
-  console.log(planList);
+  // console.log(planList);
   res.render('index', { 
     auth: auth,
     user: user,
